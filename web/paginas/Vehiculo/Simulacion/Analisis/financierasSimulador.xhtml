@@ -1,0 +1,81 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+
+    <pm:page title="Vehiculos">
+        <!-- Alta -->
+        <pm:view id="CapturaVehiculos2">
+
+            <pm:header title="Financieras #{vehiculoParametricas.nombreProyecto}" swatch="b">
+                <h:outputText value="El usuario actual es: #{loginBean.usr}"/>
+                 <br/>
+                
+                <h:form>
+                    <h:commandButton action="menuSimulacion" value="seleccion de Simulacion"/>
+                    <!--<h:commandButton action="accionesVehiculo" value="Menu de Acciones"/>-->
+                </h:form>
+            </pm:header>
+            <pm:content >
+                <center>
+                    <h:form id="financieras">  
+                        <h:panelGrid columns="2">
+                            <h:outputText value="Numero de Etapas"/>
+                            <h:inputText value="#{vehiculoFinancieras.numeroEtapas}"/>
+                        </h:panelGrid>
+                        
+                        <h:panelGrid>
+
+                            <p:dataTable var="Numerico" value="#{vehiculoFinancieras.listaNum}">
+                                <p:column id="columna1">  
+                                    <f:facet name="header">  
+                                        Parametricas  
+                                    </f:facet>  
+                                    <h:outputText value="#{Numerico.registroDescripcion}"/>
+                                </p:column>  
+
+                                <p:column id="columna2">  
+                                    <f:facet name="header">  
+                                        Valores 
+                                    </f:facet>  
+                                    <p:inputText maxlength="15" required="true" id="financieras"  value="#{Numerico.registroIngreso}" >
+                                      <p:ajax  event="change" update="financieras" listener="#{validadorBean.valueChangeNumerico}"/>
+                                    </p:inputText>
+                                </p:column>           
+                            </p:dataTable>  
+
+                            <p:dataTable var="Par" value="#{vehiculoFinancieras.listaPorcentaje}">
+                                <p:column id="columna1">  
+                                    <f:facet name="header">  
+                                        Parametricas  
+                                    </f:facet> 
+                                    <h:outputText value="#{Par.registroDescripcion}"/>
+                                </p:column>  
+
+                                <p:column id="columna2">  
+                                    <f:facet name="header">  
+                                        Valores 
+                                    </f:facet>  
+                                    <p:inputText required="true" id="finpor" value="#{Par.registroIngreso}">
+                                        <p:ajax  event="change" update="finpor" listener="#{validadorBean.valueChangePorcentaje}"/>
+                                    </p:inputText>
+                                </p:column>           
+                            </p:dataTable> 
+                            
+                            <h:commandButton action="parametricasSimulador" value="Atras"/>
+                            <h:commandButton id="boton" action="#{vehiculoFinancieras.pasarEtapas}" value="Siguiente"/>   
+                            <h:message for="boton" style="color: red ;font-size: large"/> 
+                        </h:panelGrid>
+
+                    </h:form>
+                </center>
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+</f:view>

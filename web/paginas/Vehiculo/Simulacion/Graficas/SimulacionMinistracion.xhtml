@@ -1,0 +1,88 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html"
+        >
+
+    <pm:page title="Simulacion Ministracion/Pago">
+
+        <pm:view id="Grafica">
+
+            <pm:header title="Simulacion Ministracion/Pago" swatch="b">
+                <h:form>
+                    <h:commandButton action="accioneSimulacion" value="Atras" />
+                </h:form>
+            </pm:header>
+
+            <pm:content>
+                <h:form id="simMin"> 
+
+                    <div id="descripciones"  style="position: absolute;left:  2% ;width: 25% ">
+                        <br/>
+                        <h:outputText value="Meses de Ministracion del Credito"/>
+                        <br/>
+                        <br/>
+                        <h:outputText style="position: relative" value="Meses de Pago de Credito"/>
+                        <br/>
+                        <br/>
+                        <h:outputText style="position: relative" id="mensaje" value="Meses de Revolvencia"/>
+                        <br/>
+                        <br/>
+                        <h:message style="color: red ;font-size: large" for="mensaje"/>
+                    </div>
+                    <div id="valores" style="position: absolute;left:  25%;width: 30% ">
+                        <pm:slider id="sliderTir0" value="#{lineChart.mesesMinistracion}" minValue="0" maxValue="60"  >
+                        </pm:slider>
+                        <br/>
+                        <pm:slider value="#{lineChart.mesesPago}"  minValue="0" maxValue="60" />
+                        <br/>
+                        <h:inputText value="#{lineChart.mesesRevolvencia}" style="color: blue ; width: 10%" readonly="true"/>
+
+                    </div>
+
+                    <div id="tirs" style="position: absolute;right: 0%">
+                        <h:panelGrid columns="2">
+                            <h:outputText value="Tir de Vehiculo"/>
+                            <h:inputText readonly="true"  style="width: 40%;color: red" value="#{lineChart.tirPry}"/>
+                            <h:outputText value=""/>
+                            <h:outputText style="width: 40%;color: red" value=""/>
+
+                            <h:outputText value="Resumen de participacion "/>
+                            <h:outputText  style="color: red" value=""/>
+                            <h:outputText value="% Distribucion a Inversionista"/>
+                            <h:inputText readonly="true"  style="width: 40%;color: red" value="#{lineChart.porInv}"/>
+                            <h:outputText value="% Distribucion a General Partner "/>
+                            <h:inputText readonly="true" style="width: 40%;color: red" value="#{lineChart.porGrl}"/>
+                        </h:panelGrid>
+                    </div>
+
+                    <div id="valores" style="position: absolute;left:  2%;bottom: 3%;width: 30% ">
+                        <br/>
+                        <h:graphicImage rendered="true"  url="#{lineChart.rutaGrafica}"/>
+
+                    </div>
+                    <div id="botones" style="position: absolute;bottom: 20%; right: 10%">
+
+                        <p:dataTable var="tirPry" scrollable="true" value="#{lineChart.tirProyectos}" >
+                            <p:column>
+                                    <h:outputText value="#{tirPry.registroDescripcion}"/>
+                            </p:column>
+                            <p:column>
+                                <h:outputText style="font: bold" value="#{tirPry.registroIngreso}"/>
+                            
+                            </p:column>
+                        </p:dataTable>    
+                        <h:commandButton action="#{lineChart.simularMinistracion}" value="Comenzar Simulacion"/>
+                    </div>
+                </h:form>
+
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+</f:view>

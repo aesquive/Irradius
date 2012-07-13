@@ -1,0 +1,148 @@
+<f:view  xmlns="http://www.w3.org/1999/xhtml"
+         xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:p="http://primefaces.org/ui"
+         xmlns:pm="http://primefaces.org/mobile"
+         contentType="text/html">
+
+    <pm:page title="flujoCajaInicial5">
+        <!-- Modelo -->
+        <pm:view id="flujoCaja">
+          <!--HOLA MUNDO!!! XD -->
+            <pm:header title="FLUJO DE CAJA INICIAL" swatch="b"> 
+                <h:form>
+                <center>
+                    <h:outputText value="Reparto de Utilidades"/>
+                </center>
+                <h:outputText value="El usuario actual es: #{loginBean.usr}"/>
+                <br/>
+                <h:commandButton action="menuModelo" value="Menu de Seleccion" style="width: 120px" />
+                </h:form>
+            </pm:header>
+
+            <pm:content >
+
+                <h:form id="matricesCajaInicial">
+                    <center>                       
+                        <h:panelGrid>
+                            <p:carousel rows="1" itemStyle="height:400px;width:500px;" effect="easeInStrong">  
+
+                                <p:dataTable var="repartoUtilidades" value="#{consolidadoBean.veh_cet_rep_uti.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1" style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Fecha  
+                                        </f:facet>  
+                                        <h:outputText value="#{repartoUtilidades.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 300px">  
+                                        <f:facet name="header">  
+                                            Reparto de Utilidades
+                                        </f:facet>
+                                        <h:outputText value="#{repartoUtilidades.valorRedondeado}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+
+                                <p:dataTable var="limitedPartner" value="#{consolidadoBean.veh_cet_rep_uti_lim_prt.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1" style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Fecha  
+                                        </f:facet>  
+                                        <h:outputText value="#{limitedPartner.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 300px">  
+                                        <f:facet name="header">  
+                                            Limited Partner
+                                        </f:facet>
+                                        <h:outputText value="#{limitedPartner.valorRedondeado}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+                                
+                                <p:dataTable var="generalPartner" value="#{consolidadoBean.veh_cet_rep_uti_grl_prt.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1" style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Fecha  
+                                        </f:facet>  
+                                        <h:outputText value="#{generalPartner.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 300px">  
+                                        <f:facet name="header">  
+                                            General Partner
+                                        </f:facet>
+                                        <h:outputText value="#{generalPartner.valorRedondeado}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+                            </p:carousel>
+                            
+                            <!--
+                            <p:carousel rows="1" itemStyle="height:200px;width:600px;" effect="easeInStrong">  
+
+                                <p:dataTable var="repartoUtilidadesAño" value="#consolidadoBean.}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="150">
+                                    <p:column id="columna1">  
+                                        <f:facet name="header">  
+                                           Año 
+                                        </f:facet>  
+                                        <h:outputText value="#repartoUtilidadesAño.año}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2">  
+                                        <f:facet name="header">  
+                                            Reparto de Utilidades
+                                        </f:facet>
+                                        <h:outputText value="#repartoUtilidadesAño.valor}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+
+                                <p:dataTable var="limitedPartner" value="#consolidadoBean.veh_ret_lim_par_año}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="150">
+                                    <p:column id="columna1">  
+                                        <f:facet name="header">  
+                                            Año
+                                        </f:facet>  
+                                        <h:outputText value="#limitedPartnerAño.año}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2">  
+                                        <f:facet name="header">  
+                                            Limited Partner
+                                        </f:facet>
+                                        <h:outputText value="#limitedPartnerAño.valor}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+                                
+                                <p:dataTable var="generalPartner" value="#consolidadoBean.veh_ret_gen_par_año}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="150">
+                                    <p:column id="columna1">  
+                                        <f:facet name="header">  
+                                            Año  
+                                        </f:facet>  
+                                        <h:outputText value="#generalPartnerAño.año}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2">  
+                                        <f:facet name="header">  
+                                            General Partner
+                                        </f:facet>
+                                        <h:outputText value="#generalPartnerAño.valor}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+                            </p:carousel>
+                           -->
+                            <h:commandButton action="flujoCajaInicial4" value="Atras" />
+                            <h:commandButton action="retornoInversionista1" value="Siguiente" />    
+
+                            
+                        </h:panelGrid>
+                    </center>
+                </h:form>
+
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+</f:view>
+
+

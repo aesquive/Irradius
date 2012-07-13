@@ -1,0 +1,34 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+
+    <pm:page title="Modelos">
+
+        <!-- Alta -->
+        <pm:view id="SeleccionModelo">
+
+            <pm:header title="Selección de Simulacion" swatch="b">
+
+            </pm:header>
+            <h:outputText value="El usuario actual es: #{loginBean.usr}"/>
+            <pm:content >
+                <center>
+                    <h:form>
+                        <h:panelGrid>            
+                            <h:commandButton action="menuSimulacion" value="Simulacion de Vehiculo" />
+                            <h:commandButton value="Simulacion de Proyecto Individual" />            
+                            <h:commandButton action="menuPrincipal" value="Menu Principal"/>
+                        </h:panelGrid>   
+                    </h:form>
+                </center>
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+</f:view>

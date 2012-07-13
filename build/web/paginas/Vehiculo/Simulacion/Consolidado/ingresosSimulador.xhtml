@@ -1,0 +1,115 @@
+<f:view  xmlns="http://www.w3.org/1999/xhtml"
+         xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:p="http://primefaces.org/ui"
+         xmlns:pm="http://primefaces.org/mobile"
+         contentType="text/html">
+
+        <pm:page title="resultadosIngresos">
+        <!-- Modelo -->
+        <pm:view id="Ingresos">
+
+            <pm:header title="Consolidado de Etapas" swatch="b"> 
+                <h:form>
+                <center>
+                    <h:outputText value="Ingresos"/>
+                </center>
+                <h:outputText value="El usuario actual es: #{loginBean.usr}"/>
+                <br/>
+                <h:commandButton action="menuSimulacion" value="seleccion de Simulacion"/>
+                </h:form>
+            </pm:header>
+
+            <pm:content >
+
+                <h:form id="matricesIngresos">
+                    <center>                       
+                        <h:panelGrid>
+
+                            <p:carousel rows="1" itemStyle="height:400px;width:500px;" effect="easeInStrong">  
+
+                                <p:dataTable var="firmaCon" value="#{consolidadoBean.veh_cet_fir_ctr_cpr_vta.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1" style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Fecha  
+                                        </f:facet>  
+                                        <h:outputText value="#{firmaCon.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2"  style="width: 300px">  
+                                        <f:facet name="header">  
+                                            Firma de Contrato de Compra Venta 
+                                        </f:facet>
+                                        <h:outputText value="#{firmaCon.valorRedondeado}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+
+                                <p:dataTable var="desembolsoInicial" value="#{consolidadoBean.veh_cet_des_ini.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1" style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Fecha  
+                                        </f:facet>  
+                                        <h:outputText value="#{desembolsoInicial.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2"  style="width: 300px">  
+                                        <f:facet name="header">  
+                                            Desembolso Inicial 
+                                        </f:facet>
+                                        <h:outputText value="#{desembolsoInicial.valorRedondeado}"/>
+                                    </p:column>           
+                                </p:dataTable>         
+                            </p:carousel>
+                            <!--
+                            <p:carousel rows="1" itemStyle="height:200px;width:600px;" effect="easeInStrong" headerText="Ingresos por Año">  
+
+                                <p:dataTable var="firmaConAño" value="#consolidadoBean.veh_cet_fir_ctr_cpr_vta_año}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="150">
+                                    <p:column id="columna1">  
+                                        <f:facet name="header">  
+                                            Año  
+                                        </f:facet>  
+                                        <h:outputText value="#firmaConAño.año}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2">  
+                                        <f:facet name="header">  
+                                            Firma de Contrato de Compra Venta 
+                                        </f:facet>
+                                        <h:outputText value="#firmaConAño.valor}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+
+                                <p:dataTable var="desembolsoInicialAño" value="#consolidadoBeanAño.veh_cet_des_ini_año}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="150">
+                                    <p:column id="columna1">  
+                                        <f:facet name="header">  
+                                            Año  
+                                        </f:facet>  
+                                        <h:outputText value="#desembolsoIniciaAñol.año}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2">  
+                                        <f:facet name="header">  
+                                            Desembolso Inicial 
+                                        </f:facet>
+                                        <h:outputText value="#fdesembolsoInicialAño.valor}"/>
+                                    </p:column>           
+                                </p:dataTable>         
+                            </p:carousel>
+                            -->
+                        
+                            <h:commandButton action="estadisticasSimulador" value="Atras" />
+                            <h:commandButton action="egresos1Simulador" value="Siguiente" />    
+
+                        </h:panelGrid>
+                    </center>
+                </h:form>
+
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+</f:view>
+

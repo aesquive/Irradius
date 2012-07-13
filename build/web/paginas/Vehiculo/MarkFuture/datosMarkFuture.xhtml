@@ -1,0 +1,60 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        xmlns:c="http://java.sun.com/jsp/jstl/core"
+        contentType="text/html">
+    <pm:page title="Escenarios">
+        <!-- Alta -->
+        <c:if test="#{loginBean.usuario!=null}">
+            <pm:view id="Busqueda">
+
+                <pm:header title="Escenarios Mark To Future" swatch="b"/>
+                <h:outputText value="El usuario actual es: #{loginBean.usr}"/>
+                <pm:content >
+
+                    <h:form id="acciones">
+                        <center>
+                            <h:outputText style="font: x-large ;color: red" value="#{markFuture.mensaje}"/>
+                                       <p:dataTable value="#{markFuture.escenarios}" id="tabla" var="escenario">
+                                <p:column>
+                                    <h:outputText value="Escenario #{escenario.indiceEscenario}"/>
+                                    <h:outputText value="    "/>
+                                </p:column>
+                                
+                                <p:column>
+                                    <h:panelGrid columns="3">
+                                        <h:outputText value="WOE"/>
+                                        <h:inputText value="#{escenario.WOE}"/>
+                                        <h:outputText value="%"/>
+                                    </h:panelGrid>
+                                </p:column>
+                                
+                                <p:column>
+                                    <h:panelGrid columns="2">
+
+                                        <h:outputText value="Modelos : "/>
+                                        <h:selectOneMenu   id="selectOne" value="#{escenario.modeloSeleccionado}">
+                                            <f:selectItem  itemLabel="Seleccionar un Modelo"/>
+                                            <f:selectItems  id="proyectos" value="#{escenario.modelosDisponibles}" itemValue="#{proyecto.id}" 
+                                                            var="proyecto" itemLabel="#{proyecto.id}-#{proyecto.nomMdl}"/>
+                                        </h:selectOneMenu>
+
+                                    </h:panelGrid>
+                                </p:column>
+                            </p:dataTable>
+
+                            <h:commandButton action="menuPrincipal" value="Menu Principal"/>
+                            <h:commandButton value="Comenzar" id="boton" action="#{markFuture.comenzar}"/>
+                        </center>
+
+                    </h:form>
+                </pm:content>
+
+            </pm:view>
+        </c:if>
+    </pm:page>
+
+</f:view>

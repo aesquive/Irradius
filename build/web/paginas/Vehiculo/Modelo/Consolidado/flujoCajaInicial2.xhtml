@@ -1,0 +1,95 @@
+<f:view  xmlns="http://www.w3.org/1999/xhtml"
+         xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:p="http://primefaces.org/ui"
+         xmlns:pm="http://primefaces.org/mobile"
+         contentType="text/html">
+
+    <pm:page title="flujoCajaInicial2">
+        <!-- Modelo -->
+        <pm:view id="flujoCaja">
+          <!--HOLA MUNDO!!! XD -->
+            <pm:header title="FLUJO DE CAJA INICIAL" swatch="b">
+                <h:form>
+                    <center>
+                        <h:outputText value="Origen 2"/>
+                    </center>
+
+                    <h:outputText value="El usuario actual es: #{loginBean.usr}"/>
+                    <br/>
+                    <h:commandButton action="menuModelo" value="Menu de Seleccion" style="width: 120px" />
+                </h:form>
+            </pm:header>
+
+            <pm:content >
+
+                <h:form id="matricesCajaInicial">
+                    <center>                       
+                        <h:panelGrid>
+                            <p:carousel rows="1" itemStyle="height:400px;width:500px;" effect="easeInStrong">  
+
+                                <p:dataTable var="financieros" value="#{consolidadoBean.veh_cet_fin.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1" style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Mes  
+                                        </f:facet>  
+                                        <h:outputText value="#{financieros.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 300px">  
+                                        <f:facet name="header">  
+                                            Financieros
+                                        </f:facet>
+                                        <h:outputText value="#{financieros.valorRedondeado}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+
+                                <p:dataTable var="anticipoCreditoPuente" value="#{consolidadoBean.veh_cet_ant_cre_pte.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1" style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Mes  
+                                        </f:facet>  
+                                        <h:outputText value="#{anticipoCreditoPuente.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 300px">  
+                                        <f:facet name="header">  
+                                            Anticipo Credito Puente
+                                        </f:facet>
+                                        <h:outputText value="#{anticipoCreditoPuente.valorRedondeado}"/>
+                                    </p:column>           
+                                </p:dataTable>
+
+                                <p:dataTable var="ministracionCreditoPuente" value="#{consolidadoBean.veh_cet_min_cre_pte.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1" style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Mes  
+                                        </f:facet>  
+                                        <h:outputText value="#{ministracionCreditoPuente.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 300px">  
+                                        <f:facet name="header">  
+                                            Ministracion de Credito Puente
+                                        </f:facet>
+                                        <h:outputText value="#{ministracionCreditoPuente.valorRedondeado}"/>
+                                    </p:column>           
+                                </p:dataTable>
+                            </p:carousel>
+                            <h:commandButton action="flujoCajaInicial1" value="Atras" />
+                            <h:commandButton action="flujoCajaInicial3" value="Siguiente" />    
+
+                        </h:panelGrid>
+                    </center>
+                </h:form>
+
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+</f:view>
+
+

@@ -1,0 +1,184 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+
+  <pm:page title="Informacion Basica">
+    <!-- Alta -->
+    <pm:view id="Modelo">
+
+      <pm:header title="Informacion Basica" swatch="b"/>
+
+      <pm:content>
+        <center>
+          <form>
+
+            <h:panelGrid columns="2">
+              <f:facet name="header">
+                Terreno
+              </f:facet>
+              <h:outputText value="Valor Total del Terreno: "/>
+              <h:outputText value="#{modeloInfoBasica.pry_val_ter}"/>
+            </h:panelGrid>
+
+            <h:panelGrid columns="2">
+              <f:facet name="header">
+                Construccion
+              </f:facet>
+                
+              <h:outputText value="Edificacion de Casas: "/>
+              <h:outputText value="#{modeloInfoBasica.pry_edi_cas_mon}"/>
+              <h:outputText value="Urbanizacion: "/>
+              <h:outputText value="#{modeloInfoBasica.pry_urb_mon}"/>
+              <h:outputText value="Urbanizacion Acceso: "/>
+              <h:outputText value="#{modeloInfoBasica.pry_urb_acc_mon}"/>
+              <h:outputText value="Edificacion departamentos: "/>
+              <h:outputText value="#{modeloInfoBasica.pry_edi_depto_mon}"/>
+              <h:outputText value="Ornato: "/>
+              <h:outputText value="#{modeloInfoBasica.pry_orn_mon}"/>
+              <h:outputText value="Gastos Generales: "/>
+              <h:outputText value="#{modeloInfoBasica.pry_gts_gral_mon}"/>
+              <h:outputText value="Imprevistos: "/>
+              <h:outputText value="#{modeloInfoBasica.pry_imp_mon}"/>
+              <h:outputText value="Obligaciones Patronales: "/>
+              <h:outputText value="#{modeloInfoBasica.pry_obl_pat_mon}"/>
+              <h:outputText value="Paquetes de Acabados: "/>
+              <h:outputText value="#{modeloInfoBasica.pry_paq_aca_mon}"/>
+              <h:outputText value="Mantenimiento y Vigilancia de Escenario: "/>
+              <h:outputText value="#{modeloInfoBasica.pry_man_vig_esc_mon}"/>
+              <h:outputText value="Supervision de Obra: "/>
+              <h:outputText value="#{modeloInfoBasica.pry_sup_obr_mon}"/>
+              <h:outputText value="Infraestructura: "/>
+              <h:outputText value="#{modeloInfoBasica.pry_inf_mon}"/>
+            </h:panelGrid>
+
+            <h:panelGrid columns="2">
+              <h:outputText value="Costo Total de la Construccion"/>
+              <h:outputText value="#{modeloInfoBasica.pry_cos_cons}"/>
+              <h:outputText value="Construccion total m2"/>
+              <h:outputText value="#{modeloInfoBasica.pry_dro_fir_mon}"/>
+              <h:outputText value="Programa de Pago del Terreno"/>
+              <h:outputText value="#{modeloInfoBasica.pry_pro_pgo_ter}"/>
+            </h:panelGrid>
+
+            <h:dataTable var="ventaTotal" value="#{modeloInfoBasica.pry_arr_vnt_tot}">
+                  <f:facet name="header">
+                Venta por Etapas Totales
+              </f:facet>
+              <h:column id="columna1">
+                <h:outputText value="#{ventaTotal.fechaTexto}"/>
+              </h:column>
+              <h:column id="columna2">
+                <h:outputText value="#{ventaTotal.valor}"/>   
+              </h:column>
+            </h:dataTable>
+              
+         <!--     <p:panel header="Programa de Venta por Etapa" >
+                  <f:facet name="header">
+                      Programa de Venta por Etapa
+                  </f:facet>
+                  <h:panelGrid columns="2">
+                  <h:dataTable var="ventaTotal" value="{modeloInfoBasica.pry_arr_vnt_tot}" cellpadding="3">
+              <h:column id="columna1">
+                  <f:facet name="header">
+                Mes   
+              </f:facet>
+                <h:outputText value="{ventaTotal.fechaTexto}   "/>
+              </h:column>
+              <h:column id="columna2">
+                  <f:facet name="header">
+                Total      
+              </f:facet>
+                <h:outputText value="   {ventaTotal.valor}"/>   
+              </h:column>
+            </h:dataTable>
+                  </h:panelGrid>
+          </p:panel> -->
+                        
+            <h:dataTable var="titulacionTotal" value="#{modeloInfoBasica.pry_arr_tit_tot}">
+              <f:facet name="header">
+                Titulacion por Etapas Totales
+              </f:facet>
+              <h:column id="columna1">
+                <h:outputText value="#{titulacionTotal.fechaTexto}"/>
+              </h:column>
+              <h:column id="columna2">
+                <h:outputText value="#{titulacionTotal.valor}"/>   
+              </h:column>
+            </h:dataTable>
+              
+            <h:dataTable var="credito" value="#{modeloInfoBasica.pry_tas_int_cre_pue}">
+              <f:facet name="header">
+                Tasa de Interes de Credito Puente Anual
+              </f:facet>
+              <h:column id="columna1">
+                <h:outputText value="#{credito}"/>
+              </h:column>
+            </h:dataTable>
+
+            <h:dataTable var="infl" value="#{modeloInfoBasica.pry_inf}">
+              <f:facet name="header">
+                Inflacion Anual
+              </f:facet>
+              <h:column id="columna1">
+                <h:outputText value="#{infl}"/>
+              </h:column>
+            </h:dataTable>    
+
+            <h:dataTable var="ct" value="#{modeloInfoBasica.pry_tas_cet}">
+              <f:facet name="header">
+                Tasa de Cetes de compra Anual
+              </f:facet>
+              <h:column id="columna1">
+                <h:outputText value="#{ct}"/>
+              </h:column>
+            </h:dataTable>
+
+            <p:carousel rows="1" itemStyle="height:350px;width:500px;" effect="easeInStrong" var="matriz" value="#{modeloInfoBasica.pry_arr_mat_pro_obr_con}"> 
+              <p:dataTable var="Etapa" value="#{matriz.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="280">
+                <f:facet name="header">
+                  Etapa
+                </f:facet>
+
+                <p:column id="columna1" headerText="Fecha" style="width: 200px">
+                  <h:outputText value="#{Etapa.fechaTexto}"/>
+                </p:column> 
+
+                <p:column id="columna2" headerText="Valor" style="width: 200px"> 
+                  <h:outputText value="#{Etapa.valor}"/>
+                </p:column> 
+              </p:dataTable> 
+            </p:carousel> 
+            <p:carousel rows="1" itemStyle="height:350px;width:500px;" effect="easeInStrong" var="matriz" value="#{modeloInfoBasica.pry_arr_mat_pro_obr_con}"> 
+              <p:dataTable var="Etapa" value="#{matriz.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="280">
+                <f:facet name="header">
+                  Etapa
+                </f:facet>
+
+                <p:column id="columna1" headerText="Fecha" style="width: 200px">
+                  <h:outputText value="#{Etapa.fechaTexto}"/>
+                </p:column> 
+
+                <p:column id="columna2" headerText="Valor" style="width: 200px"> 
+                  <h:outputText value="#{Etapa.valor}"/>
+                </p:column> 
+              </p:dataTable> 
+            </p:carousel>
+
+            <h:panelGrid columns="2">
+              <h:commandButton type="button" onclick="window.location='./modeloelemVenta.xhtml'" value="Atras"/>
+              <h:commandButton type="button" onclick="window.location='./modeloGeneradores.xhtml'" value="Siguiente"/>
+            </h:panelGrid>
+
+          </form> 
+        </center>
+      </pm:content> 
+    </pm:view>
+
+  </pm:page> 
+
+</f:view>

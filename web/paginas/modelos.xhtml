@@ -1,0 +1,38 @@
+        <f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+
+  <pm:page title="Irradius">
+
+    <!-- Alta -->
+    <pm:view id="Modelos">
+
+      <pm:header title="Modelos" swatch="b">
+          <h:outputText value="El usuario actual es: #{loginBean.usr}"/>
+      </pm:header>
+
+      <pm:content >
+        <center>
+          <h:form>
+            <h:panelGrid columns="1">                    
+              <h:commandButton action="accionesVehiculo" value="Vehiculo" />                                      
+              <h:commandButton action="informacion" value="Proyecto" />
+            </h:panelGrid> 
+              
+            <h:panelGrid columns="1">                    
+              <h:commandButton action="menuPrincipal" value="Menu Principal" />
+            </h:panelGrid> 
+            <!--todo lo que va aqui es comentario-->   
+          </h:form>
+        </center>
+      </pm:content>
+
+    </pm:view>
+
+  </pm:page>
+
+</f:view>

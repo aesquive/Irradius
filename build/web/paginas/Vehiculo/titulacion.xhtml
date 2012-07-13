@@ -1,0 +1,61 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+
+    <pm:page title="Titulacion">
+        <!-- Alta -->
+        <pm:view id="Titulacion">
+
+            <pm:header title="Titulacion #{vehiculoParametricas.nombreProyecto}" swatch="b">
+                <h:outputText value="El usuario actual es: #{loginBean.usr}"/>
+                <h:form>
+                    <h:commandButton action="#{beanLimpiador.limpiaPantallasVehiculo}" value="Menu de Acciones"/>
+                </h:form>
+            </pm:header>
+
+            <pm:content >
+                <center>
+
+                    <h:form id="titulacion">
+                        <h:panelGrid>
+                            <p:dataTable var="RegistroFecha" value="#{titulacionBean.listaTitulacion}">
+                                <p:column id="columnaFecha">
+                                    <f:facet name="header" >
+                                        Fecha
+                                    </f:facet>
+                                    <h:outputText value="#{RegistroFecha.fecha}"/>
+                                </p:column>
+
+                                <p:column id="columnaPorcentaje" >
+                                    <f:facet name="header">
+                                        Porcentaje
+                                    </f:facet>
+                                    <p:inputText disabled="#{generalVehiculoBean.ver}" id="ptjtit"  required="true" value="#{RegistroFecha.porcentaje}">
+                                        <p:ajax  event="change" update="ptjtit" listener="#{validadorBean.valueChangePorcentaje}"/>
+                                    </p:inputText>
+
+                                </p:column>
+
+                            </p:dataTable>
+                            <h:commandButton action="ventas" value="Atras" />
+                            <h:commandButton id="boton" action="#{titulacionBean.pasarInversion}" value="Siguiente" />
+                            <h:message for="boton" style="color: red ;font-size: large"/> 
+                        </h:panelGrid>
+                    </h:form>
+
+
+                </center>
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+
+
+
+</f:view>

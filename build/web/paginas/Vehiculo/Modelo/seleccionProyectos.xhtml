@@ -1,0 +1,62 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+
+    <pm:page title="seleccionProyectos">
+        <!-- Modelo -->
+        <pm:view id="seleccion">
+
+            <pm:header title="Selección de modelos" swatch="b">
+            <h:outputText value="El usuario actual es: #{loginBean.usr}"/>
+            </pm:header>
+            <pm:content >
+
+
+                <h:form id="seleccionModelos">
+                    <center>
+
+
+                        <h:panelGrid columns="2">
+                            <h:outputText value="Modelos : "/>
+                            <h:selectOneMenu   id="selectOne" value="#{generalModeloVehiculoBean.modeloActual}">
+                                <f:selectItem  itemLabel="Seleccionar un Modelo"/>
+                                <f:selectItems  id="modelo" value="#{generalModeloVehiculoBean.modelos}" itemValue="#{modelo.id}" 
+                                                var="modelo" itemLabel="#{modelo.id}-#{modelo.nomMdl}"/>
+                                <p:ajax   event="change" update="modelo" listener="#{generalModeloVehiculoBean.cambioModelo}"/>
+                            </h:selectOneMenu>
+
+                        </h:panelGrid>
+                        <h:panelGrid columns="4">
+                            <h:outputText value="Buscar: "/>
+                            <h:inputText id="busqueda" value="#{generalModeloVehiculoBean.busqueda}" />
+                            <h:commandButton id="btnBusqueda" action="#{generalModeloVehiculoBean.empezarBusqueda}" value="Buscar"/>
+                            <h:commandButton id="todos"  action="#{generalModeloVehiculoBean.verTodos}" value="Ver Todos"/>
+                        </h:panelGrid>
+
+                        <h:panelGrid id="grid" columns="4">
+                            <h:commandButton value="Alta" action="#{generalModeloVehiculoBean.alta}"/>
+                            <h:commandButton value="Copiar" action="#{generalModeloVehiculoBean.copiarModelo}" />
+                            <h:commandButton value="Baja" action="#{generalModeloVehiculoBean.bajaModelo}"/>
+                            <h:commandButton value="Modificar" action="#{generalModeloVehiculoBean.modificarModelo}"/>
+                        </h:panelGrid>
+                        <h:panelGrid columns="1"> 
+                             <h:commandButton value="Modelar" action="#{generalModeloVehiculoBean.modelar}"/>
+                            <h:commandButton action="menuPrincipal" value="Menu Principal" />
+                        </h:panelGrid> 
+                        <h:outputText id="mensaje"/>
+                        <h:message  style="color: red ;font-size: large" for="mensaje"/>
+                    </center>
+                </h:form>
+
+
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+</f:view>

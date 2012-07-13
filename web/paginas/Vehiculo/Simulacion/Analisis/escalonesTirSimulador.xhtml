@@ -1,0 +1,60 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+
+
+    <pm:page title="Vehiculos">
+        <!-- Alta -->
+        <pm:view id="CapturaVehiculos1">
+            <pm:header title="Escalon #{escalonesTir.escalonActual} de #{vehiculoParametricas.nombreProyecto}" swatch="b">
+                <h:outputText value="El usuario actual es: #{loginBean.usr}"/>
+                 <br/>
+                
+            <h:form>
+                <h:commandButton action="menuSimulacion" value="seleccion de Simulacion"/>
+                    <!--<h:commandButton action="accionesVehiculo" value="Menu de Acciones"/>-->
+                </h:form>
+            </pm:header>
+                
+
+                <pm:content >
+
+                    <center>
+                        <h:form id="escalones">  
+                            <h:panelGrid>
+                                <p:dataTable  var="Parametros" value="#{escalonesTir.valores}">  
+                                    <p:column id="columna1">  
+                                        <f:facet name="header">  
+                                            Parametro  
+                                        </f:facet>  
+                                        <h:outputText  value="#{Parametros.registroDescripcion}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2">  
+                                        <f:facet name="header">  
+                                            Porcentaje
+                                        </f:facet>  
+                                        <p:inputText maxlength="8" id="escTir" required="true" value="#{Parametros.registroIngreso}" >
+                                            <p:ajax  event="change" update="escTir" listener="#{validadorBean.valueChangePorcentaje}"/>
+                                        </p:inputText>
+                                    </p:column>   
+
+                                </p:dataTable> 
+                                <h:message for="escTir" style="color: red"/>
+                                <h:commandButton id="boton" action="#{escalonesTir.regresarEtapa}" value="Atras"/>
+                                <h:commandButton id="btn2" action="#{escalonesTir.guardarEtapa}" value="#{escalonesTir.nombreBoton}"/>
+
+                            </h:panelGrid>             
+                        </h:form>
+                    </center>
+                </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+</f:view>

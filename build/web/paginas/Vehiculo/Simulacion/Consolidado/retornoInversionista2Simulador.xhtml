@@ -1,0 +1,182 @@
+<f:view  xmlns="http://www.w3.org/1999/xhtml"
+         xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:p="http://primefaces.org/ui"
+         xmlns:pm="http://primefaces.org/mobile"
+         contentType="text/html">
+
+<pm:page title="retornoInversionista1">
+        <!-- Modelo -->
+        <pm:view id="retornoInv">
+
+            <pm:header title="Retorno al Inversionista" swatch="b">  
+                <h:form>
+                <center>
+                    <h:outputText value="Saldo de capital Inversionista"/>
+                </center>
+                <h:outputText value="El usuario actual es: #{loginBean.usr}"/>
+                <br/>
+                <h:commandButton action="menuSimulacion" value="seleccion de Simulacion"/>
+                </h:form>
+            </pm:header>
+
+            <pm:content >
+
+                <h:form id="matricesRetornoInv">
+                    <center>                       
+                        <h:panelGrid>
+                            <p:carousel rows="1" itemStyle="height:400px;width:500px;" effect="easeInStrong">  
+
+                                <p:dataTable var="saldoCapitalInversionista" value="#{consolidadoBean.veh_cet_sal_cap_inv.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1"  style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Fecha  
+                                        </f:facet>  
+                                        <h:outputText value="#{saldoCapitalInversionista.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2"  style="width: 300px">  
+                                        <f:facet name="header">  
+                                            Saldo de capital Inversionista
+                                        </f:facet>
+                                        <h:outputText value="#{saldoCapitalInversionista.valorRedondeado}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+
+                                <p:dataTable var="aportaciones" value="#{consolidadoBean.veh_cet_apt_cap.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1" style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Fecha 
+                                        </f:facet>  
+                                        <h:outputText value="#{aportaciones.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 300px">  
+                                        <f:facet name="header">  
+                                            Aportaciones
+                                        </f:facet>
+                                        <h:outputText value="#{aportaciones.valorRedondeado}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+
+                                <p:dataTable var="retiros" value="#{consolidadoBean.veh_cet_ret_cap.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1" style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Fecha 
+                                        </f:facet>  
+                                        <h:outputText value="#{retiros.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 300px">  
+                                        <f:facet name="header">  
+                                            Retiros 
+                                        </f:facet>
+                                        <h:outputText value="#{retiros.valorRedondeado}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+                                
+                                <p:dataTable var="nuevoSaldoCapital" value="#{consolidadoBean.veh_cet_nvo_sal_cap_tbj.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1" style="width: 100px">  
+                                        <f:facet name="header" >   
+                                            Fecha  
+                                        </f:facet>  
+                                        <h:outputText value="#{nuevoSaldoCapital.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 300px">  
+                                        <f:facet name="header">  
+                                            Nuevo Saldo de Capital de trabajo
+                                        </f:facet>
+                                        <h:outputText value="#{nuevoSaldoCapital.valorRedondeado}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+                                Mes
+                            </p:carousel>
+                            <!--
+                            <p:carousel rows="1" itemStyle="height:200px;width:600px;" effect="easeInStrong">  
+
+                                <p:dataTable var="saldoCapitalInversionistaAño" value="#consolidadoBean.veh_sal_cap_inv_año}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="150">
+                                    <p:column id="columna1">  
+                                        <f:facet name="header">  
+                                            Año  
+                                        </f:facet>  
+                                        <h:outputText value="#saldoCapitalInversionistaAño.año}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2">  
+                                        <f:facet name="header">  
+                                            Saldo de capital Inversionista
+                                        </f:facet>
+                                        <h:outputText value="#saldoCapitalInversionistaAño.valor}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+
+                                <p:dataTable var="aportacionesAño" value="#consolidadoBean.veh_apo_año}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="150">
+                                    <p:column id="columna1">  
+                                        <f:facet name="header">  
+                                            Año  
+                                        </f:facet>  
+                                        <h:outputText value="#aportacionesAño.año}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2">  
+                                        <f:facet name="header">  
+                                            Aportaciones
+                                        </f:facet>
+                                        <h:outputText value="#aportacionesAño.valor}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+
+                                <p:dataTable var="retirosAño" value="#consolidadoBean.veh_ret_año}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="150">
+                                    <p:column id="columna1">  
+                                        <f:facet name="header">  
+                                            Año  
+                                        </f:facet>  
+                                        <h:outputText value="#retirosAño.año}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2">  
+                                        <f:facet name="header">  
+                                            Retiros 
+                                        </f:facet>
+                                        <h:outputText value="#retirosAño.valor}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+                                
+                                <p:dataTable var="nuevoSaldoCapitalAño" value="#consolidadoBean.veh_nvo_sal_cap_tra_año}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="150">
+                                    <p:column id="columna1">  
+                                        <f:facet name="header">  
+                                            Año  
+                                        </f:facet>  
+                                        <h:outputText value="#nuevoSaldoCapitalAño.año}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2">  
+                                        <f:facet name="header">  
+                                            Nuevo Saldo de Capital de trabajo
+                                        </f:facet>
+                                        <h:outputText value="#nuevoSaldoCapitalAño.valor}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+                                
+                            </p:carousel>                       
+                            -->
+                            <h:commandButton action="retornoInversionista1Simulador" value="Atras" />
+                            <h:commandButton action="retornoInversionista3Simulador" value="Siguiente" />    
+                           
+                        </h:panelGrid>
+                    </center>
+                </h:form>
+
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+</f:view>
+
+
+
+

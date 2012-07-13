@@ -1,0 +1,182 @@
+<f:view  xmlns="http://www.w3.org/1999/xhtml"
+         xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:p="http://primefaces.org/ui"
+         xmlns:pm="http://primefaces.org/mobile"
+         contentType="text/html">
+
+    <pm:page title="retornoInversionista1">
+        <!-- Modelo -->
+        <pm:view id="retornoInv">
+
+            <pm:header title="Retorno al Inversionista" swatch="b">  
+                <h:form>
+                <center>
+                    <h:outputText value="Distribucion del Flujo de Efectivo"/>
+                </center>
+                <h:outputText value="El usuario actual es: #{loginBean.usr}"/>
+                <br/>
+                <h:commandButton action="menuSimulacion" value="seleccion de Simulacion"/>
+                </h:form>
+            </pm:header>
+
+            <pm:content >
+
+                <h:form id="matricesRetornoInv">
+                    <center>                       
+                        <h:panelGrid>
+                            <p:carousel rows="1" itemStyle="height:400px;width:500px;" effect="easeInStrong">  
+
+                                <p:dataTable var="PagoRequeridoTirMinima" value="#{consolidadoBean.veh_cet_pgo_req_tir_min.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1" style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Fecha  
+                                        </f:facet>  
+                                        <h:outputText value="#{PagoRequeridoTirMinima.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 300px">  
+                                        <f:facet name="header">  
+                                            A.- Pago Requerido para TIR Minima
+                                        </f:facet>
+                                        <h:outputText value="#{PagoRequeridoTirMinima.valorRedondeado}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+
+                                <p:dataTable var="PagoRequeridoTirPri" value="#{consolidadoBean.veh_cet_pgo_req_tir_1_csc.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1" style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Fecha  
+                                        </f:facet>  
+                                        <h:outputText value="#{PagoRequeridoTirPri.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 300px">  
+                                        <f:facet name="header">  
+                                            B.- Pago requerido para TIR 1ra Cascada
+                                        </f:facet>
+                                        <h:outputText value="#{PagoRequeridoTirPri.valorRedondeado}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+                                
+                                <p:dataTable var="PagoRequeridoTirMet" value="#{consolidadoBean.veh_cet_pgo_req_tir_mta.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1" style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Fecha  
+                                        </f:facet>  
+                                        <h:outputText value="#{PagoRequeridoTirMet.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 300px">  
+                                        <f:facet name="header">  
+                                            C.- Pago requerido para TIR Meta
+                                        </f:facet>
+                                        <h:outputText value="#{PagoRequeridoTirMet.valorRedondeado}"/>
+                                    </p:column>           
+                                </p:dataTable>
+                                
+                                <p:dataTable var="repartoExedente" value="#{consolidadoBean.veh_cet_rep_exc.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1" style="width: 100px">  
+                                        <f:facet name="header" >  
+                                            Fecha 
+                                        </f:facet>  
+                                        <h:outputText value="#{repartoExedente.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 300px">  
+                                        <f:facet name="header">  
+                                            D.- Reparto de excedente
+                                        </f:facet>
+                                        <h:outputText value="#{repartoExedente.valorRedondeado}"/>
+                                    </p:column>           
+                                </p:dataTable>
+                   
+                            </p:carousel>
+                           <!--
+                            <p:carousel rows="2" itemStyle="height:200px;width:350px;" effect="easeInStrong">  
+
+                                <p:dataTable var="PagoRequeridoTirMinimaAño" value="#consolidadoBean.veh_pgo_req_tir_min_año}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="150">
+                                    <p:column id="columna1">  
+                                        <f:facet name="header">  
+                                            Año 
+                                        </f:facet>  
+                                        <h:outputText value="#PagoRequeridoTirMinimaAño.año}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2">  
+                                        <f:facet name="header">  
+                                            A.- Pago Requerido para TIR Minima
+                                        </f:facet>
+                                        <h:outputText value="#PagoRequeridoTirMinimaAño.valor}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+
+                                <p:dataTable var="PagoRequeridoTirPriAño" value="#consolidadoBeanAño.veh_pgo_req_tir_1cs_año}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="150">
+                                    <p:column id="columna1">  
+                                        <f:facet name="header">  
+                                            Año  
+                                        </f:facet>  
+                                        <h:outputText value="#PagoRequeridoTirPriAño.año}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2">  
+                                        <f:facet name="header">  
+                                            B.- Pago requerido para TIR 1ra Cascada
+                                        </f:facet>
+                                        <h:outputText value="#PagoRequeridoTirPriAño.valor}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+                                
+                                <p:dataTable var="PagoRequeridoTirMet" value="#consolidadoBean.veh_pgo_req_tir_met_año}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="150">
+                                    <p:column id="columna1">  
+                                        <f:facet name="header">  
+                                            Año 
+                                        </f:facet>  
+                                        <h:outputText value="#PagoRequeridoTirMetAño.año}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2">  
+                                        <f:facet name="header">  
+                                            C.- Pago requerido para TIR Meta
+                                        </f:facet>
+                                        <h:outputText value="#PagoRequeridoTirMetaAño.valor}"/>
+                                    </p:column>           
+                                </p:dataTable>
+                                
+                                <p:dataTable var="repartoExedente" value="#consolidadoBeanAño.veh_rep_exe_año}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="150">
+                                    <p:column id="columna1">  
+                                        <f:facet name="header">  
+                                            Año  
+                                        </f:facet>  
+                                        <h:outputText value="#repartoExedenteAño.año}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2">  
+                                        <f:facet name="header">  
+                                            D.- Reparto de excedente
+                                        </f:facet>
+                                        <h:outputText value="#repartoExedenteAño.valor}"/>
+                                    </p:column>           
+                                </p:dataTable>
+                   
+                            </p:carousel>                            
+                            -->
+                            <h:commandButton action="retornoInversionista3Simulador" value="Atras" />
+                            <h:commandButton action="retornoInversionista5Simulador" value="Siguiente" />    
+                           
+                        </h:panelGrid>
+                    </center>
+                </h:form>
+
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+</f:view>
+
+
+
+

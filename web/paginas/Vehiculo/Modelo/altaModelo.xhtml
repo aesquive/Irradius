@@ -1,0 +1,70 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+    <pm:page title="Alta Modelo">
+        <!-- Alta -->
+        <pm:view id="Busqueda">
+
+            <pm:header title="Acciones" swatch="b"/>
+            <h:outputText value="El usuario actual es: #{loginBean.usr}"/>
+            <pm:content >
+
+                <h:form id="altaModelo">
+                    <center>
+                        <h:panelGrid columns="2">
+                            <h:outputText value="Nombre del modelo"/>
+                            <h:inputText readonly="#{generalModeloVehiculoBean.estaModificado}" value="#{altaModelo.nombreModelo}"/>
+                        </h:panelGrid>
+                        
+                        <h:panelGrid columns="3" >
+                            <p:column style="width: 30%">
+                                <h:panelGrid  columns="1">
+                                    <h:outputText value="Proyectos Disponibles"/>
+                                    <h:selectOneMenu style="width: 200px"  id="selectOne" value="#{altaModelo.proyectoActualIzquierda}">
+                                        <f:selectItem  itemLabel="Seleccionar un Proyecto"/>
+                                        <f:selectItems  id="proyectos" value="#{altaModelo.proyectosIzquierda}" var="proyecto"
+                                                        itemLabel="#{proyecto.nomPry}  #{proyecto.tipMon.tip}" itemValue="#{proyecto.id}"/> 
+                                        <p:ajax   event="change" update="proyectos" listener="#{altaModelo.cambioProyectoIzquierda}"/>
+                                    </h:selectOneMenu>
+                                </h:panelGrid>
+                                `   </p:column>
+                            <p:column>
+                                <h:panelGrid  id="grid" columns="1">
+                                    <h:commandButton value="Agregar al modelo" action="#{altaModelo.izquierdaDerecha}"/>
+                                    <h:commandButton value="Quitar del modelo"  action="#{altaModelo.derechaIzquierda}"/>
+                                </h:panelGrid>
+                            </p:column>
+                            <p:column>
+                                <h:panelGrid columns="1">
+                                    <h:outputText value="Proyectos del Modelo"/>
+                                    <h:selectOneMenu style="width: 200px"  id="selectOne1" value="#{altaModelo.proyectoActualDerecha}">
+                                        <f:selectItem  itemLabel="Seleccionar un Proyecto"/>
+                                        <f:selectItems  id="proyectos1" var="proyecto1" value="#{altaModelo.proyectosDerecha}" itemLabel="#{proyecto1.nomPry}" itemValue="#{proyecto1.id}"/> 
+                                        <p:ajax   event="change" update="proyectos1" listener="#{altaModelo.cambioProyectoDerecha}"/>
+                                    </h:selectOneMenu>
+                                </h:panelGrid>
+                            </p:column>
+                        </h:panelGrid>
+                        
+                        <h:panelGrid columns="1">
+                            <h:commandButton action="#{altaModelo.guardar}" value="Guardar y Modelar"/>
+                            <h:commandButton action="seleccionProyectos" value="Menu Modelo" />
+                        </h:panelGrid>
+                        
+                            <h:outputText id="mensaje"/>
+                            <h:message  style="color: red ;font-size: large" for="mensaje"/>
+                    </center>
+
+                </h:form>
+
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+</f:view>

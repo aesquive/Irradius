@@ -1,0 +1,41 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+
+    <pm:page title="Menu Indicadores">
+
+        <!-- Modelo -->
+        <pm:view id="menuindicadores">
+
+
+            <pm:header title="MENU INDICADORES CLAVE" swatch="b">
+                <h:outputText value="El usuario actual es: #{loginBean.usr}"/>
+                <br/>
+                 <h:form>
+                <h:commandButton action="accioneSimulacion" value="Atras" />
+                </h:form>
+            </pm:header>
+            <pm:content>
+                <center>
+                    <h:form>  
+                        <h:panelGrid>
+                            <h:form>
+                                <h:commandButton  action="#{generalSimulacionBean.llenarGraficasBalance}" value="Graficas de Balance" />
+                            <h:commandButton  action="#{generalSimulacionBean.llenarGraficasFinancieras}" value="Graficas Financieras" />
+                            <h:commandButton  action="#{generalSimulacionBean.llenarGraficasParametricas}" value="Graficas Parametricas" />
+                            </h:form>
+                        </h:panelGrid>
+
+                    </h:form>
+                </center>
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+</f:view>

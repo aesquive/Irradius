@@ -1,0 +1,43 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+
+    <pm:page title="Acciones Simulador">
+
+        <!-- Alta -->
+        <pm:view id="MenuSimulador">
+
+            <pm:header title="Acciones Simulador" swatch="b">
+                
+                <h:outputText value="El usuario actual es: #{loginBean.usr}" />
+            
+            </pm:header>
+            
+            <pm:content >
+                <center>
+                    <h:form>
+                        <h:panelGrid>            
+                            
+                            <h:panelGrid columns="1">
+                                <h:commandButton action="mapasCalor" value="Mapas de Calor" />
+                                <h:commandButton action="premisasInversion" value="Premisas de Inversion"/>
+                                <!--<h:commandButton action="pendiente" value="Informes Ejecutivos"/>-->
+                                
+                                <h:commandButton action="#{generalSimulacionBean.tiempoMinistracion}" value="Simulacion Ministracion/Pago Credito"/>
+                                <h:commandButton action="menuIndicadores" value="Indicadores Clave"/>
+                                <h:commandButton action="menuSimulacion" value="Salir"/>
+                            </h:panelGrid>
+                        </h:panelGrid>   
+                    </h:form>
+                </center>
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+</f:view>

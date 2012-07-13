@@ -1,0 +1,148 @@
+<f:view  xmlns="http://www.w3.org/1999/xhtml"
+         xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:p="http://primefaces.org/ui"
+         xmlns:pm="http://primefaces.org/mobile"
+         contentType="text/html">
+
+<pm:page title="flujoCajaInicial5">
+        <!-- Modelo -->
+        <pm:view id="flujoCaja">
+
+            <pm:header title="FLUJO DE CAJA INICIAL" swatch="b"> 
+                <h:form>
+                <center>
+                    <h:outputText value="Caja Final"/>
+                </center>
+                <h:outputText value="El usuario actual es: #{loginBean.usr}"/>
+                <br/>
+                <h:commandButton action="menuSimulacion" value="seleccion de Simulacion"/>
+                </h:form>
+            </pm:header>
+
+            <pm:content >
+
+                <h:form id="matricesCajaInicial">
+                    <center>                       
+                        <h:panelGrid>
+                            <p:carousel rows="1" itemStyle="height:400px;width:500px;" effect="easeInStrong">  
+
+                                <p:dataTable var="cajaFinal" value="#{consolidadoBean.veh_cet_cja_fin.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1" style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Fecha  
+                                        </f:facet>  
+                                        <h:outputText value="#{cajaFinal.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 300px">  
+                                        <f:facet name="header">  
+                                            Caja Final
+                                        </f:facet>
+                                        <h:outputText value="#{cajaFinal.valorRedondeado}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+
+                                <p:dataTable var="reservaLiquidez" value="#{consolidadoBean.veh_cet_res_liq.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1"  style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Fecha  
+                                        </f:facet>  
+                                        <h:outputText value="#{reservaLiquidez.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2"  style="width: 300px">  
+                                        <f:facet name="header">  
+                                            Reserva de Liquidez
+                                        </f:facet>
+                                        <h:outputText value="#{reservaLiquidez.valorRedondeado}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+                                
+                                <p:dataTable var="cajaDisponible" value="#{consolidadoBean.veh_cet_cja_dis.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1"  style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Fecha  
+                                        </f:facet>  
+                                        <h:outputText value="#{cajaDisponible.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 300px">  
+                                        <f:facet name="header">  
+                                            Caja en Disponible
+                                        </f:facet>
+                                        <h:outputText value="#{cajaDisponible.valorRedondeado}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+                            </p:carousel>
+                            <!--
+                            <p:carousel rows="1" itemStyle="height:200px;width:600px;" effect="easeInStrong">  
+
+                                <p:dataTable var="cajaFinalAño" value="consolidadoBean.veh_cja_fin_año}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="150">
+                                    <p:column id="columna1">  
+                                        <f:facet name="header">  
+                                            Año  
+                                        </f:facet>  
+                                        <h:outputText value="#cajaFinalAño.año}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2">  
+                                        <f:facet name="header">  
+                                            Caja Final
+                                        </f:facet>
+                                        <h:outputText value="#cajaFinalAño.valor}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+
+                                <p:dataTable var="reservaLiquidez" value="#consolidadoBean.veh_res_liq_año}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="150">
+                                    <p:column id="columna1">  
+                                        <f:facet name="header">  
+                                            Año  
+                                        </f:facet>  
+                                        <h:outputText value="#reservaLiquidezAño.año}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2">  
+                                        <f:facet name="header">  
+                                            Reserva de Liquidez
+                                        </f:facet>
+                                        <h:outputText value="#reservaLiquidezAño.valor}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+                                
+                                <p:dataTable var="cajaDisponible" value="#consolidadoBean.veh_cja_dis_año}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="150">
+                                    <p:column id="columna1">  
+                                        <f:facet name="header">  
+                                            Año 
+                                        </f:facet>  
+                                        <h:outputText value="#cajaDisponibleAño.año}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2">  
+                                        <f:facet name="header">  
+                                            Caja en Disponible
+                                        </f:facet>
+                                        <h:outputText value="#cajaDisponibleAño.valor}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+                            </p:carousel>
+                            -->
+                            
+                            <h:commandButton action="flujoCajaInicial5Simulador" value="Atras" />
+                            <h:commandButton value="Siguiente" />    
+                               
+
+                        </h:panelGrid>
+                    </center>
+                </h:form>
+
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+</f:view>
+
+

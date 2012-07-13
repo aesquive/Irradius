@@ -1,0 +1,46 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+
+  <pm:page title="MenuPrincipal">
+
+    <!-- Main View cambio hecho por beto -->
+    <pm:view id="MenuPrincipal">
+
+      <pm:header title="Menu Principal"  swatch="b">
+          <h:outputText value="El usuario actual es: #{loginBean.usr}"/>
+          <h:form>
+              <h:commandButton action="#{sesionBean.cerrarSesion}" value="Cerrar Sesion"/>
+          </h:form>
+      </pm:header>
+
+      <pm:content >
+        <h:form>
+            <center>
+                <h:panelGrid columns="1">
+                    <h:commandButton   action="alta" value="Alta de Parametros"/>
+              <br/>
+              <h:commandButton action="seleccionModelo" value="Modelo de Vehiculo y Proyecto Individual" />                                      
+              <br/>
+              <h:commandButton action="seleccionSimulacion" value="Simulacion de Vehiculos y de Proyectos" />
+              <br/>
+              <h:commandButton action="markFuture" value="Mark to Future"/>
+              <br/>
+              <h:commandButton action="seleccionInformes" value="Informes Ejecutivos" />
+              <br/>
+              <h:commandButton action="accionesConfiguracion" value="Configuraciones" />
+            </h:panelGrid>
+            </center>
+                
+        </h:form>
+      </pm:content>
+
+    </pm:view>
+
+  </pm:page>
+
+</f:view>

@@ -1,0 +1,45 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+
+
+
+
+
+
+<pm:page title="Vehiculos">
+        <!-- Alta -->
+        <pm:view id="CapturaVehiculos1">
+            <pm:header title="Copia Rapida" swatch="b">
+                <h:outputText value="El usuario actual es: #{loginBean.usr}"/>
+                <h:form>
+                    <h:commandButton action="accionesVehiculo" value="Menu de Acciones"/>
+                </h:form>
+                
+            </pm:header>
+
+
+            <pm:content >
+
+                <center>
+                    <h:form id="parametricas">  
+                        <h:panelGrid columns="2">
+                            <h:outputText value="Nombre del Proyecto:"/>
+                            <p:inputText title="Valor" required="true" id="nombre"  value="#{vehiculoParametricas.nombreProyecto}"/>
+                            
+                        
+                           
+                            <!--<p:ajax  event="change" update="valor" listener="#validadorBean.valueChangePorcentaje}"/>-->
+                            
+                            <h:commandButton id="btn2" action="#{escalonesTir.guardarEtapa2}" value="Guardar"/>
+                        </h:panelGrid>
+                    </h:form>
+                </center>
+            </pm:content>
+        </pm:view>
+</pm:page>
+</f:view>

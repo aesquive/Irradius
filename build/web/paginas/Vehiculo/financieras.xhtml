@@ -1,0 +1,94 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+
+    <pm:page title="Vehiculos">
+        <!-- Alta -->
+        <pm:view id="CapturaVehiculos2">
+
+            <pm:header title="Financieras #{vehiculoParametricas.nombreProyecto}" swatch="b">
+                <h:outputText value="El usuario actual es: #{loginBean.usr}"/>
+                <h:form>
+                    <h:commandButton action="#{beanLimpiador.limpiaPantallasVehiculo}" value="Menu de Acciones"/>
+                </h:form>
+            </pm:header>
+            <pm:content >
+                <center>
+                    <h:form id="financieras">  
+                        <h:panelGrid columns="2">
+                            <h:outputText value="Numero de Etapas"/>
+                            <h:inputText disabled="#{generalVehiculoBean.ver}" value="#{vehiculoFinancieras.numeroEtapas}"/>
+                        </h:panelGrid>
+
+                        <h:panelGrid>
+
+
+                            <h:panelGrid>
+                                <p:dataTable var="Numerico" value="#{vehiculoFinancieras.listaNum}">
+                                    <p:column id="columna1">  
+                                        <f:facet name="header">  
+                                            Parametricas  
+                                        </f:facet>  
+                                        <h:outputText value="#{Numerico.registroDescripcion}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2">  
+                                        <f:facet name="header">  
+                                            Valores 
+                                        </f:facet>  
+                                        <p:inputText disabled="#{generalVehiculoBean.ver}" maxlength="15" required="true" id="financieras"  value="#{Numerico.registroIngreso}" >
+                                            <p:ajax  event="change" update="financieras" listener="#{validadorBean.valueChangeNumerico}"/>
+                                        </p:inputText>
+                                    </p:column>           
+                                </p:dataTable>  
+
+                                <p:dataTable var="Par" value="#{vehiculoFinancieras.listaPorcentaje}">
+                                    <p:column id="columna1">  
+                                        <f:facet name="header">  
+                                            Parametricas  
+                                        </f:facet> 
+                                        <h:outputText value="#{Par.registroDescripcion}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2">  
+                                        <f:facet name="header">  
+                                            Valores 
+                                        </f:facet>  
+                                        <p:inputText disabled="#{generalVehiculoBean.ver}" required="true" id="finpor" value="#{Par.registroIngreso}">
+                                            <p:ajax  event="change" update="finpor" listener="#{validadorBean.valueChangePorcentaje}"/>
+                                        </p:inputText>
+                                    </p:column>           
+                                </p:dataTable>
+
+                            </h:panelGrid>
+                            
+                                <h:message for="boton" style="color: red ;font-size: large"/> 
+                        </h:panelGrid>
+                        <center>
+                            <h:panelGrid>
+                                <h:commandButton id="boton" action="#{vehiculoFinancieras.pasarEtapas}" value="Siguiente"/>   
+                            </h:panelGrid>
+                        </center>
+
+                    </h:form>
+                </center>
+            </pm:content>
+            <pm:content>
+
+                <center>
+                    <h:form>
+                        <h:panelGrid>
+                            <h:commandButton action="parametricas"  value="Atras"/>
+                        </h:panelGrid>    
+                    </h:form>
+                </center>
+            </pm:content>
+        </pm:view>
+
+    </pm:page>
+
+</f:view>

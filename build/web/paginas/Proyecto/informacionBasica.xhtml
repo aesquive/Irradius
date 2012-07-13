@@ -1,0 +1,134 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+
+  <pm:page title="InformacionBasica">
+
+    <!-- Alta -->
+    <pm:view id="CapturaProyecto1">
+
+      <pm:header title="Informacion Basica" swatch="b">
+           <h:form>
+                    <h:commandButton action="modelos" value="Menu de Acciones"/>
+                </h:form>
+      </pm:header>
+      <pm:content>
+        <center>
+          <h:form>  
+
+            <h:panelGrid columns="2" cellpadding="5">
+              <p:column id="columna1">
+                <br/>
+                <h:outputText value="Nombre del proyecto:"/><br/><br/>
+                <h:outputText value="Numero de etapas:"/><br/><br/>
+                <h:outputText value="Fecha de elaboracion : "/><br/><br/>
+                <h:outputText value="      Cifra al mes de : "/><br/><br/>
+              </p:column>
+              <p:column id="columna2">
+                <p:inputText title="La Veguita" required="true" value="#{proyectosInfoBasica.nombre}"/>     
+                <p:inputText  maxlength="2" id="numEtps" required="true" value="#{proyectosInfoBasica.numEtapas}">
+                  <p:ajax  event="change" update="numEtps" listener="#{validadorBean.valueChangeNumerico}"/>
+                </p:inputText>
+                <p:calendar  required="true" pattern="dd-MM-yyyy" id="fec1" navigator="true" value="${proyectosInfoBasica.fechaDeElaboracion}"/>
+                <p:tooltip for="elaboracion" showEvent="elaboracion" hideEvent="blur"/>
+                <p:calendar  required="true" pattern="dd-MM-yyyy" id="fec1" navigator="true" value="${proyectosInfoBasica.cifraAlMesDe}"/>
+                <p:tooltip for="cifras"  showEvent="elaboracion" hideEvent="blur"/>
+              </p:column>
+            </h:panelGrid>
+              <h:panelGrid columns="2" >
+                  <h:outputText value="Tipo de Negocio :    "/>
+                <h:selectOneMenu>
+                <f:selectItem itemLabel="  Selecciona  " itemValue="0"  />
+                <f:selectItem itemLabel=" Tradicional" itemValue="1"/>
+                <f:selectItem itemLabel=" Asociacion / Aportacion" itemValue="2"/>
+                <f:selectItem itemLabel=" Copropiedad" itemValue="3"/>
+                <f:selectItem itemLabel=" Construccion" itemValue="4"/>
+                <f:selectItem itemLabel=" Promocion" itemValue="5"/>
+              </h:selectOneMenu>
+            </h:panelGrid>
+              
+               <h:panelGrid cellpadding="3" >
+                   <p:dataTable var="Meses" value="#{proyectosInfoBasica.listaMeses}">
+                <p:column id="columna1">  
+                  <f:facet name="header">  
+                    Variable  
+                  </f:facet>  
+                    <h:outputText value="#{Meses.registroDescripcion}"/>
+                </p:column>  
+
+                <p:column id="columna2">  
+                  <f:facet name="header">  
+                    No. Meses
+                  </f:facet>  
+                    <p:inputText required="true" id="terrIng" maxlength="15" value="#{Meses.registroIngreso}" >
+                    <p:ajax  event="change" update="terrIng" listener="#{validadorBean.valueChangeNumerico}"/>
+                  </p:inputText>
+                </p:column>           
+              </p:dataTable>  
+               </h:panelGrid>
+                   
+            <h:panelGrid cellpadding="3" >
+              <p:dataTable var="Terreno" value="#{proyectosInfoBasica.listaTerreno}">
+                <p:column id="columna1">  
+                  <f:facet name="header">  
+                    Variable  
+                  </f:facet>  
+                  <h:outputText value="#{Terreno.registroDescripcion}"/>
+                </p:column>  
+
+                <p:column id="columna2">  
+                  <f:facet name="header">  
+                    Valor
+                  </f:facet>  
+                  <p:inputText required="true" id="terrIng" maxlength="15" value="#{Terreno.registroIngreso}" >
+                    <p:ajax  event="change" update="terrIng" listener="#{validadorBean.valueChangeNumerico}"/>
+                  </p:inputText>
+                </p:column>           
+              </p:dataTable>  
+
+              <p:dataTable var="Construccion" value="#{proyectosInfoBasica.listaConstruccion}">
+                <p:column id="columna1">  
+                  <f:facet name="header">  
+                    Variable  
+                  </f:facet> 
+                  <h:outputText value="#{Construccion.descripcion}"/>
+                </p:column>  
+
+                <p:column id="columna2">  
+                  <f:facet name="header">  
+                    m2
+                  </f:facet>  
+                  <p:inputText required="true" maxlength="15" id="consIng"  value="#{Construccion.monto}" >
+                    <p:ajax  event="change" update="consIng" listener="#{validadorBean.valueChangeNumerico}"/>
+                  </p:inputText>
+                </p:column>
+
+                <p:column id="columna3">  
+                  <f:facet name="header">  
+                    Costo m2
+                  </f:facet>  
+                  <p:inputText required="true" maxlength="15" id="consIng2"  value="#{Construccion.porcentajeValor}" >
+                    <p:ajax  event="change" update="consIng2" listener="#{validadorBean.valueChangeNumerico}"/>
+                  </p:inputText>
+                </p:column>
+
+              </p:dataTable>  
+             </h:panelGrid>
+              <h:panelGrid columns="2">
+              <h:commandButton  action="modelos" value="Atras" />
+              <h:commandButton action="terrenoFechas" value="Siguiente" />
+            </h:panelGrid>
+          </h:form>
+        </center>
+      </pm:content>
+
+    </pm:view>
+
+  </pm:page>
+
+</f:view>
+

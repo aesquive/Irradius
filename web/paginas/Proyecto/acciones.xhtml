@@ -1,0 +1,56 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        xmlns:c="http://java.sun.com/jsp/jstl/core"
+        contentType="text/html">
+  <pm:page title="Acciones">
+    <!-- Alta -->
+    <pm:view id="Busqueda">
+
+      <pm:header title="Acciones" swatch="b"/>
+      <pm:content >
+
+        <h:form id="acciones">
+          <center>
+
+            <h:panelGrid columns="2">
+              <h:outputText value="Proyectos : "/>
+              <h:selectOneMenu id="selectOne" value="#{generalProyecto.proyectoActual}">
+                <f:selectItem itemLabel="Seleccionar un Proyecto"/>
+                <f:selectItems id="proyectos" value="#{generalProyecto.proyectos}" itemValue="#{proyecto.id}"
+                               var="proyecto" itemLabel="#{proyecto.id}-#{proyecto.nomPry}"/>
+                <p:ajax event="change" update="proyectos" listener="#{generalProyecto.cambioCopia}"/>
+              </h:selectOneMenu>
+
+            </h:panelGrid>
+            <h:panelGrid columns="4">
+              <h:outputText value="Buscar: "/>
+              <h:inputText id="busqueda" value="#{generalProyecto.busqueda}" />
+              <h:commandButton id="btnBusqueda" action="#{generalProyecto.empezarBusqueda}" value="Buscar"/>
+              <h:commandButton id="todos" action="#{generalProyecto.verTodos}" value="Ver Todos"/>
+            </h:panelGrid>
+
+            <h:panelGrid id="grid" columns="2">
+              <h:commandButton value="Alta" action="#{generalProyecto.alta}"/>
+              <h:commandButton value="Copiar" action="#{generalProyecto.copiar}"/>
+              <h:commandButton value="Modificar" action="#{generalProyecto.modificar}"/>
+              <h:commandButton value="Baja" action="#{generalProyecto.baja}"/>
+            </h:panelGrid>
+            <h:panelGrid columns="1"> 
+              <h:commandButton action="menuPrincipal" value="Menu Principal" />
+            </h:panelGrid> 
+            <h:outputText id="mensaje"/>
+            <h:message style="color: red ;font-size: large" for="mensaje"/>
+          </center>
+        </h:form>
+
+
+      </pm:content>
+
+    </pm:view>
+  </pm:page>
+
+</f:view>

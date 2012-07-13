@@ -1,0 +1,62 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+
+  <pm:page title="Programa de Venta por Etapa #{proyectosEtapasBean.etapaActual}">
+    <!-- Alta -->
+    <pm:view id="VentaEtapa">
+
+      <pm:header title="Programa de Venta por Etapa" swatch="b">
+           <h:form>
+                    <h:commandButton action="modelos" value="Menu de Acciones"/>
+                </h:form>
+      </pm:header>
+
+      <pm:content >
+        <center>
+          <h:form>
+
+            <h:panelGrid> 
+              <p:dataTable var="valor" id="tabla" value="#{proyectosEtapasBean.fechasVentas}">
+                <p:column id="columnaFecha">
+                  <f:facet name="header" >
+                    Fecha
+                  </f:facet>
+                  <h:outputText value="#{valor.fecha}"/>
+                </p:column>
+
+                <p:column id="columnaPorcentaje" >
+                  <f:facet name="header">
+                    Valor
+                  </f:facet>
+                  <p:inputText  required="true" id="valorVenta" value="#{valor.porcentaje}">
+                    <p:ajax async="false" immediate="true"  event="change" update="porcentajeTerreno" listener="#{validadorBean.valueChangePorcentaje}"/>
+                  </p:inputText>
+                </p:column>
+
+              </p:dataTable>
+            </h:panelGrid>
+              <h:panelGrid columns="2">
+              <h:commandButton action="fechas" value="Atras" />
+              <h:commandButton id="boton" action="titulacion" value="Siguiente" />
+              <h:message for="boton" style="color: red ;font-size: large"/> 
+            </h:panelGrid>
+
+          </h:form>
+
+
+        </center>
+      </pm:content>
+
+    </pm:view>
+
+  </pm:page>
+
+
+
+
+</f:view>

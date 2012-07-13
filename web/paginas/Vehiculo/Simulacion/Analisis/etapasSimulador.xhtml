@@ -1,0 +1,50 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+
+    <pm:page title="Vehiculos">
+        <!-- Alta -->
+        <pm:view id="CapturaVehiculos2">
+
+            <pm:header title="Etapa " swatch="b">
+                <h:outputText value="El usuario actuas es: #{loginBean.usr}"/>
+                 <br/>
+                
+                <h:form>
+                    <h:commandButton action="menuSimulacion" value="seleccion de Simulacion"/>
+                    <!--<h:commandButton action="accionesVehiculo" value="Menu de Acciones"/>-->
+                </h:form>
+            </pm:header>
+            <pm:content >
+                <center>
+                    <h:form id="financieras">  
+                        <h:panelGrid columns="2">
+                            
+                            <h:outputText value="Viviendas de etapa"/>
+                            <h:inputText value="#{etapasVehiculo.viviendasEtapa}"/>
+                            <h:outputText value="Fecha Inicio Etapa"/>
+                            <p:calendar required="true" pattern="dd-MM-yyyy" id="fech1" navigator="true">
+                                <p:ajax event="click" update="fec1" listener="#{etapasVehiculo.fechaInicioEtapa}"/>
+                            </p:calendar>
+                            <h:outputText value="Fecha Fin Etapa"/>
+                            <p:calendar required="true" pattern="dd-MM-yyyy" id="fech2" navigator="true">
+                                <p:ajax event="click" update="fec2" listener="#{etapasVehiculo.fechaFinEtapa}"/>
+                            </p:calendar>
+                            <h:commandButton action="#{etapasVehiculo.regresarEtapa}" value="Atras"/>
+                            <h:commandButton id="boton" action="#{etapasVehiculo.guardarEtapa}" value="Siguiente"/>   
+                            <h:message for="boton" style="color: red ;font-size: large"/> 
+                        </h:panelGrid>
+
+                    </h:form>
+                </center>
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+</f:view>

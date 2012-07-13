@@ -1,0 +1,47 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+    <pm:page title="Alta Modelo">
+        <!-- Alta -->
+        <pm:view id="Busqueda">
+
+            <pm:header title="Acciones" swatch="b"/>
+            <h:outputText value="El usuario actual es: #{loginBean.usr}"/>
+            <pm:content >
+
+                <h:form id="altaModelo">
+                    <center>
+                        <h:panelGrid columns="2">
+                            <h:outputText value="Nombre del modelo"/>
+                            <h:inputText value="#{altaModelo.nombreModelo}"/>
+                        </h:panelGrid>
+                    
+                        <h:panelGrid columns="2">
+                            <h:outputText value="Proyectos Disponibles"/>
+                            <h:selectOneMenu style="width: 200px" id="selectOne" value="#{altaModeloProyecto.proyectoSeleccionado}">
+                                <f:selectItem itemLabel="Seleccionar un Proyecto"/>
+                                <f:selectItems id="proyectos" value="#{altaModeloProyecto.listaProyectos}"  var="proyectoInd"
+                                               itemLabel="#{proyectoInd.nomPry}" itemValue="#{proyectoInd.id}"/>
+                            </h:selectOneMenu>
+                        </h:panelGrid>    
+                        
+                        <h:panelGrid columns="1">
+                            <h:commandButton action="#{altaModeloProyecto.guardar}" value="Guardar y Modelar"/>
+                            <h:commandButton action="seleccionProyectos" value="Menu Seleccion" />
+                        </h:panelGrid>
+
+                    </center>
+
+                </h:form>
+
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+</f:view>     

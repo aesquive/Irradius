@@ -1,0 +1,64 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+
+    <pm:page title="Vehiculos">
+        <!-- Alta -->
+        <pm:view id="CapturaVehiculos2">
+
+            <pm:header title="Etapa #{etapasVehiculo.escalonActual}" swatch="b">
+
+                <h:outputText value="El usuario actuas es: #{loginBean.usr}"/>
+                <h:form>
+                    <h:commandButton action="#{beanLimpiador.limpiaPantallasVehiculo}" value="Menu de Acciones"/>
+                </h:form>
+            </pm:header>
+            <pm:content >
+                <center>
+
+                    <h:form id="financieras">  
+
+                        <h:outputText value="El formato de las fechas debe ser dd-mm-aaaa" style="color: red ;font-size: large" id="nada"/>
+
+                        <h:panelGrid columns="2">
+
+                            <h:outputText value="Viviendas de etapa"/>
+                            <h:inputText disabled="#{generalVehiculoBean.ver}" value="#{etapasVehiculo.viviendasEtapa}"/>
+                            <h:outputText value="Fecha Inicio Etapa"/>
+                            <p:calendar required="true" disabled="#{generalVehiculoBean.ver}"  showOn="nada" pattern="dd-MM-yyyy" value="#{etapasVehiculo.fechaInicioEtapa}" id="fech1" navigator="true">
+                            </p:calendar>
+                            <h:outputText value="Fecha Fin Etapa"/>
+                            <p:calendar required="true" disabled="#{generalVehiculoBean.ver}" showOn="nada" pattern="dd-MM-yyyy" value="#{etapasVehiculo.fechaFinEtapa}" id="fech2" navigator="true">
+                            </p:calendar>
+                            <h:message for="boton" style="color: red ;font-size: large"/> 
+                        </h:panelGrid>
+                        <center>
+                            <h:panelGrid>
+                                <h:commandButton id="boton" action="#{etapasVehiculo.guardarEtapa}" value="Siguiente"/>   
+                            </h:panelGrid>
+                        </center>
+
+                    </h:form>
+                </center>
+            </pm:content>
+
+            <pm:content>
+
+                <center>
+                    <h:form>
+                        <h:panelGrid>
+                            <h:commandButton action="#{etapasVehiculo.regresarEtapa}" value="Atras"/>
+
+                        </h:panelGrid>    
+                    </h:form>
+                </center>
+            </pm:content>
+        </pm:view>
+
+    </pm:page>
+
+</f:view>

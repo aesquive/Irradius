@@ -1,0 +1,1306 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!-- =========== FULL CONFIGURATION FILE ================================== -->
+
+<faces-config version="2.0"
+    xmlns="http://java.sun.com/xml/ns/javaee" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+  
+    <dependency>  
+        <groupId>org.primefaces.themes</groupId>  
+        <artifactId>cupertino</artifactId>  
+        <version>1.0.2</version>  
+    </dependency>
+  
+    <application>
+        <message-bundle>errorJSF</message-bundle>
+    </application>
+  
+  
+
+    <managed-bean>
+        <managed-bean-name>generalVehiculoBean</managed-bean-name>
+        <managed-bean-class>Beans.Vehiculo.GeneralVehiculoBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>beanLimpiador</managed-bean-name>
+        <managed-bean-class>Beans.Vehiculo.Pantallas.BeanLimpiador</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+  
+    <managed-bean>
+        <managed-bean-name>asignacionModelo</managed-bean-name>
+        <managed-bean-class>Beans.Configuracion.AsignacionModelo</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+
+    <managed-bean>
+        <managed-bean-name>validadorBean</managed-bean-name>
+        <managed-bean-class>Beans.ValidadorBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+  
+    <managed-bean>
+        <managed-bean-name>loginBean</managed-bean-name>
+        <managed-bean-class>Beans.General.LoginBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>vehiculoParametricas</managed-bean-name>
+        <managed-bean-class>Beans.Vehiculo.VehiculoFamiliaParametricasBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    
+    <managed-bean>
+        <managed-bean-name>informesVehiculoBean</managed-bean-name>
+        <managed-bean-class>Beans.Pantallas.Informes.InformesVehiculoBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    
+    <managed-bean>
+        <managed-bean-name>vehiculoFinancieras</managed-bean-name>
+        <managed-bean-class>Beans.Vehiculo.VehiculoFamiliaPremisasFinancieras</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>vehiculoInversion</managed-bean-name>
+        <managed-bean-class>Beans.Vehiculo.VehiculoFamiliaPremisasInversion</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>fechasBean</managed-bean-name>
+        <managed-bean-class>Beans.Vehiculo.FechasBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>consolidadoBean</managed-bean-name>
+        <managed-bean-class>Beans.Vehiculo.Pantallas.ConsolidadoBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>etapasVehiculo</managed-bean-name>
+        <managed-bean-class>Beans.Vehiculo.EtapasVehiculo</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>altaUsuariosBean</managed-bean-name>
+        <managed-bean-class>Beans.Configuracion.AltaUsuariosBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>edificacionBean</managed-bean-name>
+        <managed-bean-class>Beans.Vehiculo.EdificacionBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>escalonesTir</managed-bean-name>
+        <managed-bean-class>Beans.Vehiculo.EscalonesTirBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>titulacionBean</managed-bean-name>
+        <managed-bean-class>Beans.Vehiculo.TitulacionBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>ventaBean</managed-bean-name>
+        <managed-bean-class>Beans.Vehiculo.VentaBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    
+      <managed-bean>
+        <managed-bean-name>asignacionVehiculo</managed-bean-name>
+        <managed-bean-class>Beans.Configuracion.AsignacionVehiculo</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+  
+    <managed-bean>
+        <managed-bean-name>sesionBean</managed-bean-name>
+        <managed-bean-class>Beans.SesionBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>generalModeloVehiculoBean</managed-bean-name>
+        <managed-bean-class>Beans.Vehiculo.Pantallas.GeneralModeloVehiculoBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>altaModelo</managed-bean-name>
+        <managed-bean-class>Beans.Vehiculo.Pantallas.AltaModelo</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>etapasModeloVehiculoBean</managed-bean-name>
+        <managed-bean-class>Beans.Vehiculo.Pantallas.EtapasModeloVehiculoBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>generalSimulacionBean</managed-bean-name>
+        <managed-bean-class>Beans.Vehiculo.Simulacion.GeneralSimulacionBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    
+    <managed-bean>
+        <managed-bean-name>mapasMenuSimulacion</managed-bean-name>
+        <managed-bean-class>Beans.Vehiculo.Simulacion.MapasMenuSimulacion</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+
+
+
+<navigation-rule>
+        <from-view-id>/paginas/Vehiculo/MarkFuture/escenariosMarkFuture.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuPrincipal</from-outcome>
+            <to-view-id>/paginas/menuPrincipal.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+<navigation-rule>
+        <from-view-id>/paginas/Vehiculo/MarkFuture/datosMarkFuture.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuPrincipal</from-outcome>
+            <to-view-id>/paginas/menuPrincipal.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menu</from-outcome>
+            <to-view-id>/paginas/menuPrincipal.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/paginas/menuPrincipal.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>alta</from-outcome>
+            <to-view-id>/paginas/modelos.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>accionesConfiguracion</from-outcome>
+            <to-view-id>/paginas/Configuracion/accionesConfiguracion.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>seleccionModelo</from-outcome>
+            <to-view-id>/paginas/seleccionModelo.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>markFuture</from-outcome>
+            <to-view-id>/paginas/Vehiculo/MarkFuture/escenariosMarkFuture.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/paginas/modelos.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>informacion</from-outcome>
+            <to-view-id>/paginas/Proyecto/informacionBasica.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>accionesVehiculo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/acciones.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/parametricas.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>financieras</from-outcome>
+            <to-view-id>/paginas/Vehiculo/financieras.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>accionesVehiculo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/acciones.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/financieras.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>parametricas</from-outcome>
+            <to-view-id>/paginas/Vehiculo/parametricas.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>accionesVehiculo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/acciones.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>etapas</from-outcome>
+            <to-view-id>/paginas/Vehiculo/etapas.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/fechas.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>edificacion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/edificacion.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>accionesVehiculo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/acciones.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>etapas</from-outcome>
+            <to-view-id>/paginas/Vehiculo/etapas.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/edificacion.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>fechas</from-outcome>
+            <to-view-id>/paginas/Vehiculo/fechas.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>ventas</from-outcome>
+            <to-view-id>/paginas/Vehiculo/ventas.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>accionesVehiculo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/acciones.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/ventas.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>titulacion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/titulacion.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>edificacion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/edificacion.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>accionesVehiculo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/acciones.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/inversion.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>titulacion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/titulacion.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>escalonesTir</from-outcome>
+            <to-view-id>/paginas/Vehiculo/escalonesTir.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>accionesVehiculo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/acciones.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/titulacion.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>inversion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/inversion.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>ventas</from-outcome>
+            <to-view-id>/paginas/Vehiculo/ventas.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>accionesVehiculo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/acciones.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/paginas/Proyecto/etapas.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>informacion</from-outcome>
+            <to-view-id>/paginas/Proyecto/informacionBasica.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>etapas</from-outcome>
+            <to-view-id>/paginas/Proyecto/etapas.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>fechas</from-outcome>
+            <to-view-id>/paginas/Proyecto/ProyectoFechas.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>modelos</from-outcome>
+            <to-view-id>/paginas/modelos.xhtml</to-view-id>
+        </navigation-case>
+         
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/paginas/Proyecto/generadores.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menu</from-outcome>
+            <to-view-id>/paginas/menuPrincipal.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>titulacion</from-outcome>
+            <to-view-id>/paginas/Proyecto/titulacion.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>modelos</from-outcome>
+            <to-view-id>/paginas/modelos.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/paginas/Proyecto/informacionBasica.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>etapas</from-outcome>
+            <to-view-id>/paginas/Proyecto/etapas.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>modelos</from-outcome>
+            <to-view-id>/paginas/modelos.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>modelos</from-outcome>
+            <to-view-id>/paginas/modelos.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/escalonesTir.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>inversion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/inversion.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>escalonesTir</from-outcome>
+            <to-view-id>/paginas/Vehiculo/escalonesTir.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>menu</from-outcome>
+            <to-view-id>/paginas/menuPrincipal.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>accionesVehiculo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/acciones.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/acciones.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>parametricas</from-outcome>
+            <to-view-id>/paginas/Vehiculo/parametricas.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>accionesVehiculo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/acciones.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>menuPrincipal</from-outcome>
+            <to-view-id>/paginas/menuPrincipal.xhtml</to-view-id>
+        </navigation-case>
+         <navigation-case>
+            <from-outcome>copiadoRapido</from-outcome>
+            <to-view-id>/paginas/Vehiculo/copiadoRapido.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/paginas/Configuracion/accionesConfiguracion.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>altaUsuarios</from-outcome>
+            <to-view-id>/paginas/Configuracion/altaUsuarios.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>asignacionVehiculo</from-outcome>
+            <to-view-id>/paginas/Configuracion/asignacionVehiculo.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>menuPrincipal</from-outcome>
+            <to-view-id>/paginas/menuPrincipal.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/paginas/Configuracion/altaUsuarios.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>accionesConfiguracion</from-outcome>
+            <to-view-id>/paginas/Configuracion/accionesConfiguracion.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>altaUsuarios</from-outcome>
+            <to-view-id>/paginas/Configuracion/altaUsuarios.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/paginas/Configuracion/asignacionVehiculo.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>accionesConfiguracion</from-outcome>
+            <to-view-id>/paginas/Configuracion/accionesConfiguracion.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>asignacionVehiculo</from-outcome>
+            <to-view-id>/paginas/Configuracion/asignacionVehiculo.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    <navigation-rule>
+        <from-view-id>/paginas/Proyecto/ProyectoFechas.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>terreno</from-outcome>
+            <to-view-id>/paginas/Proyecto/Terreno.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>informacion</from-outcome>
+            <to-view-id>/paginas/Proyecto/informacionBasica.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/paginas/Proyecto/Terreno.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>venta</from-outcome>
+            <to-view-id>/paginas/Proyecto/venta.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>fechas</from-outcome>
+            <to-view-id>/paginas/Proyecto/ProyectoFechas.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/paginas/seleccionModelo.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuPrincipal</from-outcome>
+            <to-view-id>/paginas/menuPrincipal.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>seleccionProyectos</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Modelo/seleccionProyectos.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>seleccionProyectosInd</from-outcome>
+            <to-view-id>/paginas/Proyecto/Modelo/seleccionProyectos.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Modelo/seleccionProyectos.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuPrincipal</from-outcome>
+            <to-view-id>/paginas/menuPrincipal.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>menuModelo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Modelo/menuModelo.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>copiadoRapido</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Modelo/copiadoRapido.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Modelo/altaModelo.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuPrincipal</from-outcome>
+            <to-view-id>/paginas/menuPrincipal.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>menuModelo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Modelo/menuModelo.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Modelo/Etapas/gastosIndividualizacion.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>seleccionProyectos</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Modelo/seleccionProyectos.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    
+    <navigation-rule>
+        <from-view-id>/paginas/Proyecto/venta.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>titulacion</from-outcome>
+            <to-view-id>/paginas/Proyecto/titulacion.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>terreno</from-outcome>
+            <to-view-id>/paginas/Proyecto/Terreno.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/paginas/Proyecto/titulacion.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>generadores</from-outcome>
+            <to-view-id>/paginas/Proyecto/generadores.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>venta</from-outcome>
+            <to-view-id>/paginas/Proyecto/venta.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Modelo/menuModelo.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>estadisticas</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Modelo/Consolidado/estadisticas.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>unidadesEdificadas</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Modelo/Etapas/unidadesEdificadas.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>seleccionProyecto</from-outcome>
+            <to-view-id>/paginas/menuPrincipal.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+      
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Modelo/Simulacion/menuSimulacion.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>parametricasSimulador</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/Analisis/parametricasSimulador.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>menuModeloSimulacion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/menuModeloSimulacion.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>menuIndicadores</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/menuIndicadores.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>salir</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+        
+        
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Simulacion/menuModeloSimulacion.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>estadisticasSimulador</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/Consolidado/estadisticasSimulador.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>unidadesEdificadasSimulador</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/Etapas/unidadesEdificadasSimulador.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>seleccionProyecto</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Modelo/seleccionProyectos.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+        
+    
+    
+    
+    
+   
+   
+   
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Modelo/Consolidado/egresos1.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuModelo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Modelo/menuModelo.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Modelo/Consolidado/egresos2.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuModelo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Modelo/menuModelo.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+        
+    
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Modelo/Consolidado/egresos3.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuModelo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Modelo/menuModelo.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Modelo/Consolidado/estadisticas.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuModelo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Modelo/menuModelo.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Modelo/Consolidado/financiamiento.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuModelo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Modelo/menuModelo.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Modelo/Consolidado/flujoCajaInicial1.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuModelo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Modelo/menuModelo.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        
+        
+        
+        
+        <from-view-id>/paginas/Vehiculo/Modelo/Consolidado/flujoCajaInicial2.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuModelo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Modelo/menuModelo.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        
+        
+        
+       
+        <from-view-id>/paginas/Vehiculo/Modelo/Consolidado/flujoCajaInicial3.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuModelo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Modelo/menuModelo.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Modelo/Consolidado/flujoCajaInicial4.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuModelo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Modelo/menuModelo.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Modelo/Consolidado/flujoCajaInicial5.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuModelo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Modelo/menuModelo.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Modelo/Consolidado/flujoCajaInicial6.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuModelo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Modelo/menuModelo.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Modelo/Consolidado/ingresos.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuModelo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Modelo/menuModelo.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Modelo/Consolidado/retornoInversionista1.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuModelo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Modelo/menuModelo.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Modelo/Consolidado/retornoInversionista2.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuModelo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Modelo/menuModelo.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Modelo/Consolidado/retornoInversionista3.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuModelo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Modelo/menuModelo.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Modelo/Consolidado/retornoInversionista4.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuModelo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Modelo/menuModelo.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Modelo/Consolidado/retornoInversionista5.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuModelo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Modelo/menuModelo.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+
+
+
+ 
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Simulacion/Consolidado/egresos1Simulador.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuSimulacion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/menuSimulacion.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Simulacion/Consolidado/egresos2Simulador.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuSimulacion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/menuSimulacion.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Simulacion/Consolidado/egresos3Simulador.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuSimulacion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/menuSimulacion.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Simulacion/Consolidado/estadisticasSimulador.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuSimulacion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/menuSimulacion.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Simulacion/Consolidado/financiamientoSimulador.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuSimulacion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/menuSimulacion.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Simulacion/Consolidado/flujoCajaInicial1Simulador.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuSimulacion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/menuSimulacion.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Simulacion/Consolidado/flujoCajaInicial2Simulador.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuSimulacion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/menuSimulacion.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Simulacion/Consolidado/flujoCajaInicial3Simulador.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuSimulacion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/menuSimulacion.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Simulacion/Consolidado/flujoCajaInicial4Simulador.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuSimulacion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/menuSimulacion.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Simulacion/Consolidado/flujoCajaInicial5Simulador.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuSimulacion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/menuSimulacion.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Simulacion/Consolidado/flujoCajaInicial6Simulador.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuSimulacion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/menuSimulacion.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Simulacion/Consolidado/ingresosSimulador.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuSimulacion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/menuSimulacion.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Simulacion/Consolidado/retornoInversionista1Simulador.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuSimulacion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/menuSimulacion.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Simulacion/Consolidado/retornoInversionista2Simulador.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuSimulacion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/menuSimulacion.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Simulacion/Consolidado/retornoInversionista3Simulador.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuSimulacion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/menuSimulacion.xhtml</to-view-id>
+        </navigation-case>
+   
+    </navigation-rule>
+   
+   
+   
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Simulacion/Consolidado/retornoInversionista4Simulador.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuSimulacion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/menuSimulacion.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+        
+        
+        
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Simulacion/Consolidado/retornoInversionista5Simulador.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuSimulacion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/menuSimulacion.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    
+    
+    
+    
+    
+    
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Modelo/Etapas/costoVenta.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuModelo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Modelo/menuModelo.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Modelo/Etapas/desembolsoInicial.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuModelo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Modelo/menuModelo.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Modelo/Etapas/firmaContratoCompraVenta.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuModelo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Modelo/menuModelo.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Modelo/Etapas/gastosIndividualizacion.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuModelo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Modelo/menuModelo.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Modelo/Etapas/gav.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuModelo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Modelo/menuModelo.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Modelo/Etapas/unidadesDisponibles.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuModelo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Modelo/menuModelo.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Modelo/Etapas/unidadesDisponiblesAcumuladas.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuModelo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Modelo/menuModelo.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Modelo/Etapas/unidadesEdificadas.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuModelo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Modelo/menuModelo.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Modelo/Etapas/unidadesEdificadasAcumuladas.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuModelo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Modelo/menuModelo.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Modelo/Etapas/unidadesVendidas.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuModelo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Modelo/menuModelo.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Modelo/Etapas/unidadesVendidasAcumuladas.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuModelo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Modelo/menuModelo.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    
+    
+    
+    
+    
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Simulacion/Analisis/edificacionSimulador.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuSimulacion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/menuSimulacion.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Simulacion/Analisis/escalonesTirSimulador.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuSimulacion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/menuSimulacion.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Simulacion/Analisis/etapasSimulador.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuSimulacion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/menuSimulacion.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Simulacion/Analisis/fechasSimulador.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuSimulacion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/menuSimulacion.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Simulacion/Analisis/financierasSimulador.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuSimulacion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/menuSimulacion.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Simulacion/Analisis/inversionSimulador.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuSimulacion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/menuSimulacion.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Simulacion/Analisis/parametricasSimulador.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuSimulacion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/menuSimulacion.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Simulacion/Analisis/titulacionSimulador.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuSimulacion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/menuSimulacion.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Simulacion/Analisis/ventasSimulador.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuSimulacion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/menuSimulacion.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+   
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Modelo/Consolidado/tir.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuModelo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Modelo/menuModelo.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+   
+    <navigation-rule>
+        <from-view-id>/paginas/seleccionSimulacion.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuSimulacion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/menuSimulacion.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+   
+   
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Simulacion/menuSimulacion.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuPrincipal</from-outcome>
+            <to-view-id>/paginas/menuPrincipal.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+   
+   <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Simulacion/accionesSimulacion.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>mapasCalor</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/MapasCalor/menuMapas.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>premisasInversion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/Inversion/premisasInversion.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>simulacionMinistracion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/Graficas/SimulacionMinistracion.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>menuIndicadores</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/menuIndicadores.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+   
+   
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Simulacion/Inversion/premisasInversion.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuPrincipal</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/menuSimulacion.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+   
+   
+   
+
+    
+    
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Simulacion/MapasCalor/MapadeCalor.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuSimulacion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/menuSimulacion.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+
+
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Simulacion/Inversion/premisasInversion.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuSimulacion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/accionesSimulacion.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+
+
+<!-- TODO LO DE AIDA VA DE AQUI PA ABAJO-->
+
+
+
+
+
+    
+    
+
+
+
+    
+    
+     <!--Aqui ya no va lo de aida esto es de luis-->
+     <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/copiadoRapido.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>accionesVehiculo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/acciones.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>escalonesTir</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/menuSimulacion.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>menu</from-outcome>
+            <to-view-id>/paginas/menuPrincipal.xhtml</to-view-id>
+        </navigation-case>
+     </navigation-rule>
+    
+    
+    
+     <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Simulacion/Graficas/Graficacion.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuSimulacion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/accionesSimulacion.xhtml</to-view-id>
+        </navigation-case>
+     </navigation-rule>
+    
+    
+    
+     <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/etapas.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>accionesVehiculo</from-outcome>
+            <to-view-id>/paginas/Vehiculo/acciones.xhtml</to-view-id>
+        </navigation-case>
+     </navigation-rule>
+     
+     <!--
+     <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Simulacion/menuIndicadores.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>graficacion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/Graficas/Graficacion.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>accioneSimulacion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/accionesSimulacion.xhtml</to-view-id>
+        </navigation-case>
+     </navigation-rule>
+-->
+
+<!-- esto es lo que yo tenia-->     
+
+     <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Simulacion/MapasCalor/menuMapas.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuSimulacion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/menuSimulacion.xhtml</to-view-id>
+        </navigation-case>
+     </navigation-rule>
+     
+     
+    
+
+    
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Simulacion/Graficas/SimulacionMinistracion.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>accioneSimulacion</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Simulacion/accionesSimulacion.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+
+
+    
+    
+    
+    
+    <navigation-rule>
+        <from-view-id>/paginas/seleccionInformes.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuInformes</from-outcome>
+            <to-view-id>/paginas/Vehiculo/Informes/menuInformes.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>menuPrincipal</from-outcome>
+            <to-view-id>/paginas/menuPrincipal.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/Informes/menuInformes.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuPrincipal</from-outcome>
+            <to-view-id>/paginas/menuPrincipal.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+        <navigation-rule>
+        <from-view-id>/paginas/Vehiculo/MarkFuture/escenariosMarkFuture.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuPrincipal</from-outcome>
+            <to-view-id>/paginas/menuPrincipal.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <managed-bean>
+        <managed-bean-name>beanCopiador</managed-bean-name>
+        <managed-bean-class>Beans.Vehiculo.Pantallas.BeanCopiador</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>markFuture</managed-bean-name>
+        <managed-bean-class>Beans.Vehiculo.MarkFuture.MarkFuture</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+</faces-config>

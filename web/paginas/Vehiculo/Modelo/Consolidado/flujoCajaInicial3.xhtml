@@ -1,0 +1,310 @@
+<f:view  xmlns="http://www.w3.org/1999/xhtml"
+         xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:p="http://primefaces.org/ui"
+         xmlns:pm="http://primefaces.org/mobile"
+         contentType="text/html">
+
+    <pm:page title="flujoCajaInicial3">
+        <!-- Modelo -->
+        <pm:view id="flujoCaja">
+          <!--HOLA MUNDO!!! XD -->
+            <pm:header title="FLUJO DE CAJA INICIAL" swatch="b">
+                <center>
+                    <h:outputText value="Aplicacion"/>
+                </center>
+                
+                <h:outputText value="El usuario actual es: #{loginBean.usr}"/>
+                 <br/>
+                <h:commandButton action="menuModelo" value="Menu de Seleccion" style="width: 120px" />
+                
+            </pm:header>
+
+            <pm:content >
+
+                <h:form id="matricesCajaInicial">
+                    <center>                       
+                        <h:panelGrid>
+                            <p:carousel rows="1" itemStyle="height:400px;width:500px;" effect="easeInStrong">  
+
+                                <p:dataTable var="aplicacion" value="#{consolidadoBean.veh_cet_apl.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1" style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Mes  
+                                        </f:facet>  
+                                        <h:outputText value="#{aplicacion.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 300px">  
+                                        <f:facet name="header">  
+                                            Total Aplicacion
+                                        </f:facet>
+                                        <h:outputText value="#{aplicacion.valorRedondeado}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+
+                                <p:dataTable var="costosVenta" value="#{consolidadoBean.veh_cet_cto_vta.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1" style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Mes  
+                                        </f:facet>  
+                                        <h:outputText value="#{costosVenta.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 300px">  
+                                        <f:facet name="header">  
+                                            Gastos de Venta
+                                        </f:facet>
+                                        <h:outputText value="#{costosVenta.valorRedondeado}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+
+                                <p:dataTable var="gav" value="#{consolidadoBean.veh_cet_gav.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1" style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Mes  
+                                        </f:facet>  
+                                        <h:outputText value="#{gav.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 300px">  
+                                        <f:facet name="header">  
+                                            GAV
+                                        </f:facet>
+                                        <h:outputText value="#{gav.valorRedondeado}"/>
+                                    </p:column>           
+                                </p:dataTable>
+
+                                <p:dataTable var="gastosIndividualizacion" value="#{consolidadoBean.veh_cet_gas_ind.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1" style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Mes  
+                                        </f:facet>  
+                                        <h:outputText value="#{gastosIndividualizacion.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 300px">  
+                                        <f:facet name="header">  
+                                            Gastos de Individualizacion
+                                        </f:facet>
+                                        <h:outputText value="#{gastosIndividualizacion.valorRedondeado}"/>
+                                    </p:column>           
+                                </p:dataTable>
+
+                                <p:dataTable var="administracionProyecto" value="#{consolidadoBean.veh_cet_adm_pry.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1" style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Mes  
+                                        </f:facet>  
+                                        <h:outputText value="#{administracionProyecto.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 300px">  
+                                        <f:facet name="header" >  
+                                            Administracion de Proyecto
+                                        </f:facet>
+                                        <h:outputText value="#{administracionProyecto.valorRedondeado}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+
+                                <p:dataTable var="costoFinanciero" value="#{consolidadoBean.veh_cet_cto_fin.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1" style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Mes  
+                                        </f:facet>  
+                                        <h:outputText value="#{costoFinanciero.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 300px">  
+                                        <f:facet name="header">  
+                                            Costo Financiero
+                                        </f:facet>
+                                        <h:outputText value="#{costoFinanciero.valorRedondeado}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+
+                                <p:dataTable var="pagoCreditoPuente" value="#{consolidadoBean.veh_cet_pgo_cre_pte. celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1" style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Mes  
+                                        </f:facet>  
+                                        <h:outputText value="#{pagoCreditoPuente.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 300px">  
+                                        <f:facet name="header">  
+                                            Pago de Credito Puente
+                                        </f:facet>
+                                        <h:outputText value="#{pagoCreditoPuente.valorRedondeado}"/>
+                                    </p:column>           
+                                </p:dataTable>   
+                                
+                                <p:dataTable var="movimientoNeto" value="#{consolidadoBean.veh_cet_mov_net.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1" style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Mes 
+                                        </f:facet>  
+                                        <h:outputText value="#{movimientoNeto.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 300px">  
+                                        <f:facet name="header">  
+                                            Movimiento Neto
+                                        </f:facet>
+                                        <h:outputText value="#{movimientoNeto.valorRedondeado}"/>
+                                    </p:column>           
+                                </p:dataTable>
+
+                            </p:carousel>
+                            <!--
+                            <p:carousel rows="2" itemStyle="height:200px;width:350px;" effect="easeInStrong" headerText="Egresos por año">  
+
+                                <p:dataTable var="aplicacionAño" value="#consolidadoBean.getveh_apl_año}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="150">
+                                    <p:column id="columna1">  
+                                        <f:facet name="header">  
+                                            Año  
+                                        </f:facet>  
+                                        <h:outputText value="#aplicacionAño.año}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2">  
+                                        <f:facet name="header">  
+                                            Aplicacion
+                                        </f:facet>
+                                        <h:outputText value="#aplicacionAño.valor}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+
+                                <p:dataTable var="gastosVentaAño" value="#consolidadoBean.veh_cet_gas_vta_año}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="150">
+                                    <p:column id="columna1">  
+                                        <f:facet name="header">  
+                                            Año  
+                                        </f:facet>  
+                                        <h:outputText value="#gastosVentaAño.año}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2">  
+                                        <f:facet name="header">  
+                                            Gastos de Venta
+                                        </f:facet>
+                                        <h:outputText value="#gastosVentaAño.valor}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+
+                                <p:dataTable var="gavAño" value="#consolidadoBeanAño.veh_cet_gav_año}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="150">
+                                    <p:column id="columna1">  
+                                        <f:facet name="header">  
+                                            Año  
+                                        </f:facet>  
+                                        <h:outputText value="#gavAño.año}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2">  
+                                        <f:facet name="header">  
+                                            GAV
+                                        </f:facet>
+                                        <h:outputText value="#gavAño.valor}"/>
+                                    </p:column>           
+                                </p:dataTable>
+
+                                <p:dataTable var="gastosIndividualizacionAño" value="#consolidadoBeanAño.veh_cet_gas_ind_año}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="150">
+                                    <p:column id="columna1">  
+                                        <f:facet name="header">  
+                                            Año  
+                                        </f:facet>  
+                                        <h:outputText value="#gastosIndividualizacionAño.año}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2">  
+                                        <f:facet name="header">  
+                                            Gastos de Individualizacion
+                                        </f:facet>
+                                        <h:outputText value="#gastosIndividualizacionAño.valor}"/>
+                                    </p:column>           
+                                </p:dataTable>
+
+                                <p:dataTable var="administracionProyectoAño" value="#consolidadoBean.veh_cet_adm_pry_año}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="150">
+                                    <p:column id="columna1">  
+                                        <f:facet name="header">  
+                                            Año  
+                                        </f:facet>  
+                                        <h:outputText value="#administracionProyectoaAño.año}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2">  
+                                        <f:facet name="header">  
+                                            Administracion de Proecto
+                                        </f:facet>
+                                        <h:outputText value="#administracionProyectoAño.valor}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+
+                                <p:dataTable var="costoFinancieroAño" value="#consolidadoBean.veh_cet_cto_fin_año}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="150">
+                                    <p:column id="columna1">  
+                                        <f:facet name="header">  
+                                            Año  
+                                        </f:facet>  
+                                        <h:outputText value="#costoFinancieroAño.año}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2">  
+                                        <f:facet name="header">  
+                                            Costo Financiero
+                                        </f:facet>
+                                        <h:outputText value="#costoFinancieroAño.valor}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+
+                                <p:dataTable var="pagoCreditoPuenteAño" value="#pagoCreditoPuente.veh_cet_pgo_cre_pte_año}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="150">
+                                    <p:column id="columna1">  
+                                        <f:facet name="header">  
+                                            Año  
+                                        </f:facet>  
+                                        <h:outputText value="#pagoCreditoPuenteAño.año}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2">  
+                                        <f:facet name="header">  
+                                            Pago de Credito Puente
+                                        </f:facet>
+                                        <h:outputText value="#pagoCreditoPuenteAño.valor}"/>
+                                    </p:column>           
+                                </p:dataTable>
+                                
+                                <p:dataTable var="movimientoNetoAño" value="#pagoCreditoPuente.veh_mov_net_año}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="150">
+                                    <p:column id="columna1">  
+                                        <f:facet name="header">  
+                                            Año  
+                                        </f:facet>  
+                                        <h:outputText value="#movimientoNetoAño.año}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2">  
+                                        <f:facet name="header">  
+                                            Movimiento Neto
+                                        </f:facet>
+                                        <h:outputText value="#movimientoNetoAño.valor}"/>
+                                    </p:column>           
+                                </p:dataTable>
+
+                            </p:carousel>
+                            -->
+                            
+                            <h:commandButton action="flujoCajaInicial2" value="Atras" />
+                            <h:commandButton action="flujoCajaInicial4" value="Siguiente" />    
+
+
+                        </h:panelGrid>
+                    </center>
+                </h:form>
+
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+</f:view>
+
+

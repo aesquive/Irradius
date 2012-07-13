@@ -1,0 +1,72 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+
+    <pm:page title="Vehiculos ">
+        <!-- Alta -->
+        <pm:view id="CapturaVehiculos3">
+
+            <pm:header title="Inversion #{vehiculoParametricas.nombreProyecto}" swatch="b">
+               
+                <h:outputText value="El usuario actual es: #{loginBean.usr}"/>
+                 <br/>
+                
+                <h:form>
+                    <h:commandButton action="menuSimulacion" value="seleccion de Simulacion"/>
+                    <!--<h:commandButton action="accionesVehiculo" value="Menu de Acciones"/>-->
+                </h:form>
+            </pm:header>
+            <pm:content >
+                <center>
+                    <h:form id="inversion">  
+
+
+
+
+
+                        <h:panelGrid>
+                            <p:dataTable var="Inversion" value="#{vehiculoInversion.lista}">
+                                <p:column id="columna1">  
+                                    <f:facet name="header">  
+                                        Parametricas  
+                                    </f:facet>  
+                                    <h:outputText value="#{Inversion.registroDescripcion}"/>
+                                </p:column>  
+
+                                <p:column id="columna2">  
+                                    <f:facet name="header">  
+                                        Porcentaje
+                                    </f:facet>  
+                                    <p:inputText id="regInv" required="true"  value="#{Inversion.registroIngreso}" >
+                                        <p:ajax  event="change" update="regInv" listener="#{validadorBean.valueChangePorcentaje}"/>
+                                    </p:inputText>
+                                </p:column>           
+                            </p:dataTable>  
+
+                            <h:panelGrid columns="2">
+                                <h:outputText value="Numero de Escalones Distribucion TIR"/>
+                                <p:inputText title="Valor" maxlength="2" required="true" id="escalones"  value="#{vehiculoInversion.numeroEscalonesTIR}">
+                                    <p:ajax  event="change" update="escalones" listener="#{validadorBean.valueChangeNumerico}"/>
+                                </p:inputText>
+                            </h:panelGrid>
+
+                            <h:commandButton action="titulacionSimulador" value="Atras"/>       
+                            <h:commandButton id="boton" action="#{vehiculoInversion.pasarEtapasTIR}" value="Siguiente"/>    
+                            <h:message for="boton" style="color: red ;font-size: large"/> 
+                        </h:panelGrid>
+
+
+
+                    </h:form>
+                </center>
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+</f:view>

@@ -1,0 +1,112 @@
+<f:view  xmlns="http://www.w3.org/1999/xhtml"
+         xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:p="http://primefaces.org/ui"
+         xmlns:pm="http://primefaces.org/mobile"
+         contentType="text/html">
+
+    <pm:page title="retornoInversionista1">
+        <!-- Modelo -->
+        <pm:view id="retornoInv">
+
+            <pm:header title="Retorno al Inversionista" swatch="b">
+                <h:form>
+            <h:outputText value="El usuario actual es: #{loginBean.usr}"/>
+            <br/>
+            <h:commandButton action="menuSimulacion" value="seleccion de Simulacion"/>
+                </h:form>
+            </pm:header>
+            <pm:content >
+
+                <h:form id="matricesRetornoInv">
+                    <center>                       
+                        <h:panelGrid>
+                            <p:carousel rows="1" itemStyle="height:400px;width:500px;" effect="easeInStrong">  
+
+                                <p:dataTable var="resumenRepartoInversionista" value="#{consolidadoBean.veh_cet_res_rep_inv.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1" style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Fecha  
+                                        </f:facet>  
+                                        <h:outputText value="#{resumenRepartoInversionista.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 300px">  
+                                        <f:facet name="header">  
+                                            Resumen de reparto a Inversionista
+                                        </f:facet>
+                                        <h:outputText value="#{resumenRepartoInversionista.valorRedondeado}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+
+                                <p:dataTable var="resumenRepartoGeneralPartner" value="#{consolidadoBean.veh_cet_res_rep_gp.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1" style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Mes  
+                                        </f:facet>  
+                                        <h:outputText value="#{resumenRepartoGeneralPartner.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 300px">  
+                                        <f:facet name="header">  
+                                           Resumen de reparto a General Partner
+                                        </f:facet>
+                                        <h:outputText value="#{resumenRepartoGeneralPartner.valorRedondeado}"/>
+                                    </p:column>           
+                                </p:dataTable>           
+                            </p:carousel>                            
+                            <!--
+                            <p:carousel rows="1" itemStyle="height:200px;width:600px;" effect="easeInStrong">  
+
+                                <p:dataTable var="resumenRepartoInversionistaAño" value="#consolidadoBean.veh_res_rep_inv_año}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="150">
+                                    <p:column id="columna1">  
+                                        <f:facet name="header">  
+                                            Año  
+                                        </f:facet>  
+                                        <h:outputText value="#resumenRepartoInversionistaAño.año}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2">  
+                                        <f:facet name="header">  
+                                            Resumen de reparto a Inversionista
+                                        </f:facet>
+                                        <h:outputText value="#resumenRepartoInversionistaAño.valor}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+
+                                <p:dataTable var="resumenRepartoGeneralPartnerAño" value="#consolidadoBean.veh_res_rep_inv_año}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="150">
+                                    <p:column id="columna1">  
+                                        <f:facet name="header">  
+                                            Año  
+                                        </f:facet>  
+                                        <h:outputText value="#resumenRepartoGeneralPartnerAño.año}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2">  
+                                        <f:facet name="header">  
+                                           Resumen de reparto a General Partner
+                                        </f:facet>
+                                        <h:outputText value="#resumenRepartoGeneralPartnerAño.valor}"/>
+                                    </p:column>           
+                                </p:dataTable>           
+                            </p:carousel>
+                            -->
+                            <h:commandButton action="retornoInversionista4Simulador" value="Atras" />
+                            <h:commandButton value="Siguiente" />    
+                           
+                        </h:panelGrid>
+                    </center>
+                </h:form>
+
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+</f:view>
+
+
+
+

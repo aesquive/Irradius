@@ -1,0 +1,59 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html"
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+  <pm:page title="Tasa CETES">
+    <!-- Alta -->
+    <pm:view id="CETES">
+
+      <pm:header title="Tasa CETES (88% de la tasa de interés del crédito puente)" swatch="b">
+           <h:form>
+                    <h:commandButton action="modelos" value="Menu de Acciones"/>
+                </h:form>
+      </pm:header>
+
+      <pm:content >
+        <center>
+          <h:form>
+            <h:panelGrid>                              
+              <p:dataTable var="valor" id="tabla" value="#{cetes.lista}">
+                <p:column id="columnaFecha">
+                  <f:facet name="header" >
+                    Fecha
+                  </f:facet>
+                  <h:outputText value="#{valor.fecha}"/>
+                </p:column>
+                <p:column id="columnaPorcentaje" >
+                  <f:facet name="header">
+                    Porcentaje
+                  </f:facet>
+                  <p:inputText  required="true" id="porcentajeCetes" value="#{valor.porcentaje}">
+                    <p:ajax async="false" immediate="true"  event="change" update="porcentajeCetes" listener="#{validadorBean.valueChangePorcentaje}"/>
+                  </p:inputText>
+                </p:column>
+              </p:dataTable>
+            </h:panelGrid>
+              <h:panelGrid columns="2">
+                <h:commandButton  action="inflacion" value="Atras" />
+              <h:commandButton id="boton" action="etapas" value="Siguiente" />
+            </h:panelGrid>
+
+          </h:form>
+
+
+        </center>
+      </pm:content>
+
+    </pm:view>
+
+  </pm:page>
+
+
+
+
+</f:view>

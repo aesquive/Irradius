@@ -1,0 +1,165 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html"
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    <pm:page title="Mapa de Calor">
+
+        <!-- Modelo -->
+        <pm:view id="mapaCalor">
+
+
+            <pm:header title="Mapas" swatch="b">
+                <h:form>
+                    <center>            
+                        <h:outputText value="Mapa de Calor"/>
+                    </center>
+                    <h:outputText value="El usuario actual es: #{loginBean.usr}"/>
+                    <br/>
+                    <h:commandButton action="menuSimulacion" value="Menu de Seleccion" style="width: 120px" />
+                </h:form>
+            </pm:header>
+            <pm:content>
+                <center>
+                    <h:form> 
+                        <center>
+                            <h:panelGrid columns="2">
+                                <h:outputText value="TIR PROYECTO "/>
+                                <h:outputText value="#{eneadaBean.tirProyecto}"/>
+
+                                <h:outputText value="#{eneadaBean.parm1}"/>
+                                <p:inputText title="Valor" required="true" readonly="true" id="nombre" value="#{eneadaBean.input1}">
+                                    <p:ajax event="change" update="campo"  listener="#{validadorBean.valueChangeNumerico}"/>
+                                </p:inputText>
+                                <h:outputText value="#{eneadaBean.parm2}"/>
+                                <p:inputText title="Valor" required="true" id="nombre2" readonly="true" value="#{eneadaBean.input2}">
+                                    <p:ajax event="change" update="campo" listener="#{validadorBean.valueChangeNumerico}"/>
+                                </p:inputText>
+
+                            </h:panelGrid>
+
+                            <h:panelGrid rowClasses="1">
+                                <p:dataTable var ="Mapa" value="#{eneadaBean.listaEneada}" style="width: 1000px" scrollRows="150" scrollable="true" liveScroll="true"
+                                             scrollHeight="350">
+
+                                    <p:column id="Columna1"  style="width: 75px">
+
+                                        <h:outputText  value="#{Mapa.des}"/>
+
+
+                                    </p:column>
+                                    <p:column id="Columna2"  style="width: 75px">
+                                        <h:outputText rendered="#{Mapa.col0 == -2}" value="#{Mapa.val0}"/>
+                                        <h:outputText rendered="#{Mapa.col0 == 1}" style="font-weight:bold;background-color: greenyellow" value="#{Mapa.val0}"/>
+                                        <h:outputText rendered="#{Mapa.col0 == -1}" style="font-weight:bold;background-color: red" value="#{Mapa.val0}"/>
+                                        <h:outputText rendered="#{Mapa.col0 == 0}" style="font-weight:bold;background-color: orange" value="#{Mapa.val0}"/>
+
+
+                                    </p:column>
+                                    <p:column id="Columna3"  style="width: 75px">
+
+                                        <h:outputText rendered="#{Mapa.col1 == -2}" value="#{Mapa.val1}"/>
+                                        <h:outputText rendered="#{Mapa.col1 == 1}" style="font-weight:bold;background-color: greenyellow" value="#{Mapa.val1}"/>
+                                        <h:outputText rendered="#{Mapa.col1 == -1}" style="font-weight:bold;background-color: red" value="#{Mapa.val1}"/>
+                                        <h:outputText rendered="#{Mapa.col1 == 0}" style="font-weight:bold;background-color: orange" value="#{Mapa.val1}"/>
+
+
+
+
+                                    </p:column>
+                                    <p:column id="Columna4" style="width: 75px">
+
+                                        <h:outputText rendered="#{Mapa.col2 == -2}" value="#{Mapa.val2}"/>
+                                        <h:outputText rendered="#{Mapa.col2 == 1}" style="font-weight:bold;background-color: greenyellow" value="#{Mapa.val2}"/>
+                                        <h:outputText rendered="#{Mapa.col2 == -1}" style="font-weight:bold;background-color: red" value="#{Mapa.val2}"/>
+                                        <h:outputText rendered="#{Mapa.col2 == 0}" style="font-weight:bold;background-color: orange" value="#{Mapa.val2}"/>
+
+
+
+                                    </p:column>
+                                    <p:column id="Columna5"  style="width: 75px">
+
+                                        <h:outputText rendered="#{Mapa.col3 == -2}" value="#{Mapa.val3}"/>
+                                        <h:outputText rendered="#{Mapa.col3 == 1}" style="font-weight:bold;background-color: greenyellow" value="#{Mapa.val3}"/>
+                                        <h:outputText rendered="#{Mapa.col3 == -1}" style="font-weight:bold;background-color: red" value="#{Mapa.val3}"/>
+                                        <h:outputText rendered="#{Mapa.col3 == 0}" style="font-weight:bold;background-color: orange" value="#{Mapa.val3}"/>
+
+
+
+
+                                    </p:column>
+                                    <p:column id="Columna6"  style="width: 75px">
+
+                                        <h:outputText rendered="#{Mapa.col4 == -2}" value="#{Mapa.val4}"/>
+                                        <h:outputText rendered="#{Mapa.col4 == 1}" style="font-weight:bold;background-color: greenyellow" value="#{Mapa.val4}"/>
+                                        <h:outputText rendered="#{Mapa.col4 == -1}" style="font-weight:bold;background-color: red" value="#{Mapa.val4}"/>
+                                        <h:outputText rendered="#{Mapa.col4 == 0}" style="font-weight:bold;background-color: orange" value="#{Mapa.val4}"/>
+
+
+
+
+                                    </p:column>
+                                    <p:column id="Columna7"  style="width: 75px">
+
+                                        <h:outputText rendered="#{Mapa.col5 == -2}" value="#{Mapa.val5}"/>
+                                        <h:outputText rendered="#{Mapa.col5 == 1}" style="font-weight:bold;background-color: greenyellow" value="#{Mapa.val5}"/>
+                                        <h:outputText rendered="#{Mapa.col5 == -1}" style="font-weight:bold;background-color: red" value="#{Mapa.val5}"/>
+                                        <h:outputText rendered="#{Mapa.col5 == 0}" style="font-weight:bold;background-color: orange" value="#{Mapa.val5}"/>
+
+
+
+
+                                    </p:column>
+                                    <p:column id="Columna8" style="width: 75px">
+
+                                        <h:outputText rendered="#{Mapa.col6 == -2}" value="#{Mapa.val6}"/>
+                                        <h:outputText rendered="#{Mapa.col6 == 1}" style="font-weight:bold;background-color: greenyellow" value="#{Mapa.val6}"/>
+                                        <h:outputText rendered="#{Mapa.col6 == -1}" style="font-weight:bold;background-color: red" value="#{Mapa.val6}"/>
+                                        <h:outputText rendered="#{Mapa.col6 == 0}" style="font-weight:bold;background-color: orange" value="#{Mapa.val6}"/>
+
+
+
+
+                                    </p:column>
+                                    <p:column id="Columna9"  style="width: 75px">
+
+                                        <h:outputText rendered="#{Mapa.col7 == -2}" value="#{Mapa.val7}"/>
+                                        <h:outputText rendered="#{Mapa.col7 == 1}" style="font-weight:bold;background-color: greenyellow" value="#{Mapa.val7}"/>
+                                        <h:outputText rendered="#{Mapa.col7 == -1}" style="font-weight:bold;background-color: red" value="#{Mapa.val7}"/>
+                                        <h:outputText rendered="#{Mapa.col7 == 0}" style="font-weight:bold;background-color: orange" value="#{Mapa.val7}"/>
+
+
+
+                                    </p:column>
+                                    <p:column id="Columna10"  style="width: 75px">
+                                        <h:outputText rendered="#{Mapa.col8 == -2}"  value="#{Mapa.val8}"/>
+                                        <h:outputText rendered="#{Mapa.col8 == 1}" style="font-weight: bold;background-color: greenyellow" value="#{Mapa.val8}"/>
+                                        <h:outputText rendered="#{Mapa.col8 == -1}" style="font-weight: bold;background-color: red" value="#{Mapa.val8}"/>
+                                        <h:outputText rendered="#{Mapa.col8 == 0}" style="font-weight: bold;background-color: orange" value="#{Mapa.val8}"/>
+
+
+
+
+                                    </p:column>
+
+
+
+
+                                </p:dataTable>
+
+                            </h:panelGrid>
+
+                        </center>
+                    </h:form>
+                </center>
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+</f:view>

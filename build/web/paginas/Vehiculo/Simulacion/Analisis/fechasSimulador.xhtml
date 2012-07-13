@@ -1,0 +1,76 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+
+    <pm:page title="Fechas">
+
+        <!-- Alta -->
+        <pm:view id="Fechas">
+
+            <pm:header title="Fechas #{vehiculoParametricas.nombreProyecto}" swatch="b">
+                <h:outputText value="El usuario actual es: #{loginBean.usr}"/>
+                 <br/>
+                
+                <h:form>
+                    <h:commandButton action="menuSimulacion" value="seleccion de Simulacion"/>
+                    <!--<h:commandButton action="accionesVehiculo" value="Menu de Acciones"/>-->
+                </h:form>
+            </pm:header>
+
+            <pm:content >
+                <center>
+                    <h:form>
+                        <h:panelGrid columns="2"  border="0">
+
+                            <h:outputText value="Inicio de Edificacion"/>
+
+
+                            <p:calendar  required="true" pattern="dd-MM-yyyy" id="fec1" navigator="true" value="${fechasBean.fechaInicioEdificacion}">
+                                <p:ajax event="click" update="fec1" listener="#{fechasBean.fechaMovida}"/>
+                            </p:calendar>
+
+                            <h:outputText value="Fin de Edificacion"/>
+
+                            <p:calendar required="true" id="fec2" pattern="dd-MM-yyyy" navigator="true" value="${fechasBean.fechaFinEdificacion}">
+                            </p:calendar>
+                            <h:outputText value="Inicio de Ventas"/>
+
+                            <p:calendar required="true" id="fec3" pattern="dd-MM-yyyy" navigator="true" value="${fechasBean.fechaInicioVenta}">
+                            </p:calendar>
+                            <h:outputText value="Fin de Ventas"/>
+
+                            <p:calendar required="true" id="fec4" pattern="dd-MM-yyyy" navigator="true" value="${fechasBean.fechaFinVenta}">
+                            </p:calendar>
+                            <h:outputText value="Inicio de Titulacion"/>
+
+                            <p:calendar required="true" id="fec5" pattern="dd-MM-yyyy" navigator="true" value="${fechasBean.fechaInicioTitulacion}">
+                            </p:calendar>
+                            <h:outputText value="Fin de Titulacion"/>
+
+                            <p:calendar required="true" id="fec6" pattern="dd-MM-yyyy" navigator="true" value="${fechasBean.fechaFinTitutlacion}">
+                            </p:calendar>
+
+
+                        </h:panelGrid>
+                        <h:panelGrid>
+                            <h:commandButton action="etapasSimulador" value="Atras" />
+                            <h:commandButton action="edificacionSimulador" value="Siguiente" />
+                        </h:panelGrid>
+                    </h:form>
+
+                </center>
+
+
+
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+
+</f:view>

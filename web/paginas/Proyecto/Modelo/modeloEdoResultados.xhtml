@@ -1,0 +1,360 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+
+    <pm:page title="Estado de Resultados">
+        <!-- Alta -->
+        <pm:view id="Modelo1">
+
+            <pm:header title="Estado de Resultados" swatch="b"/>
+
+            <pm:content>
+                <center>
+                    <form>
+
+                        <h:panelGrid columns="5">
+                            <f:facet name="header">
+                                Costos de Venta
+                            </f:facet>
+                            
+                            <h:outputText value=""/>
+                            <h:outputText value="Por Vivienda"/>
+                            <h:outputText value="Total"/>
+                            <h:outputText value="% Ingresos"/>
+                            <h:outputText value="% Costo"/>
+                            
+                            <h:outputText value=""/>
+                            <h:outputText value=""/>
+                            <h:outputText value=""/>
+                            <h:outputText value=""/>
+                            <h:outputText value=""/>
+                            
+                            <h:outputText value="Valor de Compra de terreno"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_val_com_ter_imp_viv}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_val_ter}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_val_ter}%"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_val_tot_con_imp_tot}%"/>
+                            
+                            <h:outputText value="Predial, Agua y Areas Comunes"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_val_tot_con_imp_viv}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_val_tot_con_imp_tot}"/>  
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_cto_val_tot_con_imp_tot}%"/>              
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_cto_val_ter}%"/>
+
+                            <h:outputText value="Escrituras, Terreno/const. Fideicomiso"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_esc_ava_fid_isr_imp_viv}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_esc_ava_fid_isr_imp_tot}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_esc_ava_fid_isr_imp_tot}%"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_cto_esc_ava_fid_isr_imp_tot}%"/>
+            
+                            <h:outputText value="Administracion Fideicomiso y Firmas"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_adm_fid_imp_viv}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_adm_fid_imp_tot}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_adm_fid_imp_tot}%"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_cto_adm_fid_imp_tot}%"/>
+
+                            <h:outputText value="Proyectos y Estudios "/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_pro_est_viv}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_pro_est_tot}"/>              
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_pro_est_tot}%"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_cto_pro_est_tot}%"/>
+
+                            <h:outputText value="Estudios Firmas DRO y Responsivas"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_dro_fir_imp_viv}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_dro_fir_imp_tot}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_dro_fir_imp_tot}%"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_cto_dro_fir_imp_tot}%"/>
+
+                            <h:outputText value="Tramites Licencias y Derechos"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_tra_lic_der_viv}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_tra_lic_der_tot}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_tra_lic_der_tot}%"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_cto_tra_lic_der_tot}%"/>    
+
+                            <h:outputText value="Comisiones y Concertaciones "/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_con_vec_imp_viv}"/>              
+                            <h:outputText value="#{modeloEstadoResultados.pry_con_vec_imp_tot}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_con_vec_imp_tot}%"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_cto_con_vec_imp_tot}%"/>
+
+                            <h:outputText value="Pozo de Agua"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_poz_agu_imp_viv}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_poz_agu_imp_tot}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_poz_agu_imp_tot}%"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_cto_poz_agu_imp_tot}%"/>    
+
+                            <h:outputText value="Gestiones Vecinales y Terceros"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_ges_vec_ter_imp_viv}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_ges_vec_ter_imp_tot}"/>              
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_ges_vec_ter_imp_tot}%"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_cto_ges_vec_ter_imp_tot}%"/>
+
+                            <h:outputText value=" Construccion : " style="font-weight: bold;"/>
+                            <h:outputText value=""/>
+                            <h:outputText value=""/>
+                            <h:outputText value=""/>
+                            <h:outputText value=""/>
+                            
+                            <h:outputText value="Edificacion casas"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_edi_cas_imp_viv}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_edi_cas_mon}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_edi_cas_mon}%"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_cto_edi_cas_mon}%"/>
+
+                            <h:outputText value="Urbanizacion"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_urb_imp_viv}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_urb_mon}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_urb_mon}%"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_cto_urb_mon}%"/>
+
+                            <h:outputText value="Urbanizacion Acceso"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_urb_acc_imp_viv}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_urb_acc_mon}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_urb_acc_mon}%"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_cto_urb_acc_mon}%"/>
+
+                            <h:outputText value="Edificacion Departamentos"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_edi_dep_imp_viv}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_edi_depto_mon}"/>         
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_edi_depto_mon}%"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_cto_edi_depto_mon}%"/>
+
+                            <h:outputText value="Ornato"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_are_ext_imp_viv}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_orn_mon}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_orn_mon}%"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_cto_orn_mon}%"/>
+
+                            <h:outputText value="Gastos Generales"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_gas_gen_imp_viv}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_gts_gral_mon}"/>              
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_gts_gral_mon}%"/> 
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_cto_gts_gral_mon}%"/> 
+
+                            <h:outputText value="Imprevistos"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_imp_imp_viv}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_imp_mon}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_imp_mon}%"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_cto_imp_mon}%"/>
+
+                            <h:outputText value="Obligaciones Patronales"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_obl_pat_imp_viv}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_obl_pat_mon}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_obl_pat_mon}%"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_cto_obl_pat_mon}%"/>
+                            
+                            <h:outputText value="Paquetes de Acabados"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_paq_aca_imp_viv}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_paq_aca_mon}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_paq_aca_mon}%"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_cto_paq_aca_mon}%"/>
+
+                            <h:outputText value="Mantenimiento y Vigilancia de Escenario"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_man_vig_esc_imp_viv}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_man_vig_esc_mon}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_man_vig_esc_mon}%"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_cto_man_vig_esc_mon}%"/>
+
+                            <h:outputText value="Infraestructura"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_inf_imp_viv}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_inf_mon}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_infra_mon}%"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_cto_infra_mon}%"/>
+                            
+                             <h:outputText value=""/>
+                            <h:outputText value=""/>
+                            <h:outputText value=""/>
+                            <h:outputText value=""/>
+                            <h:outputText value=""/>
+                            
+                            <h:outputText value="Amenidades"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_ame_imp_viv}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_ame_imp_tot}"/>              
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_ame_imp_tot}%"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_cto_ame_imp_tot}%"/>
+
+                            <h:outputText value="Otros Costos  2"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_otr_2_imp_viv}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_otr_2_imp_tot}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_otr_2_imp_tot}%"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_cto_otr_2_imp_tot}%"/>
+
+                            <h:outputText value="Otros Costos 3"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_otr_3_imp_viv}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_otr_3_imp_tot}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_otr_3_imp_tot}%"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_cto_otr_3_imp_tot}%"/>
+
+                            <h:outputText value="Total de Costos por Vivienda"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_cost_tot_ven_viv}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_total_cost_ven_tot}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_total_cost_ven_tot}%"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_cto_total_cost_ven_tot}%"/>
+
+                            <f:facet name="footer">
+                                <h:outputText value="Utilidad Bruta:   " style=""/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_utl_bru_viv}"/>
+                            <h:outputText value="#{modeloEstadoResultados.pry_utl_bru_tot}"/>                  
+                            <h:outputText value="#{modeloEstadoResultados.pry_por_utl_bru_tot}"/>                     
+                            <h:outputText value=""/>                    
+                            </f:facet>
+                        </h:panelGrid>
+
+                        <br/>
+                        <br/>
+                            <h:panelGrid columns="5">
+                                <f:facet name="header">
+                                    Gastos de venta
+                                </f:facet>
+                                
+                             <h:outputText value=""/>
+                            <h:outputText value="Por Vivienda"/>
+                            <h:outputText value="Total"/>
+                            <h:outputText value="% Ingresos"/>
+                            <h:outputText value="% Costo"/>
+                                
+                                <h:outputText value="Comisiones de Venta (contrato)"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_com_ven_con_imp_viv}"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_com_ven_con_imp_tot}"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_por_com_ven_con_imp_tot}%"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_por_cto_com_ven_con_imp_tot}%"/>
+                                
+                                <h:outputText value="Comisiones de Venta (titulacion)"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_com_ven_tit_imp_viv}"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_com_ven_tit_imp_tot}"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_por_com_ven_tit_imp_tot}%"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_por_cto_com_ven_tit_imp_tot}%"/>
+                                
+                                <h:outputText value="Publicidad (corporativo)"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_pub_cor_imp_viv}"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_pub_cor_imp_tot}"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_por_pub_cor_imp_tot}%"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_por_cto_pub_cor_imp_tot}%"/>
+                                
+                                <h:outputText value="Publicidad (UNE)"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_pub_pro_une_imp_viv}"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_pub_pro_une_imp_tot}"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_por_pub_pro_une_imp_tot}%"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_por_cto_pub_pro_une_imp_tot}%"/>
+                                
+                                <h:outputText value="Escenario Provisional/manto / vigilancia"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_esc_pro_man_vig_imp_viv}"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_esc_pro_man_vig_imp_tot}"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_por_esc_pro_man_vig_imp_tot}%"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_por_cto_esc_pro_man_vig_imp_tot}%"/>
+                                
+                                <h:outputText value="Amueblado y Decorado "/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_amu_dec_dep_ofi_imp_viv}"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_amu_dec_dep_ofi_imp_tot}"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_por_amu_dec_dep_ofi_imp_tot}%"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_por_cto_amu_dec_dep_ofi_imp_tot}%"/>
+                                
+                                <h:outputText value="Total de Gastos y Venta"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_gtos_ven_viv}"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_gtos_ven_tot}"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_por_gtos_ven_tot}%"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_por_cto_gtos_ven_tot}%"/>
+                            </h:panelGrid>
+                        <br/>
+                        <br/>
+
+                            <h:panelGrid columns="5">
+                                <f:facet name="header">
+                                    Gastos de operacion y Administracion
+                                </f:facet>
+                                
+                                <h:outputText value=""/>
+                            <h:outputText value="Por Vivienda"/>
+                            <h:outputText value="Total"/>
+                            <h:outputText value="% Ingresos"/>
+                            <h:outputText value="% Costo"/>
+                                
+                                <h:outputText value="Gastos de Operacion y Administracion (UNE)"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_gas_ope_adm_une_imp_viv}"/> 
+                                <h:outputText value="#{modeloEstadoResultados.pry_gas_ope_adm_une_imp_tot}"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_por_gas_ope_adm_une_imp_tot}%"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_por_cto_gas_ope_adm_une_imp_tot}%"/>
+                                
+                                <h:outputText value="Gastos de Operacion y Administracion (corporativo)"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_gas_ope_adm_cor_imp_viv}"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_gas_ope_adm_cor_imp_tot}"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_por_gas_ope_adm_cor_imp_tot}%"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_por_cto_gas_ope_adm_cor_imp_tot}%"/>
+                                
+                                <h:outputText value="Total de Gastos Operacion y Administracion"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_gtos_ope_adm_viv}"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_gtos_ope_adm_tot}"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_por_gtos_ope_adm_tot}%"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_por_cto_gtos_ope_adm_tot}%"/>
+                                
+                                <f:facet name="footer">
+                                <h:outputText value="Utilidad Antes de Financieros"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_utl_ant_fin_viv}"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_utl_ant_fin_tot}"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_por_utl_ant_fin_tot}%"/>
+                                </f:facet>
+                            </h:panelGrid>
+                        <br/>
+                        <br/>
+                            <h:panelGrid columns="5">
+                                <f:facet name="header">
+                                    Gastos Financieros
+                                </f:facet>
+
+                                <h:outputText value=""/>
+                            <h:outputText value="Por Vivienda"/>
+                            <h:outputText value="Total"/>
+                            <h:outputText value="% Ingresos"/>
+                            <h:outputText value="% Costo"/>
+
+                                <h:outputText value="Cadenas Productivas y costos Financieros Alternos"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_cad_pro_cos_fin_alt_viv}"/>
+                                <h:outputText value=""/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_por_cad_pro_cos_fin_alt_tot}%"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_por_cto_cad_pro_cos_fin_alt_tot}%"/>
+                                
+                                <h:outputText value="Apertura, Fianzas, Notariales y Administracion"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_ape_fia_not_adm_viv}"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_ape_fia_not_adm_tot}"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_por_ape_fia_not_adm_tot}%"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_por_cto_ape_fia_not_adm_tot}%"/>
+                                
+                                <h:outputText value="Intereses"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_int_cre_viv}"/>
+                                <h:outputText value=""/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_por_int_cre_tot}%"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_por_cto_int_cre_tot}%"/>
+                                
+                                <h:outputText value="Total de Gastos Financieros"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_gtos_fin_viv}"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_gtos_fin_tot}"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_por_gas_fin_tot}%"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_por_cto_gas_fin_tot}%"/>
+
+                                 <f:facet name="footer">
+                                <h:outputText value="Utilidades Antes de Impuestos"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_utl_ant_imp_viv}"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_utl_ant_imp_tot}"/>
+                                <h:outputText value="#{modeloEstadoResultados.pry_por_utl_ant_imp_tot}%"/>
+                                 <h:outputText value=""/>
+                                </f:facet>
+
+                            </h:panelGrid>
+
+                        <h:panelGrid columns="2">
+                                <h:commandButton value="Atras" type="button" onclick="window.location='./modeloGeneradores.xhtml'" />
+                                <h:commandButton value="Menu de Acciones" type="button" onclick="window.location='./seleccionProyectos.xhtml'" />
+                            </h:panelGrid>
+
+                    </form> 
+                </center>
+            </pm:content> 
+        </pm:view>
+
+    </pm:page> 
+
+</f:view>

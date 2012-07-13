@@ -1,0 +1,95 @@
+<f:view  xmlns="http://www.w3.org/1999/xhtml"
+         xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:p="http://primefaces.org/ui"
+         xmlns:pm="http://primefaces.org/mobile"
+         contentType="text/html">
+
+    <pm:page title="resultadosEgresos2">
+        <!-- Modelo -->
+        <pm:view id="egresos">
+          <!--HOLA MUNDO!!! XD -->
+            <pm:header title="Consolidado de Etapas" swatch="b">
+                <h:form>
+                <center>
+                    <h:outputText value="Egresos 2"/>
+                </center>
+                
+                <h:outputText value="El usuario actual es: #{loginBean.usr}"/>
+                 <br/>
+                <h:commandButton action="menuModelo" value="Menu de Seleccion" style="width: 120px" />
+                </h:form>
+            </pm:header>
+
+            <pm:content >
+
+                <h:form id="matricesEgresos">
+                    <center>                       
+                        <h:panelGrid>
+
+
+                            <p:carousel rows="1" itemStyle="height:400px;width:500px;" effect="easeInStrong">  
+
+                                <p:dataTable var="administracionProyecto" value="#{consolidadoBean.veh_cet_adm_pry.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1" style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Mes  
+                                        </f:facet>  
+                                        <h:outputText value="#{administracionProyecto.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 300px">  
+                                        <f:facet name="header">  
+                                            Administracion de Proyecto
+                                        </f:facet>
+                                        <h:outputText value="#{administracionProyecto.valorRedondeado}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+
+                                <p:dataTable var="app" value="#{consolidadoBean.veh_cet_app.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1" style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Mes  
+                                        </f:facet>  
+                                        <h:outputText value="#{app.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 300px">  
+                                        <f:facet name="header">  
+                                            APP
+                                        </f:facet>
+                                        <h:outputText value="#{app.valorRedondeado}"/>
+                                    </p:column>                                    
+                                </p:dataTable>
+                                
+                                <p:dataTable var="sapi" value="#{consolidadoBean.veh_cet_sapi.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1" style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Mes  
+                                        </f:facet>  
+                                        <h:outputText value="#{sapi.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 300px">  
+                                        <f:facet name="header">  
+                                            SAPI
+                                        </f:facet>
+                                        <h:outputText value="#{sapi.valorRedondeado}"/>
+                                    </p:column>                                    
+                                </p:dataTable>
+                            </p:carousel>
+                            <h:commandButton action="egresos1" value="Atras" />
+                            <h:commandButton action="egresos3" value="Siguiente" />    
+                            
+                        </h:panelGrid>
+                    </center>
+                </h:form>
+
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+</f:view>

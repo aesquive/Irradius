@@ -1,0 +1,38 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+
+    <pm:page title="Mapas">
+
+        <!-- Alta -->
+        <pm:view id="MenuMapas">
+
+            <pm:header title="Menu Mapas de Calor" swatch="b">
+                 <h:outputText value="El usuario actual es: #{loginBean.usr}"/>
+                 <br/>
+                <h:form>
+                <h:commandButton action="menuSimulacion" value="Menu de Seleccion" />
+                </h:form>
+            </pm:header>
+           
+            <pm:content >
+                <center>
+                    <h:form>
+                        <h:panelGrid>            
+                            <h:commandButton action="#{mapasMenuSimulacion.precioInteres}" value="Precio Promedio - Tasa de Interes" />
+                            <h:commandButton action="#{mapasMenuSimulacion.porcentajeInteres}" value="Porcentaje Apalancamiento - Tasa de Interes" />
+                            <h:commandButton action="#{mapasMenuSimulacion.precioPorcentaje}" value="Precio Promedio - Porcentaje Apalancamiento" /> 
+                        </h:panelGrid>   
+                    </h:form>
+                </center>
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+</f:view>

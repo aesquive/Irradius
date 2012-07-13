@@ -1,0 +1,221 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+
+  <pm:page title="Generadores">
+
+    <!-- Alta -->
+    <pm:view id="CapturaProyecto3">
+
+      <pm:header title="Generadores" swatch="b">
+           <h:form>
+                    <h:commandButton action="modelos" value="Menu de Acciones"/>
+                </h:form>
+      </pm:header>
+      <pm:content>
+        <center>
+          <h:form>  
+
+
+            <p:panel header="Terrenos y Escrituras" >
+              <h:panelGrid columns="2">
+                <p:dataTable var="Terrenos" value="#{proyectosGeneradoresBean.listaTerrenoEscPor}">
+                  <p:column id="columna1">  
+                    <f:facet name="header">  
+                      Variable  
+                    </f:facet>  
+                    <h:outputText value="#{Terrenos.registroDescripcion}"/>
+                  </p:column>  
+
+                  <p:column id="columna2">  
+                    <f:facet name="header">  
+                      Porcentaje
+                    </f:facet>  
+                    <p:inputText required="true" id="terrIng" value="#{Terrenos.registroIngreso}" maxlength="15">
+                      <p:ajax  event="change" update="terrIng" listener="#{validadorBean.valueChangePorcentaje}"/>
+                    </p:inputText>
+                  </p:column>           
+                </p:dataTable>  
+              </h:panelGrid>
+            </p:panel>
+
+            <p:panel header="Proyecto">
+              <h:panelGrid columns="3">
+                <p:dataTable var="Proyectos" value="#{proyectosGeneradoresBean.listaProyecto}">
+                  <p:column id="columna1">  
+                    <f:facet name="header">  
+                      Variable  
+                    </f:facet> 
+                    <h:outputText  value="#{Proyectos.descripcion}"/>
+                  </p:column>  
+
+                  <p:column id="columna2">  
+                    <f:facet name="header">  
+                      Valor
+                    </f:facet>  
+                    <p:inputText required="true" id="PryPr" value="#{Proyectos.porcentajeValor}" >
+                      <p:ajax  event="change" update="PryPr" listener="#{validadorBean.valueChangeNumerico}"/>
+                    </p:inputText>
+                  </p:column> 
+
+
+                  <p:column id="columna3">  
+                    <f:facet name="header">  
+                      Monto
+                    </f:facet>  
+                    <p:inputText required="true" id="PryMnt" value="#{Proyectos.monto}" maxlength="15">
+                      <p:ajax  event="change" update="PryMnt" listener="#{validadorBean.valueChangeNumerico}"/>
+                    </p:inputText>
+                  </p:column>  
+                </p:dataTable> 
+              </h:panelGrid>
+            </p:panel>
+
+            <p:panel header="Tramites, Licencias y Derechos">
+              <h:panelGrid columns="3">
+                <p:dataTable var="TramLicDer" value="#{proyectosGeneradoresBean.listaTramitesLicDer}">
+                  <p:column id="columna1">  
+                    <f:facet name="header">  
+                      Variable  
+                    </f:facet> 
+                    <h:outputText value="#{TramLicDer.descripcion}"/>
+                  </p:column>  
+
+                  <p:column id="columna2">  
+                    <f:facet name="header">  
+                      Valor
+                    </f:facet>  
+                    <p:inputText required="true" id="tramLic" value="#{TramLicDer.porcentajeValor}" >
+                      <p:ajax  event="change" update="tramLic" listener="#{validadorBean.valueChangeNumerico}"/>
+                    </p:inputText>
+                  </p:column> 
+
+
+                  <p:column id="columna3">  
+                    <f:facet name="header">  
+                      Monto
+                    </f:facet>  
+                    <p:inputText required="true" id="tramLicMto" value="#{TramLicDer.monto}" maxlength="15">
+                      <p:ajax  event="change" update="tramLicMto" listener="#{validadorBean.valueChangeNumerico}"/>
+                    </p:inputText>
+                  </p:column>  
+                </p:dataTable> 
+              </h:panelGrid>
+            </p:panel>
+
+            <p:panel header="Ventas">   
+              <h:panelGrid columns="2">
+                <p:dataTable var="NombreVenPor" value="#{proyectosGeneradoresBean.listaVentasPor}">
+                  <p:column id="columna1">  
+                    <f:facet name="header">  
+                      Variable  
+                    </f:facet> 
+                    <h:outputText value="#{NombreVenPor.registroDescripcion}"/>
+                  </p:column>  
+
+                  <p:column id="columna2">  
+                    <f:facet name="header">  
+                      Porcentaje
+                    </f:facet>  
+                    <p:inputText required="true" id="nomVen" value="#{NombreVenPor.registroIngreso}" maxlength="15">
+                      <p:ajax  event="change" update="nomVen" listener="#{validadorBean.valueChangePorcentaje}"/>
+                    </p:inputText>
+                  </p:column> 
+                </p:dataTable> 
+              </h:panelGrid>
+            </p:panel>
+
+            <p:panel header="Otros"  >
+              <h:panelGrid columns="3">
+                <p:dataTable var="NombreOtrosPor" value="#{proyectosGeneradoresBean.listaOtros}">
+                  <p:column id="columna1">  
+                    <f:facet name="header">  
+                      Variable  
+                    </f:facet> 
+                    <h:outputText value="#{NombreOtrosPor.descripcion}"/>
+                  </p:column>  
+
+                  <p:column id="columna2">  
+                    <f:facet name="header">  
+                      Porcentaje
+                    </f:facet>  
+                    <p:inputText required="true" id="nomOtr" value="#{NombreOtrosPor.porcentajeValor}" >
+                      <p:ajax  event="change" update="nomOtr" listener="#{validadorBean.valueChangePorcentaje}"/>
+                    </p:inputText>
+                  </p:column> 
+
+
+                  <p:column id="columna3">  
+                    <f:facet name="header">  
+                      Monto
+                    </f:facet>  
+                    <p:inputText required="true" id="nomOtPor" value="#{NombreOtrosPor.monto}" maxlength="15">
+                      <p:ajax  event="change" update="nomOtPor" listener="#{validadorBean.valueChangeNumerico}"/>
+                    </p:inputText>
+                  </p:column>  
+                </p:dataTable> 
+              </h:panelGrid>
+            </p:panel>
+
+            <p:panel header="Socios y Gastos de Administracion">
+              <h:panelGrid columns="2">
+                <p:dataTable var="NombreSocAdmon" value="#{proyectosGeneradoresBean.listaSociosGtosAdmonPor}">
+                  <p:column id="columna1">  
+                    <f:facet name="header">  
+                      Variable  
+                    </f:facet> 
+                    <h:outputText value="#{NombreSocAdmon.registroDescripcion}"/>
+                  </p:column>  
+
+                  <p:column id="columna2">  
+                    <f:facet name="header">  
+                      Porcentaje
+                    </f:facet>  
+                    <p:inputText required="true" id="nomSoc" value="#{NombreSocAdmon.registroIngreso}" maxlength="15">
+                      <p:ajax  event="change" update="nomSoc" listener="#{validadorBean.valueChangePorcentaje}"/>
+                    </p:inputText>
+                  </p:column> 
+                </p:dataTable> 
+              </h:panelGrid>
+            </p:panel>
+
+            <p:panel header="Credito Puente">  
+              <h:panelGrid columns="2">
+                <p:dataTable var="NombreCreditoPuente" value="#{proyectosGeneradoresBean.listaCreditoPuente}">
+                  <p:column id="columna1">  
+                    <f:facet name="header">  
+                      Variable  
+                    </f:facet> 
+                    <h:outputText  value="#{NombreCreditoPuente.registroDescripcion}"/>
+                  </p:column>  
+
+                  <p:column id="columna2">  
+                    <f:facet name="header">  
+                      Porcentaje
+                    </f:facet>  
+                    <p:inputText required="true" id="nomCredPu" value="#{NombreCreditoPuente.registroIngreso}" maxlength="15">
+                      <p:ajax  event="change" update="nomCredPu" listener="#{validadorBean.valueChangePorcentaje}"/>
+                    </p:inputText>
+                  </p:column> 
+                </p:dataTable>
+
+              </h:panelGrid>
+            </p:panel>
+              <h:panelGrid columns="2">
+              <p:commandButton action="titulacion" value="Atras"/>
+              <p:commandButton  action="#{proyectosGeneradoresBean.guardarProyectoInd}" value="Guardar"/>
+              <p:commandButton  type="button" onclick="window.location='./acciones.xhtml'" value="Salir"/>
+            </h:panelGrid>        
+          </h:form>
+        </center>
+      </pm:content>
+
+    </pm:view>
+
+  </pm:page>
+
+</f:view>

@@ -1,0 +1,52 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html"
+
+        xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    <pm:page title="Alta Usuarios">
+
+        <pm:view id="AltaUsuarios">
+
+            <pm:header title="Alta Usuarios" swatch="b">
+            </pm:header>
+
+            <pm:content>
+                <h:form id="altaUsuarios"> 
+                    <center>
+                        <c:if test="#{loginBean.usuario.tipUsu.id==2 || loginBean.usuario.tipUsu.id==3}">
+                            <h:panelGrid columns="2">
+
+                                <h:outputText value="Nombre de Usuario :"/>
+                                <h:inputText value="#{altaUsuariosBean.nombreUsuario}"/>
+                                <h:outputText value="Password :"/>
+                                <p:password  maxlength="10" feedback="false" value="#{altaUsuariosBean.password}"/>
+                                <h:outputText value="Rectificar Password :"/>
+                                <p:password  maxlength="10" feedback="false" value="#{altaUsuariosBean.rectificarPassword}"/>
+                                
+                                <h:outputText value="Tipo de Usuario"/>
+                                <h:selectOneMenu   id="selectOne" value="#{altaUsuariosBean.tipoUsuario}">
+                                    <f:selectItem itemValue="-1" itemLabel="Seleccionar tipo de usuario"/>
+                                    <f:selectItem itemValue="1" itemLabel="Inversionista"/>
+                                    <f:selectItem itemValue="2" itemLabel="Analista"/>
+                                    <c:if test="#{loginBean.usuario.tipUsu.id==3}">
+                                        <f:selectItem itemValue="3" itemLabel="Super Usuario"/>
+                                    </c:if>
+                                </h:selectOneMenu>
+                            </h:panelGrid>
+                            <h:commandButton id="sub" action="#{altaUsuariosBean.guardarUsuario}" value="Guardar"/>
+                            <h:message style="color: red ;font-size: large" for="sub"/>
+                        </c:if>
+                    </center>
+                </h:form>
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+</f:view>

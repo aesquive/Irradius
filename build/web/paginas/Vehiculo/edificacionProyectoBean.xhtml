@@ -1,0 +1,68 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+
+    <pm:page title="Edificacion por proyecto">
+
+        <!-- Alta -->
+        <pm:view id="edificacionProyecto">
+
+
+            <pm:header title="Distribucion Edificacion" swatch="b">
+            </pm:header>
+            <pm:content>
+                <center>
+                    <h:form>  
+                        <h:panelGrid>
+                           
+                            <p:carousel rows="1" itemStyle="height:200px;width:600px;" effect="easeInStrong" value="beanProyecto.">  
+                                    <p:dataTable var="Etapa" value="#{proyectosInfoBasica.listaConstruccion}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="150">
+                                        <p:column id="columna1">  
+                                            <f:facet name="header">  
+                                                Mes  
+                                            </f:facet>  
+                                            <h:outputText value="#{Etapa.registroDescripcion}"/>
+                                        </p:column>  
+
+                                        <p:column id="columna2">  
+                                            <f:facet name="header">  
+                                                Valor 
+                                            </f:facet>
+                                            <h:outputText value="#{Etapa.registroDescripcion}"/>
+                                        </p:column>           
+                                    </p:dataTable>  
+                                    
+                                    <p:dataTable var="Etapa" value="#{proyectosInfoBasica.listaTerreno}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="150">
+                                        <p:column id="columna1">  
+                                            <f:facet name="header">  
+                                                Mes  
+                                            </f:facet>  
+                                            <h:outputText value="#{Etapa.registroDescripcion}"/>
+                                        </p:column>  
+
+                                        <p:column id="columna2">  
+                                            <f:facet name="header">  
+                                                Valor 
+                                            </f:facet>
+                                            <h:outputText value="#{Etapa.registroDescripcion}"/>
+                                        </p:column>           
+                                    </p:dataTable>
+                                    </p:carousel>
+                                    
+                            <h:commandButton  action="etapas" value="Atras" />
+                            <h:commandButton  action="generadores" value="Siguiente" />
+                        </h:panelGrid>
+
+                    </h:form>
+                </center>
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+</f:view>

@@ -1,0 +1,83 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+
+  <pm:page title="EtapasProyecto">
+
+    <!-- Alta -->
+    <pm:view id="CapturaProyecto2">
+
+      <pm:header title="Etapa #{proyectosEtapasBean.etapaActual}" swatch="b">
+           <h:form>
+                    <h:commandButton action="modelos" value="Menu de Acciones"/>
+                </h:form>
+      </pm:header>
+      <pm:content>
+        <center>
+          <h:form>
+
+
+            <h:panelGrid columns="2" cellpadding="3" >
+
+
+              <h:outputText value="Nombre del Lote:"/>
+              <p:inputText title="Nombre" value="#{proyectosEtapasBean.nomEta}"/>
+              <!--
+
+              -->
+            </h:panelGrid> 
+
+            <h:panelGrid >
+              <p:dataTable var="Parametros" value="#{proyectosEtapasBean.listaParametros}">
+                <p:column id="columna1">  
+                  <f:facet name="header">  
+                    Variable  
+                  </f:facet>  
+                  <h:outputText value="#{Parametros.registroDescripcion}"/>
+                </p:column>  
+
+                <p:column id="columna2">  
+                  <f:facet name="header">  
+                    Valor
+                  </f:facet>  
+                  <p:inputText required="true"  maxlength="15" id="etapPara" value="#{Parametros.registroIngreso}" >
+                    <p:ajax  event="change" update="etapPara" listener="#{validadorBean.valueChangeNumerico}"/>
+                  </p:inputText>
+                </p:column>           
+              </p:dataTable>  
+
+              <p:dataTable var="Porcentajes" value="#{proyectosEtapasBean.listaParametrosPorcentajes}">
+                <p:column id="columna1">  
+                  <f:facet name="header">  
+                    Variable  
+                  </f:facet> 
+                  <h:outputText value="#{Porcentajes.registroDescripcion}"/> 
+                </p:column>  
+                <p:column id="columna2">  
+                  <f:facet name="header">  
+                    Valor 
+                  </f:facet>  
+                  <p:inputText id="etaIng" value="#{Porcentajes.registroIngreso}" >
+                    <p:ajax  event="change" update="etaIng" listener="#{validadorBean.valueChangePorcentaje}"/>
+                  </p:inputText>
+                </p:column>    
+
+              </p:dataTable> 
+            </h:panelGrid>
+              <h:panelGrid columns="2">
+                   <h:commandButton action="Cetes" value="Atras"/>
+              <h:commandButton action="ProyectoFechas" value="Siguiente"/>
+            </h:panelGrid>
+          </h:form>
+        </center>
+      </pm:content>
+
+    </pm:view>
+
+  </pm:page>
+
+</f:view>

@@ -1,0 +1,42 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+
+    <pm:page title="Graficas">
+
+        <!-- Alta -->
+        <pm:view id="Graficacion">
+
+
+            <pm:header title="Graficas" swatch="b">
+                <h:form>
+                 <h:commandButton action="menuSimulacion" value="Menu de Simulacion"/>
+                </h:form>
+            </pm:header>
+            <pm:content>
+                <h:form> 
+                    <p:dataTable  var="Parm" value="#{graficasSimulacion.rutas}"  resizableColumns="true" scrollRows="200" liveScroll="true" style="width:99% ; height: 99%" scrollHeight="200">
+                            <p:column  style="width: 100%;height: 100%">
+                                <p:fieldset legend="#{Parm.registroDescripcion}" toggleable="true"   toggleSpeed="200"> 
+
+                                    <h:graphicImage rendered="true"  url="#{Parm.registroIngreso}"/>
+                                 
+                                </p:fieldset>
+                            </p:column>
+                        </p:dataTable>
+
+
+                </h:form>
+
+
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+</f:view>

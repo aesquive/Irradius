@@ -1,0 +1,105 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+
+    <pm:page title="Elementos de Venta">
+        <!-- Alta -->
+        <pm:view id="Modelo1">
+
+            <pm:header title="Elementos de Venta" swatch="b" />
+            <pm:content>
+                <center>
+                    <form>
+                        
+                        <h:panelGrid columns="2">
+                            
+                            <h:outputText value=""/>
+                            <h:outputText value=""/>
+                            
+                            <h:outputText value="Numero de Unidades en el Proyecto: "/>
+                            <h:outputText value="#{modeloElemVenta.pry_uni_viv}"/>
+                            
+                            <h:outputText value="Valor Promedio de Venta"/>
+                            <h:outputText value="#{modeloElemVenta.pry_val_prom_ven_viv}"/>
+                            
+                            <h:outputText value="Ingreso Total: "/>
+                            <h:outputText value="#{modeloElemVenta.pry_ing_tot_viv}"/>
+                            
+                            <h:outputText value="Ingreso por Enganches: "/>
+                            <h:outputText value="#{modeloElemVenta.pry_ing_eng_viv}"/>
+                            
+                            <h:outputText value="Ingreso por Titulacion: "/>
+                            <h:outputText value="#{modeloElemVenta.pry_ing_tit_viv}"/>
+                            
+                            <h:outputText value="Ingreso Total Valor de Venta: "/>
+                            <h:outputText value="#{modeloElemVenta.pry_ing_tot_val_ven}"/> 
+                            
+                            <h:outputText value="Valor Total del Sobreprecio: "/>
+                            <h:outputText value="#{modeloElemVenta.pry_ing_tot_sbpr}"/>
+                        </h:panelGrid>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <h:panelGrid style="margin-top:20px" columns="4">
+                            <f:facet name="header">
+                                Unidades para Venta por Etapa
+                            </f:facet>
+                            <h:dataTable var="viv" value="#{modeloElemVenta.pry_val_ven}">
+                                <p:column id="columna1">
+                                <f:facet name="header">
+                                    Valor de Venta
+                                </f:facet>
+                                    <h:outputText value="#{viv}"/>
+                                    </p:column>
+                            </h:dataTable>
+                           
+                            <h:dataTable var="enganche" value="#{modeloElemVenta.pry_val_eng_eta}">
+                                 <p:column id="columna2">
+                                <f:facet name="header">
+                                    % Enganche
+                                </f:facet>
+                                    <h:outputText value=" % #{enganche}"/>
+                            </p:column>
+                            </h:dataTable>
+                            
+                            <h:dataTable var="creditopor" value="#{modeloElemVenta.pry_por_cre}">
+                                <h:column id="columna1">
+                                    <f:facet name="header">
+                                    % Credito
+                                    </f:facet>
+                                </h:column>
+                                <h:column id="columna2">
+                                    <h:outputText value="#{creditopor}"/>
+                                </h:column> 
+                            </h:dataTable>
+
+                            <h:dataTable var="credito" value="#{modeloElemVenta.pry_val_cre_eta}">
+                                <h:column id="columna1">
+                                    <f:facet name="header">
+                                        Valor del Credito
+                                    </f:facet>
+                                </h:column>
+                                <h:column id="columna2">
+                                    <h:outputText value="% #{credito}"/>
+                                </h:column> 
+                            </h:dataTable>
+
+                        </h:panelGrid>
+
+                        <h:panelGrid columns="2">
+                            <h:form>
+                                <h:commandButton type="button" onclick="window.location='./seleccionProyectos.xhtml'" value="Atras"/>
+                                <h:commandButton type="button" onclick="window.location='./modeloInfoBasica.xhtml'" value="Siguiente"/>
+                            </h:form>
+                        </h:panelGrid>
+
+                    </form> 
+                </center>
+            </pm:content> 
+        </pm:view>
+    </pm:page> 
+</f:view>

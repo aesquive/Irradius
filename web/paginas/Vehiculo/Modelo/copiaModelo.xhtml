@@ -1,0 +1,40 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+
+    <pm:page title="Copia Modelo">
+
+        <!-- Modelo -->
+        <pm:view id="menuconsolidado">
+
+
+            <pm:header title="Copia Modelo" swatch="b">
+                <h:outputText value="El usuario actual es: #{loginBean.usr}"/>
+            </pm:header>
+            <pm:content>
+                <center>
+                    <h:form>  
+                        <h:panelGrid columns="2">
+                            <h:outputText value="Nombre del Modelo" />
+                            <p:inputText value="#{beanCopiador.nombreModelo}"/>
+                        </h:panelGrid>
+                        <h:panelGrid columns="1">
+                            <h:form>
+                                <h:commandButton action="#{beanCopiador.guardar}" value="Copiar"/>
+                                <h:commandButton action="seleccionProyectos" value="Menu Modelo"/>
+                            </h:form>
+                        </h:panelGrid>
+
+                    </h:form>
+                </center>
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+</f:view>

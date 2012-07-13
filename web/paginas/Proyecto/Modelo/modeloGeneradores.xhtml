@@ -1,0 +1,548 @@
+<<<<<<< HEAD
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+
+  <pm:page title="Generadores">
+    <!-- Alta -->
+    <pm:view id="Modelo1">
+
+      <pm:header title="Generadores" swatch="b"/>
+
+      <pm:content>
+        <center>
+          <form>
+
+              <h:panelGrid >
+                  <f:facet name="header">
+                      Terrenos y Escrituras
+                  </f:facet>
+            <h:panelGrid columns="2">
+              <h:outputText value="Valor de compra del Terreno por vivienda"/>
+              <h:outputText value="#{modeloGeneradores.pry_val_com_ter_imp_viv}"/>
+            </h:panelGrid>
+
+            <h:panelGrid columns="3">
+              <h:outputText value="Predial, Aguas, Areas comunes, Vigilancia"/>
+              <h:outputText value="#{modeloGeneradores.pry_val_tot_con_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_val_tot_con_imp_viv}"/>
+              <h:outputText value="Escrituras/Avaluo/constitucion fideicomiso/terreno/ISR"/>
+              <h:outputText value="#{modeloGeneradores.pry_esc_ava_fid_isr_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_esc_ava_fid_isr_imp_viv}"/>
+            </h:panelGrid> 
+                  <f:facet name="footer">
+                      Importe Total de Terrenos y Escrituras #{modeloGeneradores.pry_imp_tot_ter_esc}
+                   </f:facet>
+            </h:panelGrid> 
+              <br/>
+              <br/>
+               <h:panelGrid >
+                  <f:facet name="header">
+                      Proyectos
+                  </f:facet>
+            <h:panelGrid columns="3">
+              <h:outputText value="Proyecto Arquitectonico"/>
+              <h:outputText value="#{modeloGeneradores.pry_pro_arq_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_pro_arq_imp_viv}"/>
+              <h:outputText value="DRO's y Firmas "/>
+              <h:outputText value="#{modeloGeneradores.pry_dro_fir_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_dro_fir_imp_viv}"/>
+              <h:outputText value="Calculo Estructural, Instalaciones"/>
+              <h:outputText value="#{modeloGeneradores.pry_cal_est_ins_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_cal_est_ins_imp_viv}"/>
+              <h:outputText value="Mecanica de Suelos, Topografía"/>
+              <h:outputText value="#{modeloGeneradores.pry_mec_sue_top_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_mec_sue_top_imp_viv}"/>     
+            </h:panelGrid>
+                    <f:facet name="footer" >
+                        Importe Total de Proyectos #{modeloGeneradores.pry_imp_tot_pro}
+                   </f:facet>
+            </h:panelGrid>
+              <br/>
+              <br/>
+               <h:panelGrid >
+                  <f:facet name="header">
+                      Tramites, Licencias y derechos
+                  </f:facet>
+            <h:panelGrid columns="3">
+              <h:outputText value="Gestiones Vecinales y Terceros"/>
+              <h:outputText value="#{modeloGeneradores.pry_ges_vec_ter_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_ges_vec_ter_imp_viv}"/>
+              <h:outputText value="Tramites y Licencias"/>
+              <h:outputText value="#{modeloGeneradores.pry_tram_lic_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_tram_lic_imp_viv}"/>
+              <h:outputText value="Concertaciones Vecinales"/>
+              <h:outputText value="#{modeloGeneradores.pry_con_vec_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_con_vec_imp_viv}"/>
+              <h:outputText value="Pozo de Agua"/>
+              <h:outputText value="#{modeloGeneradores.pry_poz_agu_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_poz_agu_imp_viv}"/>
+              <h:outputText value="Solicitud Presupuesto Luz y Fuerza"/>
+              <h:outputText value="#{modeloGeneradores.pry_sol_pre_luz_fue_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_sol_pre_luz_fue_imp_viv}"/>
+              <h:outputText value="Regimen de Propiedad en Condominio"/>
+              <h:outputText value="#{modeloGeneradores.pry_reg_pro_con_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_reg_pro_con_imp_viv}"/>
+            </h:panelGrid>
+                    <f:facet name="footer">
+                        Importe Total de Tramites, Licencias y Derechos #{modeloGeneradores.pry_imp_tot_tra_lic_der}
+                   </f:facet>
+            </h:panelGrid>
+              <br/>
+              <br/>
+               <h:panelGrid >
+                  <f:facet name="header">
+                      Construccion
+                  </f:facet>
+            <h:panelGrid columns="2">
+              <h:outputText value="Edificacion de Casas"/>
+              <h:outputText value="#{modeloGeneradores.pry_edi_cas_imp_viv}"/>
+              <h:outputText value="Urbanizacion"/>
+              <h:outputText value="#{modeloGeneradores.pry_urb_imp_viv}"/>
+              <h:outputText value="Urbanizacion de Acceso"/>
+              <h:outputText value="#{modeloGeneradores.pry_urb_acc_imp_viv}"/>
+              <h:outputText value="Edificaion Departamentos"/>
+              <h:outputText value="#{modeloGeneradores.pry_edi_dep_imp_viv}"/>
+              <h:outputText value="Area Exterior"/>
+              <h:outputText value="#{modeloGeneradores.pry_are_ext_imp_viv}"/>
+              <h:outputText value="Gastos Generales"/>
+              <h:outputText value="#{modeloGeneradores.pry_gas_gen_imp_viv}"/>
+              <h:outputText value="Imprevistos"/>
+              <h:outputText value="#{modeloGeneradores.pry_imp_imp_viv}"/>
+              <h:outputText value="Obligaciones Patronales"/>
+              <h:outputText value="#{modeloGeneradores.pry_obl_pat_imp_viv}"/>
+              <h:outputText value="Paquetes de Acabados "/>
+              <h:outputText value="#{modeloGeneradores.pry_paq_aca_imp_viv}"/>
+              <h:outputText value="Mantenimiento y Vigilancia de escenario"/>
+              <h:outputText value="#{modeloGeneradores.pry_man_vig_esc_imp_viv}"/>
+              <h:outputText value="Supervision de Obra"/>
+              <h:outputText value="#{modeloGeneradores.pry_sup_obr_imp_viv}"/>
+              <h:outputText value="Infraestructura"/>
+              <h:outputText value="#{modeloGeneradores.pry_inf_imp_viv}"/> 
+            </h:panelGrid>
+            </h:panelGrid>
+              <br/>
+              <br/>
+               <h:panelGrid >
+                  <f:facet name="header">
+                      Ventas
+                  </f:facet>
+            <h:panelGrid columns="3">
+              <h:outputText value="Comisiones de Venta"/>
+              <h:outputText value="#{modeloGeneradores.pry_com_ven_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_com_ven_imp_viv}"/>
+              <h:outputText value="Comisiones de Venta (contrato)"/>
+              <h:outputText value="#{modeloGeneradores.pry_com_ven_con_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_com_ven_con_imp_viv}"/>
+              <h:outputText value="Comisiones de Venta (titulacion)"/>
+              <h:outputText value="#{modeloGeneradores.pry_com_ven_tit_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_com_ven_tit_imp_viv}"/>
+              <h:outputText value="Publicidad (coporativo)"/>
+              <h:outputText value="#{modeloGeneradores.pry_pub_cor_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_pub_cor_imp_viv}"/>
+              <h:outputText value="Publicidad, Promocion (UNE)"/>
+              <h:outputText value="#{modeloGeneradores.pry_pub_pro_une_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_pub_pro_une_imp_viv}"/>
+              <h:outputText value="Escenario Provisional/ Manto/ Vigilancia"/>
+              <h:outputText value="#{modeloGeneradores.pry_esc_pro_man_vig_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_esc_pro_man_vig_imp_viv}"/>
+              <h:outputText value="Amueblado y Decorado de Departamentos"/>
+              <h:outputText value="#{modeloGeneradores.pry_amu_dec_dep_ofi_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_amu_dec_dep_ofi_imp_viv}"/>
+            </h:panelGrid> <f:facet name="footer">
+                Importe Total de Ventas #{modeloGeneradores.pry_imp_tot_ven}
+                   </f:facet>
+            </h:panelGrid>
+              <br/>
+              <br/>
+               <h:panelGrid >
+                  <f:facet name="header">
+                      Otros
+                  </f:facet>
+            <h:panelGrid columns="3">
+              <h:outputText value="Amenidades"/>
+              <h:outputText value="#{modeloGeneradores.pry_ame_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_ame_imp_viv}"/>
+              <h:outputText value="Otros 2 "/>
+              <h:outputText value="#{modeloGeneradores.pry_otr_2_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_otr_2_imp_viv}"/>
+              <h:outputText value="Otros 3"/>
+              <h:outputText value="#{modeloGeneradores.pry_otr_3_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_otr_3_imp_viv}"/>
+            </h:panelGrid>
+                    <f:facet name="footer">
+                        Importe Total de Otros #{modeloGeneradores.pry_imp_tot_otr}
+                   </f:facet>
+            </h:panelGrid>
+              <br/>
+              <br/>
+               <h:panelGrid >
+                  <f:facet name="header">
+                      Socios y Gastos de Administracion
+                  </f:facet>
+            <h:panelGrid columns="3">
+              <h:outputText value="Gastos de Operacion y Admon (UNE)"/>
+              <h:outputText value="#{modeloGeneradores.pry_gas_ope_adm_une_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_gas_ope_adm_une_imp_viv}"/>
+              <h:outputText value="Gastos de Operacion y Admon (Corporativo)"/>
+              <h:outputText value="#{modeloGeneradores.pry_gas_ope_adm_cor_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_gas_ope_adm_cor_imp_viv}"/>
+            </h:panelGrid>
+            </h:panelGrid>
+              <br/>
+              <br/>
+               <h:panelGrid >
+                  <f:facet name="header">
+                      Credito Puente
+                  </f:facet>
+            <h:panelGrid columns="3">
+              <h:outputText value="Credito Puente Solicitado"/>
+              <h:outputText value="#{modeloGeneradores.pry_cre_pue_sol_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_cre_pue_sol_imp_viv}"/>
+              <h:outputText value="Apertura de Credito"/>
+              <h:outputText value="#{modeloGeneradores.pry_ape_cre_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_ape_cre_imp_viv}"/>
+              <h:outputText value="Seguros, Fianzas, Gastos Notariales"/>
+              <h:outputText value="#{modeloGeneradores.pry_seg_fia_gas_not_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_seg_fia_gas_not_imp_viv}"/>
+              <h:outputText value="Supervision de Obra/ Admon. Recursos"/>
+              <h:outputText value="#{modeloGeneradores.pry_sup_obr_adm_rec_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_sup_obr_adm_rec_imp_viv}"/>
+            </h:panelGrid>
+            </h:panelGrid>
+              <br/>
+              <br/>
+            <h:panelGrid columns="2">
+                <h:outputText value="Anticipo"/>
+                <h:outputText value="#{modeloGeneradores.pry_ant_cre_sol_imp_tot}"/>
+                <h:outputText value="#{modeloGeneradores.pry_ant_cre_sol_imp_viv}"/>        
+                <h:outputText value="Disposicion de Recursos"/>
+                <h:outputText value="#{modeloGeneradores.pry_dis_rec_cre_sol_imp_tot} "/>
+                <h:outputText value="#{modeloGeneradores.pry_dis_rec_cre_sol_imp_viv}"/> 
+                <h:outputText value="Amortizacion del Credito"/>
+                <h:outputText value="#{modeloGeneradores.pry_amo_cre_cre_sol_imp_tot}"/> 
+                <h:outputText value="#{modeloGeneradores.pry_amo_cre_cre_sol_imp_viv}"/>        
+            </h:panelGrid>
+              <br/>
+              <br/>
+              <h:panelGrid columns="3">
+            <h:dataTable var="anticipo" value="#{modeloGeneradores.pry_ant_eta_imp_tot}">
+                <p:column id="columna1">
+                <f:facet name="header">
+                Anticipo 
+              </f:facet>
+                <h:outputText value="#{anticipo}"/>
+              </p:column>
+            </h:dataTable>
+
+            <h:dataTable var="disposicion" value="#{modeloGeneradores.pry_dis_rec_eta_imp_tot}">
+                <p:column id="columna2">
+                <f:facet name="header">
+                Disposicion de Recursos 
+              </f:facet>
+                <h:outputText value="#{disposicion}"/>
+              </p:column>
+            </h:dataTable>
+
+            <h:dataTable var="amortizacion" value="#{modeloGeneradores.pry_amo_cre_eta_imp_tot}">
+               <p:column id="columna3">
+                <f:facet name="header">
+                Amortizacion del Credito
+              </f:facet>
+                <h:outputText value="#{amortizacion}"/>
+              </p:column>
+            </h:dataTable>
+              </h:panelGrid>
+                  
+            <h:panelGrid columns="2">
+              <h:commandButton type="button" onclick="window.location='./modeloInfoBasica.xhtml'" value="Atras"/>
+              <h:commandButton type="button" onclick="window.location='./modeloEdoResultados.xhtml'" value="Siguiente"/>
+            </h:panelGrid>
+
+          </form> 
+        </center>
+      </pm:content> 
+    </pm:view>
+
+  </pm:page> 
+
+</f:view>
+=======
+=======
+>>>>>>> effddfb2e77c4a44250a972f0674d2e109da16bd
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+
+  <pm:page title="Generadores">
+    <!-- Alta -->
+    <pm:view id="Modelo1">
+
+      <pm:header title="Generadores" swatch="b"/>
+
+      <pm:content>
+        <center>
+          <form>
+
+              <h:panelGrid >
+                  <f:facet name="header">
+                      Terrenos y Escrituras
+                  </f:facet>
+            <h:panelGrid columns="2">
+              <h:outputText value="Valor de compra del Terreno por vivienda"/>
+              <h:outputText value="#{modeloGeneradores.pry_val_com_ter_imp_viv}"/>
+            </h:panelGrid>
+
+            <h:panelGrid columns="3">
+              <h:outputText value="Predial, Aguas, Areas comunes, Vigilancia"/>
+              <h:outputText value="#{modeloGeneradores.pry_val_tot_con_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_val_tot_con_imp_viv}"/>
+              <h:outputText value="Escrituras/Avaluo/constitucion fideicomiso/terreno/ISR"/>
+              <h:outputText value="#{modeloGeneradores.pry_esc_ava_fid_isr_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_esc_ava_fid_isr_imp_viv}"/>
+            </h:panelGrid> 
+                  <f:facet name="footer">
+                      Importe Total de Terrenos y Escrituras #{modeloGeneradores.pry_imp_tot_ter_esc}
+                   </f:facet>
+            </h:panelGrid> 
+              <br/>
+              <br/>
+               <h:panelGrid >
+                  <f:facet name="header">
+                      Proyectos
+                  </f:facet>
+            <h:panelGrid columns="3">
+              <h:outputText value="Proyecto Arquitectonico"/>
+              <h:outputText value="#{modeloGeneradores.pry_pro_arq_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_pro_arq_imp_viv}"/>
+              <h:outputText value="DRO's y Firmas "/>
+              <h:outputText value="#{modeloGeneradores.pry_dro_fir_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_dro_fir_imp_viv}"/>
+              <h:outputText value="Calculo Estructural, Instalaciones"/>
+              <h:outputText value="#{modeloGeneradores.pry_cal_est_ins_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_cal_est_ins_imp_viv}"/>
+              <h:outputText value="Mecanica de Suelos, Topografía"/>
+              <h:outputText value="#{modeloGeneradores.pry_mec_sue_top_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_mec_sue_top_imp_viv}"/>     
+            </h:panelGrid>
+                    <f:facet name="footer" >
+                        Importe Total de Proyectos #{modeloGeneradores.pry_imp_tot_pro}
+                   </f:facet>
+            </h:panelGrid>
+              <br/>
+              <br/>
+               <h:panelGrid >
+                  <f:facet name="header">
+                      Tramites, Licencias y derechos
+                  </f:facet>
+            <h:panelGrid columns="3">
+              <h:outputText value="Gestiones Vecinales y Terceros"/>
+              <h:outputText value="#{modeloGeneradores.pry_ges_vec_ter_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_ges_vec_ter_imp_viv}"/>
+              <h:outputText value="Tramites y Licencias"/>
+              <h:outputText value="#{modeloGeneradores.pry_tram_lic_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_tram_lic_imp_viv}"/>
+              <h:outputText value="Concertaciones Vecinales"/>
+              <h:outputText value="#{modeloGeneradores.pry_con_vec_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_con_vec_imp_viv}"/>
+              <h:outputText value="Pozo de Agua"/>
+              <h:outputText value="#{modeloGeneradores.pry_poz_agu_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_poz_agu_imp_viv}"/>
+              <h:outputText value="Solicitud Presupuesto Luz y Fuerza"/>
+              <h:outputText value="#{modeloGeneradores.pry_sol_pre_luz_fue_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_sol_pre_luz_fue_imp_viv}"/>
+              <h:outputText value="Regimen de Propiedad en Condominio"/>
+              <h:outputText value="#{modeloGeneradores.pry_reg_pro_con_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_reg_pro_con_imp_viv}"/>
+            </h:panelGrid>
+                    <f:facet name="footer">
+                        Importe Total de Tramites, Licencias y Derechos #{modeloGeneradores.pry_imp_tot_tra_lic_der}
+                   </f:facet>
+            </h:panelGrid>
+              <br/>
+              <br/>
+               <h:panelGrid >
+                  <f:facet name="header">
+                      Construccion
+                  </f:facet>
+            <h:panelGrid columns="2">
+              <h:outputText value="Edificacion de Casas"/>
+              <h:outputText value="#{modeloGeneradores.pry_edi_cas_imp_viv}"/>
+              <h:outputText value="Urbanizacion"/>
+              <h:outputText value="#{modeloGeneradores.pry_urb_imp_viv}"/>
+              <h:outputText value="Urbanizacion de Acceso"/>
+              <h:outputText value="#{modeloGeneradores.pry_urb_acc_imp_viv}"/>
+              <h:outputText value="Edificaion Departamentos"/>
+              <h:outputText value="#{modeloGeneradores.pry_edi_dep_imp_viv}"/>
+              <h:outputText value="Area Exterior"/>
+              <h:outputText value="#{modeloGeneradores.pry_are_ext_imp_viv}"/>
+              <h:outputText value="Gastos Generales"/>
+              <h:outputText value="#{modeloGeneradores.pry_gas_gen_imp_viv}"/>
+              <h:outputText value="Imprevistos"/>
+              <h:outputText value="#{modeloGeneradores.pry_imp_imp_viv}"/>
+              <h:outputText value="Obligaciones Patronales"/>
+              <h:outputText value="#{modeloGeneradores.pry_obl_pat_imp_viv}"/>
+              <h:outputText value="Paquetes de Acabados "/>
+              <h:outputText value="#{modeloGeneradores.pry_paq_aca_imp_viv}"/>
+              <h:outputText value="Mantenimiento y Vigilancia de escenario"/>
+              <h:outputText value="#{modeloGeneradores.pry_man_vig_esc_imp_viv}"/>
+              <h:outputText value="Supervision de Obra"/>
+              <h:outputText value="#{modeloGeneradores.pry_sup_obr_imp_viv}"/>
+              <h:outputText value="Infraestructura"/>
+              <h:outputText value="#{modeloGeneradores.pry_inf_imp_viv}"/> 
+            </h:panelGrid>
+            </h:panelGrid>
+              <br/>
+              <br/>
+               <h:panelGrid >
+                  <f:facet name="header">
+                      Ventas
+                  </f:facet>
+            <h:panelGrid columns="3">
+              <h:outputText value="Comisiones de Venta"/>
+              <h:outputText value="#{modeloGeneradores.pry_com_ven_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_com_ven_imp_viv}"/>
+              <h:outputText value="Comisiones de Venta (contrato)"/>
+              <h:outputText value="#{modeloGeneradores.pry_com_ven_con_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_com_ven_con_imp_viv}"/>
+              <h:outputText value="Comisiones de Venta (titulacion)"/>
+              <h:outputText value="#{modeloGeneradores.pry_com_ven_tit_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_com_ven_tit_imp_viv}"/>
+              <h:outputText value="Publicidad (coporativo)"/>
+              <h:outputText value="#{modeloGeneradores.pry_pub_cor_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_pub_cor_imp_viv}"/>
+              <h:outputText value="Publicidad, Promocion (UNE)"/>
+              <h:outputText value="#{modeloGeneradores.pry_pub_pro_une_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_pub_pro_une_imp_viv}"/>
+              <h:outputText value="Escenario Provisional/ Manto/ Vigilancia"/>
+              <h:outputText value="#{modeloGeneradores.pry_esc_pro_man_vig_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_esc_pro_man_vig_imp_viv}"/>
+              <h:outputText value="Amueblado y Decorado de Departamentos"/>
+              <h:outputText value="#{modeloGeneradores.pry_amu_dec_dep_ofi_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_amu_dec_dep_ofi_imp_viv}"/>
+            </h:panelGrid> <f:facet name="footer">
+                Importe Total de Ventas #{modeloGeneradores.pry_imp_tot_ven}
+                   </f:facet>
+            </h:panelGrid>
+              <br/>
+              <br/>
+               <h:panelGrid >
+                  <f:facet name="header">
+                      Otros
+                  </f:facet>
+            <h:panelGrid columns="3">
+              <h:outputText value="Amenidades"/>
+              <h:outputText value="#{modeloGeneradores.pry_ame_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_ame_imp_viv}"/>
+              <h:outputText value="Otros 2 "/>
+              <h:outputText value="#{modeloGeneradores.pry_otr_2_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_otr_2_imp_viv}"/>
+              <h:outputText value="Otros 3"/>
+              <h:outputText value="#{modeloGeneradores.pry_otr_3_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_otr_3_imp_viv}"/>
+            </h:panelGrid>
+                    <f:facet name="footer">
+                        Importe Total de Otros #{modeloGeneradores.pry_imp_tot_otr}
+                   </f:facet>
+            </h:panelGrid>
+              <br/>
+              <br/>
+               <h:panelGrid >
+                  <f:facet name="header">
+                      Socios y Gastos de Administracion
+                  </f:facet>
+            <h:panelGrid columns="3">
+              <h:outputText value="Gastos de Operacion y Admon (UNE)"/>
+              <h:outputText value="#{modeloGeneradores.pry_gas_ope_adm_une_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_gas_ope_adm_une_imp_viv}"/>
+              <h:outputText value="Gastos de Operacion y Admon (Corporativo)"/>
+              <h:outputText value="#{modeloGeneradores.pry_gas_ope_adm_cor_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_gas_ope_adm_cor_imp_viv}"/>
+            </h:panelGrid>
+            </h:panelGrid>
+              <br/>
+              <br/>
+               <h:panelGrid >
+                  <f:facet name="header">
+                      Credito Puente
+                  </f:facet>
+            <h:panelGrid columns="3">
+              <h:outputText value="Credito Puente Solicitado"/>
+              <h:outputText value="#{modeloGeneradores.pry_cre_pue_sol_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_cre_pue_sol_imp_viv}"/>
+              <h:outputText value="Apertura de Credito"/>
+              <h:outputText value="#{modeloGeneradores.pry_ape_cre_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_ape_cre_imp_viv}"/>
+              <h:outputText value="Seguros, Fianzas, Gastos Notariales"/>
+              <h:outputText value="#{modeloGeneradores.pry_seg_fia_gas_not_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_seg_fia_gas_not_imp_viv}"/>
+              <h:outputText value="Supervision de Obra/ Admon. Recursos"/>
+              <h:outputText value="#{modeloGeneradores.pry_sup_obr_adm_rec_imp_tot}"/>
+              <h:outputText value="#{modeloGeneradores.pry_sup_obr_adm_rec_imp_viv}"/>
+            </h:panelGrid>
+            </h:panelGrid>
+              <br/>
+              <br/>
+            <h:panelGrid columns="2">
+                <h:outputText value="Anticipo"/>
+                <h:outputText value="#{modeloGeneradores.pry_ant_cre_sol_imp_tot}"/>
+                <h:outputText value="#{modeloGeneradores.pry_ant_cre_sol_imp_viv}"/>        
+                <h:outputText value="Disposicion de Recursos"/>
+                <h:outputText value="#{modeloGeneradores.pry_dis_rec_cre_sol_imp_tot} "/>
+                <h:outputText value="#{modeloGeneradores.pry_dis_rec_cre_sol_imp_viv}"/> 
+                <h:outputText value="Amortizacion del Credito"/>
+                <h:outputText value="#{modeloGeneradores.pry_amo_cre_cre_sol_imp_tot}"/> 
+                <h:outputText value="#{modeloGeneradores.pry_amo_cre_cre_sol_imp_viv}"/>        
+            </h:panelGrid>
+              <br/>
+              <br/>
+              <h:panelGrid columns="3">
+            <h:dataTable var="anticipo" value="#{modeloGeneradores.pry_ant_eta_imp_tot}">
+                <p:column id="columna1">
+                <f:facet name="header">
+                Anticipo 
+              </f:facet>
+                <h:outputText value="#{anticipo}"/>
+              </p:column>
+            </h:dataTable>
+
+            <h:dataTable var="disposicion" value="#{modeloGeneradores.pry_dis_rec_eta_imp_tot}">
+                <p:column id="columna2">
+                <f:facet name="header">
+                Disposicion de Recursos 
+              </f:facet>
+                <h:outputText value="#{disposicion}"/>
+              </p:column>
+            </h:dataTable>
+
+            <h:dataTable var="amortizacion" value="#{modeloGeneradores.pry_amo_cre_eta_imp_tot}">
+               <p:column id="columna3">
+                <f:facet name="header">
+                Amortizacion del Credito
+              </f:facet>
+                <h:outputText value="#{amortizacion}"/>
+              </p:column>
+            </h:dataTable>
+              </h:panelGrid>
+                  
+            <h:panelGrid columns="2">
+              <h:commandButton type="button" onclick="window.location='./modeloInfoBasica.xhtml'" value="Atras"/>
+              <h:commandButton type="button" onclick="window.location='./modeloEdoResultados.xhtml'" value="Siguiente"/>
+            </h:panelGrid>
+
+          </form> 
+        </center>
+      </pm:content> 
+    </pm:view>
+
+  </pm:page> 
+
+</f:view>

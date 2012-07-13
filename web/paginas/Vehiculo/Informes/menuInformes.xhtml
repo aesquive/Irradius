@@ -1,0 +1,45 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+
+    <pm:page title="Informes">
+
+        <!-- Alta -->
+        <pm:view id="MenuInformes">
+
+            <pm:header title="Menu Informes" swatch="b">
+
+            </pm:header>
+            <h:outputText value="El usuario actual es:  #{loginBean.usr}" />
+            <pm:content >
+                <center>
+                    <h:form id="form">
+                        <h:panelGrid>            
+                            <h:panelGrid columns="2">
+                                <h:outputText value="Modelos : "/>
+                                <h:selectOneMenu   id="selectOne" value="#{generalSimulacionBean.modeloActual}">
+                                    <f:selectItem  itemLabel="Seleccionar un Modelo"/>
+                                    <f:selectItems  id="modelo" value="#{generalSimulacionBean.modelos}" itemValue="#{modelo.id}" 
+                                                    var="modelo" itemLabel="#{modelo.id}-#{modelo.nomMdl}"/>
+                                </h:selectOneMenu>
+                            </h:panelGrid>
+                            <h:panelGrid columns="2">
+                                <h:commandButton action="#{generalSimulacionBean.crearInformes}" onclick="window.open('http://localhost:8084/ReportadorIrradius/faces/accionesInformes.xhtml', 'Reportes', 'toolbar=1')" value="Crear Informes" />
+                                <h:commandButton action="#{generalSimulacionBean.menuPrincipal}" value="Menu Principal"/>
+                            </h:panelGrid>
+                            <h:outputText id="mensaje" value=""/>
+                            <h:message style="color: red ;font-size: large" for="mensaje"/>
+                        </h:panelGrid>   
+                    </h:form>
+                </center>
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+</f:view>

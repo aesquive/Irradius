@@ -1,0 +1,67 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+
+  <pm:page title="Programa de Pago del Terreno">
+
+    <pm:view id="Fechas">
+
+      <pm:header title="Fechas" swatch="b">
+           <h:form>
+                    <h:commandButton action="modelos" value="Menu de Acciones"/>
+                </h:form>
+      </pm:header>
+
+      <pm:content >
+        <center>
+          <h:form>
+            <h:panelGrid columns="2" border="0">
+
+              <h:outputText value="Inicio de Construccion"/>
+
+              <p:calendar required="true" navigator="true" value="${proyectoFechas.fechaInicioConstruccion}" />
+
+              <h:outputText value="Fin de Contruccion"/>
+
+              <p:calendar required="true" navigator="true" value="${proyectoFechas.fechaFinConstruccion}" />
+
+
+              <h:outputText value="Inicio de Ventas"/>
+
+              <p:calendar required="true" navigator="true" value="${proyectoFechas.fechaInicioVenta}" />
+
+              <h:outputText value="Fin de Ventas"/>
+
+              <p:calendar required="true" navigator="true" value="${proyectoFechas.fechaFinVenta}"/>
+
+
+              <h:outputText value="Inicio de Titulacion"/>
+
+              <p:calendar required="true" navigator="true" value="${proyectoFechas.fechaInicioTitulacion}" />
+
+              <h:outputText value="Fin de Titulacion"/>
+
+              <p:calendar required="true" navigator="true" value="${proyectoFechas.fechaFinTitulacion}" />
+
+            </h:panelGrid>
+              
+              <h:panelGrid columns="2">
+                  <h:commandButton action="etapas" value="Atras" />
+                <h:commandButton action="venta" value="Siguiente" />
+            </h:panelGrid>
+              
+          </h:form>
+
+        </center>
+      </pm:content>
+
+    </pm:view>
+
+  </pm:page>
+
+
+</f:view>

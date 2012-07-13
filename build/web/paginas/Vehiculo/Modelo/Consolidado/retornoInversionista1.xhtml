@@ -1,0 +1,122 @@
+<f:view  xmlns="http://www.w3.org/1999/xhtml"
+         xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:p="http://primefaces.org/ui"
+         xmlns:pm="http://primefaces.org/mobile"
+         contentType="text/html">
+
+    <pm:page title="retornoInversionista1">
+        <!-- Modelo -->
+        <pm:view id="retornoInv">
+          <!--HOLA MUNDO!!! XD -->
+            <pm:header title="Retorno al Inversionista" swatch="b">
+                <h:outputText value="El usuario actual es: #{loginBean.usr}"/>
+                <br/>
+                <h:commandButton action="menuModelo" value="Menu de Seleccion" style="width: 120px" />
+            </pm:header>
+            <pm:content >
+
+                <h:form id="matricesRetornoInv">
+                    <center>                       
+                        <h:panelGrid>
+                            <p:carousel rows="1" itemStyle="height:400px;width:500px;" effect="easeInStrong">  
+
+                                <p:dataTable var="tirProyecto" value="#{consolidadoBean.veh_cet_tir_pry.celdas}" scrollRows="350" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1" style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Fecha  
+                                        </f:facet>  
+                                        <h:outputText value="#{tirProyecto.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2"  style="width: 300px">  
+                                        <f:facet name="header">  
+                                            Tir Proyecto
+                                        </f:facet>
+                                        <h:outputText value="#{tirProyecto.valorRedondeado}"/>
+                                    </p:column>  
+                                    
+                                     
+                                    
+                                </p:dataTable> 
+                                
+                                
+
+                                <p:dataTable var="tirInversionista" value="#{consolidadoBean.veh_cet_tir_inv.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1" style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Fecha  
+                                        </f:facet>  
+                                        <h:outputText value="#{tirInversionista.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 300px">  
+                                        <f:facet name="header">  
+                                            Tir Inversionista
+                                        </f:facet>
+                                        <h:outputText value="#{tirInversionista.valorRedondeado}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+                                
+                            </p:carousel>
+                            <!--
+                            <p:carousel rows="1" itemStyle="height:200px;width:600px;" effect="easeInStrong">  
+
+                                <p:dataTable var="tirProyectoAño" value="#consolidadoBean.veh_tir_pry_año}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="150">
+                                    <p:column id="columna1">  <p:column id="columna3"  style="width: 300px">  
+                                        <f:facet name="header">  
+                                            Porcentaje Tir Proyecto
+                                        </f:facet>
+                                        <h:outputText value="#{consolidadoBean.veh_cet_ptj_tir_pry}"/>
+                                    </p:column> 
+                                        <f:facet name="header">  
+                                            Año  
+                                        </f:facet>  
+                                        <h:outputText value="#tirProyectoAño.año}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2">  
+                                        <f:facet name="header">  
+                                            Tir Proyecto
+                                        </f:facet>
+                                        <h:outputText value="tirProyectoAño.valor}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+
+                                <p:dataTable var="tirInversionistaAño" value="consolidadoBean.veh_tir_inv_año}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="150">
+                                    <p:column id="columna1">  
+                                        <f:facet name="header">  
+                                            Año 
+                                        </f:facet>  
+                                        <h:outputText value="#tirInversionistaAño.año}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2">  
+                                        <f:facet name="header">  
+                                            Tir Inversionista
+                                        </f:facet>
+                                        <h:outputText value="#rtirInversionistaAño.valor}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+                                
+                            </p:carousel>
+                            -->
+                            <h:commandButton action="flujoCajaInicial6" value="Atras" />
+                            <h:commandButton action="retornoInversionista2" value="Siguiente" />    
+                           
+                        </h:panelGrid>
+                    </center>
+                </h:form>
+
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+</f:view>
+
+
+
+

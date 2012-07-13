@@ -1,0 +1,41 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        xmlns:c="http://java.sun.com/jsp/jstl/core"
+        contentType="text/html">
+    <pm:page title="Acciones">
+        <!-- Alta -->
+        <c:if test="#{loginBean.usuario!=null}">
+            <pm:view id="Busqueda">
+
+                <pm:header title="Mark To Future" swatch="b"/>
+                <h:outputText value="El usuario actual es: #{loginBean.usr}"/>
+                <pm:content >
+
+                    <h:form id="acciones">
+                        <center>
+                            <h:panelGrid columns="2">
+                                <h:outputText value="Numero de Escenarios"/>
+                                <h:inputText value="#{markFuture.numeroEscenarios}"/>
+                            </h:panelGrid>
+                            
+                            <h:panelGrid columns="2">
+                                <h:commandButton action="menuPrincipal" value="Menu Principal"/>
+                                <h:commandButton  action="#{markFuture.llenarEscenarios}" value="Crear Escenarios"/>
+                            </h:panelGrid>
+                        </center>
+                            
+                        
+                    </h:form>
+
+
+                </pm:content>
+
+            </pm:view>
+        </c:if>
+    </pm:page>
+
+</f:view>

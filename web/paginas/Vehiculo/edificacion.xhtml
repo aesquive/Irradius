@@ -1,0 +1,73 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+
+    <pm:page title="Edificacion">
+        <!-- Alta -->
+        <pm:view id="Edificacion">
+
+            <pm:header title="Edificacion #{vehiculoParametricas.nombreProyecto}" swatch="b">
+                <h:outputText value="El usuario actual es: #{loginBean.usr}"/>
+                <h:form>
+                    <h:commandButton action="#{beanLimpiador.limpiaPantallasVehiculo}" value="Menu de Acciones"/>
+                </h:form>
+            </pm:header>
+
+            <pm:content >
+                <center>
+
+                    <h:form id="edificacion">
+                        <h:panelGrid>
+                            <p:dataTable var="valor" id="tabla"  value="#{edificacionBean.lista}">   
+                                <p:column id="columnaFecha">
+                                    <f:facet name="header" >
+                                        Fecha
+                                    </f:facet>
+                                    <h:outputText value="#{valor.fecha}"/>
+                                </p:column>
+
+                                <p:column id="columnaPorcentaje" >
+                                    <f:facet name="header">
+                                        Porcentaje
+                                    </f:facet>
+                                    <p:inputText disabled="#{generalVehiculoBean.ver}" required="true" id="porcentajeEdificacion" value="#{valor.porcentaje}">
+                                        <p:ajax async="false" immediate="true"  event="change" update="porcentajeEdificacion" listener="#{validadorBean.valueChangePorcentaje}"/>
+                                    </p:inputText>
+                                </p:column>
+
+                            </p:dataTable>
+                        </h:panelGrid>
+                        <h:message for="boton" style="color: red ;font-size: large"/> 
+                        <center>
+                            <h:panelGrid>
+                                <h:commandButton id="boton" action="#{edificacionBean.pasarVentas}" value="Siguiente"/>   
+                            </h:panelGrid>
+                        </center>
+                    </h:form>
+
+                </center>
+            </pm:content>
+
+            <pm:content>
+
+                <center>
+                    <h:form>
+                        <h:panelGrid>
+                            <h:commandButton action="fechas"  value="Atras"/>
+                        </h:panelGrid>    
+                    </h:form>
+                </center>
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+
+
+
+</f:view>

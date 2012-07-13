@@ -1,0 +1,72 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+
+    <pm:page title="Fechas de Etapa #{proyectosEtapasBean.etapaActual}">
+
+         <pm:view id="Fechas">
+
+      <pm:header title="Participacion del Socio en Utilidades" swatch="b">
+           <h:form>
+                    <h:commandButton action="modelos" value="Menu de Acciones"/>
+                </h:form>
+      </pm:header>
+
+      <pm:content >
+        <center>
+          <h:form>
+              <h:panelGrid columns="2"  border="0">
+           
+              <h:outputText value="Inicio de Pago del Terreno"/>
+
+              <p:calendar required="true" navigator="true" value="${proyectoFechas.fechaInicioTerrenos}" />
+
+              <h:outputText value="Fin de Pago del Terreno"/>
+
+              <p:calendar required="true" navigator="true" value="${proyectoFechas.fechaFinTerrenos}"/>
+              
+              <h:outputText value="Inicio de Credito Puente"/>
+
+              <p:calendar required="true" navigator="true" value="${proyectoFechas.fechaInicioCreditoPue}" />
+
+              <h:outputText value="Fin de Credito Puente"/>
+
+              <p:calendar required="true" navigator="true" value="${proyectoFechas.fechaFinCreditoPue}"/>
+              
+              <h:outputText value="Inicio de Inflacion"/>
+
+              <p:calendar required="true" navigator="true" value="${proyectoFechas.fechaInicioInflacion}" />
+
+              <h:outputText value="Fin de Inflacion"/>
+
+              <p:calendar required="true" navigator="true" value="${proyectoFechas.fechaFinInflacion}"/>
+              
+              <h:outputText value="Inicio de Tasa Cetes"/>
+
+              <p:calendar required="true" navigator="true" value="${proyectoFechas.fechaInicioCetes}" />
+
+              <h:outputText value="Fin de Tasa Cetes"/>
+
+              <p:calendar required="true" navigator="true" value="${proyectoFechas.fechaFinCetes}"/>
+              
+             
+            </h:panelGrid>
+              <h:panelGrid columns="2">
+                  <h:commandButton action="informacionBasica"   value="Atras" />
+            <h:commandButton action="Terreno" value="Siguiente" />
+              </h:panelGrid>
+          </h:form>
+
+        </center>
+      </pm:content>
+
+    </pm:view>
+
+  </pm:page>
+
+
+</f:view>

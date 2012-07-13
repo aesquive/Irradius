@@ -1,0 +1,178 @@
+<f:view  xmlns="http://www.w3.org/1999/xhtml"
+         xmlns:f="http://java.sun.com/jsf/core"
+         xmlns:h="http://java.sun.com/jsf/html"
+         xmlns:ui="http://java.sun.com/jsf/facelets"
+         xmlns:p="http://primefaces.org/ui"
+         xmlns:pm="http://primefaces.org/mobile"
+         contentType="text/html">
+
+    <pm:page title="resultadosFinanciamiento">
+        <!-- Modelo -->
+        <pm:view id="financiamiento">
+          <!--HOLA MUNDO!!! XD -->
+            <pm:header title="Consolidado de Etapas" swatch="b">
+                 <center>
+                    <h:outputText value="Financiamiento"/>
+                </center>
+                
+                <h:outputText value="El usuario actual es: #{loginBean.usr}"/>
+                 <br/>
+                <h:commandButton action="menuModelo" value="Menu de Seleccion" style="width: 120px" />
+               
+            </pm:header>
+
+            <pm:content >
+
+                <h:form id="matricesFinanciamiento">
+                    <center>                       
+                        <h:panelGrid>
+                            <p:carousel rows="1" itemStyle="height:400px;width:500px;" effect="easeInStrong">  
+
+                                <p:dataTable var="anticipoCreditoPuente" value="#{consolidadoBean.veh_cet_ant_cre_pte.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1" style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Mes  
+                                        </f:facet>  
+                                        <h:outputText value="#{anticipoCreditoPuente.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 300px">  
+                                        <f:facet name="header">  
+                                            Anticipo Credito Puente
+                                        </f:facet>
+                                        <h:outputText value="#{anticipoCreditoPuente.valorRedondeado}"/>
+                                    </p:column>           
+                                </p:dataTable>
+
+                                <p:dataTable var="ministracionCreditoPuente" value="#{consolidadoBean.veh_cet_min_cre_pte.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1" style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Mes  
+                                        </f:facet>  
+                                        <h:outputText value="#{ministracionCreditoPuente.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 300px">  
+                                        <f:facet name="header">  
+                                            Ministracion de Credito Puente
+                                        </f:facet>
+                                        <h:outputText value="#{ministracionCreditoPuente.valorRedondeado}"/>
+                                    </p:column>           
+                                </p:dataTable>
+
+                                <p:dataTable var="pagoCreditoPuente" value="#{consolidadoBean.veh_cet_pgo_cre_pte.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1" style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Mes  
+                                        </f:facet>  
+                                        <h:outputText value="#{pagoCreditoPuente.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 300px">  
+                                        <f:facet name="header">  
+                                            Pago de Credito Puente
+                                        </f:facet>
+                                        <h:outputText value="#{pagoCreditoPuente.valorRedondeado}"/>
+                                    </p:column>           
+                                </p:dataTable>
+
+                                <p:dataTable var="saldoCredito" value="#{consolidadoBean.veh_cet_sal_cre.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1" style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Mes  
+                                        </f:facet>  
+                                        <h:outputText value="#{saldoCredito.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 300px">  
+                                        <f:facet name="header">  
+                                            Saldo de Credito Puente
+                                        </f:facet>
+                                        <h:outputText value="#{saldoCredito.valorRedondeado}"/>
+                                    </p:column>           
+                                </p:dataTable>
+
+                            </p:carousel>
+                             <!--
+                            <p:carousel rows="2" itemStyle="height:200px;width:350px;" effect="easeInStrong" headerText="Financiamiento por Año">  
+
+                                <p:dataTable var="anticipoCreditoPuenteAño" value="#consolidadoBeanAño.veh_cet_ant_cre_pte_año}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="150">
+                                    <p:column id="columna1">  
+                                        <f:facet name="header">  
+                                            Año  
+                                        </f:facet>  
+                                        <h:outputText value="#anticipoCreditoPuenteAño.año}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2">  
+                                        <f:facet name="header">  
+                                            Anticipo Credito Puente
+                                        </f:facet>
+                                        <h:outputText value="#anticipoCreditoPuenteAño.valor}"/>
+                                    </p:column>           
+                                </p:dataTable>
+
+                                <p:dataTable var="ministracionCreditoPuenteAño" value="#consolidadoBean.veh_cet_min_cre_pte_año}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="150">
+                                    <p:column id="columna1">  
+                                        <f:facet name="header">  
+                                           Año 
+                                        </f:facet>  
+                                        <h:outputText value="#ministracionCreditoPuenteAño.año}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2">  
+                                        <f:facet name="header">  
+                                            Ministracion de Credito Puente
+                                        </f:facet>
+                                        <h:outputText value="#ministracionCreditoPuenteAño.valor}"/>
+                                    </p:column>           
+                                </p:dataTable>
+
+                                <p:dataTable var="pagoCreditoPuenteAño" value="#consolidadoBean.veh_cet_pgo_cre_pte_año}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="150">
+                                    <p:column id="columna1">  
+                                        <f:facet name="header">  
+                                            Año  
+                                        </f:facet>  
+                                        <h:outputText value="#pagoCreditoPuenteAño.año}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2">  
+                                        <f:facet name="header">  
+                                            Pago de Credito Puente
+                                        </f:facet>
+                                        <h:outputText value="#pagoCreditoPuenteAño.valor}"/>
+                                    </p:column>           
+                                </p:dataTable>
+
+                                <p:dataTable var="saldoCreditoAño" value="#consolidadoBean.veh_cet_sal_cre_año}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="150">
+                                    <p:column id="columna1">  
+                                        <f:facet name="header">  
+                                            Año 
+                                        </f:facet>  
+                                        <h:outputText value="#saldoCreditoAño.año}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2">  
+                                        <f:facet name="header">  
+                                            Saldo de Credito Puente
+                                        </f:facet>
+                                        <h:outputText value="#saldoCreditoAño.valor}"/>
+                                    </p:column>           
+                                </p:dataTable>
+
+                            </p:carousel>
+                             -->
+                            <h:commandButton action="egresos3" value="Atras" />
+                            <h:commandButton action="flujoCajaInicial1" value="Siguiente" />    
+                            
+                        </h:panelGrid>
+                    </center>
+                </h:form>
+
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+</f:view>

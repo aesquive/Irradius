@@ -1,0 +1,46 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html"
+        >
+
+    <pm:page title="Login">
+
+        <pm:view id="Login">
+
+            <pm:header title="Irradius" swatch="b">
+            </pm:header>
+
+            <pm:content>
+                <h:form id="login"> 
+                    <center>
+
+
+
+                        <h:panelGrid columns="2">
+                            <h:outputText value="Usuario"/>
+                            <p:inputText title="Usuario" value="#{loginBean.usr}"/>
+                            <h:outputText value="Password"/>
+                            <p:password minLength="1" maxlength="10" feedback="false" value="#{loginBean.psw}"/>
+                        </h:panelGrid>
+
+                        <h:panelGrid columns="1">
+                            <h:commandButton id="sub"  action="#{loginBean.validarUsuario}" value="Siguiente" />
+                            <h:message style="color: red ;font-size: large" for="sub"/>
+                        </h:panelGrid>
+
+                        <h:graphicImage style="width:180px; height: 70px; position: absolute; left :5px;bottom: 15px"  url="/imagenes/irradius_logo.png"/>
+                        <h:graphicImage style="width:120px ;height: 80px;position:absolute ;right: 5px ;bottom: 0px" alt="No existe imagen " url="/imagenes/logoQuants.png"/>
+
+                    </center>
+                </h:form>
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+</f:view>

@@ -1,0 +1,88 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+
+    <pm:page title="Fechas">
+
+        <!-- Alta -->
+        <pm:view id="Fechas">
+
+            <pm:header title="Fechas #{vehiculoParametricas.nombreProyecto}" swatch="b">
+                <h:outputText value="El usuario actual es: #{loginBean.usr}"/>
+                <h:form>
+                    <h:commandButton action="#{beanLimpiador.limpiaPantallasVehiculo}" value="Menu de Acciones"/>
+                </h:form>
+            </pm:header>
+
+            <pm:content >
+                <center>
+                    <h:form>
+                        <h:outputText value="El formato de las fechas debe ser dd-mm-aaaa" style="color: red ;font-size: large" id="nada"/>
+                        <h:panelGrid columns="2"  border="0">
+
+                            <h:outputText value="Inicio de Edificacion"/>
+
+
+                            <p:calendar disabled="#{generalVehiculoBean.ver}" required="true" pattern="dd-MM-yyyy" showOn="nada" id="fec1" navigator="true" value="${fechasBean.fechaInicioEdificacion}"/>
+                                
+                            
+                            <h:outputText value="Fin de Edificacion"/>
+
+                            <p:calendar disabled="#{generalVehiculoBean.ver}" required="true" id="fec2" showOn="nada" pattern="dd-MM-yyyy" navigator="true" value="${fechasBean.fechaFinEdificacion}">
+                            </p:calendar>
+                            <h:outputText value="Inicio de Ventas"/>
+
+                            <p:calendar disabled="#{generalVehiculoBean.ver}" required="true" id="fec3" showOn="nada" pattern="dd-MM-yyyy" navigator="true" value="${fechasBean.fechaInicioVenta}">
+                            </p:calendar>
+                            <h:outputText value="Fin de Ventas"/>
+
+                            <p:calendar disabled="#{generalVehiculoBean.ver}" required="true" id="fec4" showOn="nada" pattern="dd-MM-yyyy" navigator="true" value="${fechasBean.fechaFinVenta}">
+                            </p:calendar>
+<!--
+                            <h:outputText value="Inicio de Titulacion"/>
+
+                            <p:calendar  id="fec5" showOn="nada" pattern="dd-mm-yyyy" navigator="true" value="${fechasBean.fechaInicioTitulacion}">
+                            </p:calendar>
+                            <h:outputText value="Fin de Titulacion"/>
+
+                            <p:calendar  id="fec6" showOn="nada" pattern="dd-mm-yyyy" navigator="true" value="${fechasBean.fechaFinTitutlacion}">
+                            </p:calendar>
+-->
+
+                        </h:panelGrid>
+                        <center>
+                            <h:panelGrid>
+                            <h:commandButton action="#{fechasBean.pasarEdificacion}" value="Siguiente" />
+                        
+                            </h:panelGrid>
+                        </center>
+                        
+                    </h:form>
+
+                </center>
+
+
+
+            </pm:content>
+
+            <pm:content>
+
+                <center>
+                    <h:form>
+                        <h:panelGrid>
+                                <h:commandButton action="etapas" value="Atras" />
+                        
+                        </h:panelGrid>    
+                    </h:form>
+                </center>
+            </pm:content>
+        </pm:view>
+
+    </pm:page>
+
+
+</f:view>

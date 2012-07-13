@@ -1,0 +1,63 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+
+  <pm:page title="Ventas">
+
+    <!-- Alta -->
+    <pm:view id="Ventas">
+
+      <pm:header title="Ventas #{vehiculoParametricas.nombreProyecto}" swatch="b">
+          <h:outputText value="El usuario actual es: #{loginBean.usr}"/>
+           <br/>
+              
+<h:form>
+      <h:commandButton action="menuSimulacion" value="seleccion de Simulacion"/>
+                  <!--  <h:commandButton action="accionesVehiculo" value="Menu de Acciones"/>-->
+                </h:form>
+      </pm:header>
+
+      <pm:content >
+        <center>
+
+          <h:form id="ventas">
+              <p:dataTable var="RegistroFecha" value="#{ventaBean.listaVenta}">
+              <p:column id="columnaFecha">
+                <f:facet name="header" >
+                  Fecha
+                </f:facet>
+                <h:outputText value="#{RegistroFecha.fecha}"/>
+              </p:column>
+
+              <p:column id="columnaPorcentaje" >
+                <f:facet name="header">
+                  Porcentaje
+                </f:facet>
+                  <p:inputText required="true" id="ptjvta" value="#{RegistroFecha.porcentaje}">
+                  <p:ajax  event="change" update="ptjvta" listener="#{validadorBean.valueChangePorcentaje}"/>
+                  </p:inputText>
+              </p:column>
+
+            </p:dataTable>
+
+              <h:commandButton value="Atras" action="edificacionSimulador" />
+              <h:commandButton id="boton" value="Siguiente" action="#{ventaBean.pasarTitulacion}"/>
+              <h:message for="boton" style="color: red ;font-size: large"/> 
+          </h:form>
+
+
+        </center>
+      </pm:content>
+
+    </pm:view>
+
+  </pm:page>
+
+
+
+
+</f:view>

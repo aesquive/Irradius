@@ -1,0 +1,55 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+
+    <pm:page title="Unidades Vendidas Acumuladas Simulador">
+
+        <!-- Modelo -->
+        <pm:view id="vendidasAcumuladasSimulador">
+
+
+            <pm:header title="Distribucion Unidades Vendidas Acumuladas #{etapasModeloVehiculoBean.nombreProyecto}" swatch="b">
+                <h:form>
+                <h:outputText value="El usuario actual es: #{loginBean.usr}"/>
+                 <br/>
+                <h:commandButton action="menuSimulacion" value="Menu de Seleccion" style="width: 120px" />
+                </h:form>
+            </pm:header>
+            <pm:content>
+                <center>
+                    <h:form>  
+                        <h:panelGrid>
+                        
+                            <p:carousel rows="1" itemStyle="height:350px;width:500px;" effect="easeInStrong" var="matriz" value="#{etapasModeloVehiculoBean.veh_uni_ven_acu}">  
+                                <p:dataTable var="Etapa" value="#{matriz.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="280">
+                                    <f:facet name="header">
+                                        Etapa
+                                    </f:facet>
+
+                                    <p:column id="columna1" headerText="Fecha" style="width: 200px">
+                                        <h:outputText value="#{Etapa.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" headerText="Valor" style="width: 200px">  
+                                        <h:outputText value="#{Etapa.valor}"/>
+                                    </p:column>           
+                                </p:dataTable>  
+                            </p:carousel> 
+                                    
+                            <h:commandButton  action="unidadesVendidas" value="Atras" />
+                            <h:commandButton  action="firmaContratoCompraVenta" value="Siguiente" />
+                        </h:panelGrid>
+
+                    </h:form>
+                </center>
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+</f:view>

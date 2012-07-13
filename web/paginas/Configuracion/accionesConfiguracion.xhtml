@@ -1,0 +1,39 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html"
+        >
+
+  <pm:page title="Configuracion">
+
+    <pm:view id="Configuracion">
+
+      <pm:header title="Configuracion" swatch="b">
+      </pm:header>
+
+      <pm:content>
+        <h:form id="configuracion"> 
+          <center>
+              
+            <h:panelGrid columns="1">
+                <h:commandButton action="altaUsuarios" value="Alta de Usuarios"/>
+                <br/>
+                <h:commandButton action="asignacionVehiculo" value="Asignacion Proyectos Vehiculo-Usuario"/>
+                <br/>
+                <h:commandButton action="asignacionModelo" value="Asignacion Modelo Vehiculo-Usuario"/>
+                <br/>
+                <h:commandButton action="menuPrincipal" value="Menu Principal"/>
+            </h:panelGrid>
+          
+          </center>
+        </h:form>
+      </pm:content>
+
+    </pm:view>
+
+  </pm:page>
+
+</f:view>

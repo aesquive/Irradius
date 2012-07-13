@@ -1,0 +1,42 @@
+10
+
+dir
+0
+http://esquivel.unfuddle.com/svn/esquivel_quants/Faces/lib/CopyLibs
+http://esquivel.unfuddle.com/svn/esquivel_quants
+add
+
+
+
+
+
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+14a0ec0f-b238-4c0c-9db0-4239e5518a1d
+
+org-netbeans-modules-java-j2seproject-copylibstask.jar
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+

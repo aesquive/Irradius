@@ -1,0 +1,37 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+
+    <pm:page title="Menu Modelado">
+
+        <!-- Modelo -->
+        <pm:view id="menuconsolidado">
+
+
+            <pm:header title="MENU MODELO" swatch="b">
+                <h:outputText value="El usuario actual es: #{loginBean.usr}"/>
+            </pm:header>
+            <pm:content>
+                <center>
+                    <h:form>  
+                        <h:panelGrid>
+                            <h:form>
+                            <h:commandButton  action="#{generalModeloVehiculoBean.consolidado}" value="Consolidado" />
+                            <h:commandButton  action="unidadesEdificadas" value="Analisis por Proyecto" />
+                            <h:commandButton  action="#{altaModelo.limpiaBeans}" value="Salir" />
+                            </h:form>
+                        </h:panelGrid>
+
+                    </h:form>
+                </center>
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+</f:view>

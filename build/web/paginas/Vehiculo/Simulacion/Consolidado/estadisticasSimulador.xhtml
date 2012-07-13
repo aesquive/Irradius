@@ -1,0 +1,239 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+
+    <pm:page title="consolidadoEdificacion">
+
+        <!-- Modelo, consolidado de etapas -->
+        <pm:view id="consolidadoEdificacion">
+
+
+            <pm:header title="Estadísticas" swatch="b">
+                <h:form>
+                <h:outputText value="El usuario actual es: #{loginBean.usr}"/>
+                <br/>
+                <h:commandButton action="menuSimulacion" value="Menu de Seleccion" style="width: 120px" />
+                </h:form>
+            </pm:header>
+            <pm:content>
+                <center>
+                    <h:form>  
+                        <h:panelGrid>
+
+                            <p:carousel rows="1" itemStyle="height:400px;width:500px;" effect="easeInStrong">  
+
+                                <p:dataTable var="unidadesEdificadas" value="#{consolidadoBean.veh_cet_uni_edf.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1" style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Mes  
+                                        </f:facet>  
+                                        <h:outputText value="#{unidadesEdificadas.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 300px">  
+                                        <f:facet name="header">  
+                                            Unidades Edificadas 
+                                        </f:facet>
+                                        <h:outputText value="#{unidadesEdificadas.valorRedondeado}"/>
+                                    </p:column>           
+                                </p:dataTable>        
+
+                                <p:dataTable var="unidadesEdificadasAcumuladas" value="#{consolidadoBean.veh_cet_uni_edf_acu.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1" style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Mes  
+                                        </f:facet>  
+                                        <h:outputText value="#{unidadesEdificadasAcumuladas.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 300px">  
+                                        <f:facet name="header">  
+                                            Unidades Edificadas Acumuladas
+                                        </f:facet>
+                                        <h:outputText value="#{unidadesEdificadasAcumuladas.valorRedondeado}"/>
+                                    </p:column>           
+                                </p:dataTable>   
+
+                                <p:dataTable var="unidadesDisponibles" value="#{consolidadoBean.veh_cet_uni_dis.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1" style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Mes  
+                                        </f:facet>  
+                                        <h:outputText value="#{unidadesDisponibles.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 300px">  
+                                        <f:facet name="header">  
+                                            Unidades Disponibles
+                                        </f:facet>
+                                        <h:outputText value="#{unidadesDisponibles.valorRedondeado}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+
+                                <p:dataTable var="unidadesDisponiblesAcumuladas" value="#{consolidadoBean.veh_cet_uni_dis_acu.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1" style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Mes  
+                                        </f:facet>  
+                                        <h:outputText value="#{unidadesDisponiblesAcumuladas.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 300px">  
+                                        <f:facet name="header">  
+                                            Unidades Disponibles Acumuladas
+                                        </f:facet>
+                                        <h:outputText value="#{unidadesDisponiblesAcumuladas.valorRedondeado}"/>
+                                    </p:column>           
+                                </p:dataTable>
+
+                                <p:dataTable var="unidadesVendidas" value="#{consolidadoBean.veh_cet_uni_ven.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1" style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Mes  
+                                        </f:facet>  
+                                        <h:outputText value="#{unidadesVendidas.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 300px">  
+                                        <f:facet name="header">  
+                                            Unidades Vendidas
+                                        </f:facet>
+                                        <h:outputText value="#{unidadesVendidas.valorRedondeado}"/>
+                                    </p:column>           
+                                </p:dataTable>
+
+                                <p:dataTable var="unidadesVendidasAcumuladas" value="#{consolidadoBean.veh_cet_uni_ven_acu.celdas}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="350">
+                                    <p:column id="columna1" style="width: 100px">  
+                                        <f:facet name="header">  
+                                            Mes  
+                                        </f:facet>  
+                                        <h:outputText value="#{unidadesVendidasAcumuladas.fechaTexto}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2"  style="width: 300px">  
+                                        <f:facet name="header">  
+                                            Unidades Vendidas Acumuladas
+                                        </f:facet>
+                                        <h:outputText value="#{unidadesVendidasAcumulada.valorRedondeado}"/>
+                                    </p:column>           
+                                </p:dataTable>                               
+                            </p:carousel>
+                            <!--
+                            <p:carousel rows="2" itemStyle="height:200px;width:350px;" effect="easeInStrong" headerText="Estadisticas por año">  
+
+                                <p:dataTable var="unidadesEdificadasAño" value="#consolidadoBean.veh_cet_uni_edi_año}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="150">
+                                    <p:column id="columna1" style="width: 80px">  
+                                        <f:facet name="header">  
+                                            Año  
+                                        </f:facet>  
+                                        <h:outputText value="#unidadesEdificadasAño.año}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 200px">  
+                                        <f:facet name="header">  
+                                            Unidades Edificadas 
+                                        </f:facet>
+                                        <h:outputText value="#unidadesEdificadasAño.valor}"/>
+                                    </p:column>           
+                                </p:dataTable>        
+
+                                <p:dataTable var="unidadesEdificadasAcumuladasAño" value="#consolidadoBean.veh_cet_uni_edi_acu_año}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="150">
+                                    <p:column id="columna1" style="width: 80px">  
+                                        <f:facet name="header">  
+                                            Año  
+                                        </f:facet>  
+                                        <h:outputText value="#unidadesEdificadasAcumuladasAño.año}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 200px">  
+                                        <f:facet name="header">  
+                                            Unidades Edificadas Acumuladas
+                                        </f:facet>
+                                        <h:outputText value="#unidadesEdificadasAcumuladasAño.valor}"/>
+                                    </p:column>           
+                                </p:dataTable>   
+
+                                <p:dataTable var="unidadesDisponiblesAño" value="#consolidadoBean.veh_cet_uni_uni_dis_año}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="150">
+                                    <p:column id="columna1" style="width: 80px">  
+                                        <f:facet name="header">  
+                                            Año 
+                                        </f:facet>  
+                                        <h:outputText value="#unidadesDisponiblesAño.año}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2"  style="width: 200px">  
+                                        <f:facet name="header">  
+                                            Unidades Disponibles
+                                        </f:facet>
+                                        <h:outputText value="#unidadesDisponiblesAño.valor}"/>
+                                    </p:column>           
+                                </p:dataTable> 
+
+                                <p:dataTable var="unidadesDisponiblesAcumuladasAño" value="#consolidadoBean.veh_cet_uni_uni_dis_acu_año}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="150">
+                                    <p:column id="columna1" style="width: 80px">  
+                                        <f:facet name="header">  
+                                            Año  
+                                        </f:facet>  
+                                        <h:outputText value="#unidadesDisponiblesAcumuladasAño.año}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 200px">  
+                                        <f:facet name="header">  
+                                            Unidades Disponibles Acumuladas 
+                                        </f:facet>
+                                        <h:outputText value="#unidadesDisponiblesAcumuladasAño.valor}"/>
+                                    </p:column>           
+                                </p:dataTable>
+
+                                <p:dataTable var="unidadesVendidasAño" value="#consolidadoBean.veh_cet_uni_uni_ven_año}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="150">
+                                    <p:column id="columna1" style="width: 80px">  
+                                        <f:facet name="header">  
+                                            Año  
+                                        </f:facet>  
+                                        <h:outputText value="#unidadesVendidasAño.año}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 200px">  
+                                        <f:facet name="header">  
+                                            Unidades Vendidas
+                                        </f:facet>
+                                        <h:outputText value="#unidadesVendidasAño.valor}"/>
+                                    </p:column>           
+                                </p:dataTable>
+
+                                <p:dataTable var="unidadesVendidasAcumuladasAño" value="#consolidadoBean.veh_cet_uni_uni_ven_acu_año}" scrollRows="150" scrollable="true" liveScroll="true" scrollHeight="150">
+                                    <p:column id="columna1" style="width: 80px">  
+                                        <f:facet name="header">  
+                                            Año  
+                                        </f:facet>  
+                                        <h:outputText value="#unidadesVendidasAcumuladasAño.año}"/>
+                                    </p:column>  
+
+                                    <p:column id="columna2" style="width: 200px">  
+                                        <f:facet name="header">  
+                                            Unidades Vendidas Acumuladas
+                                        </f:facet>
+                                        <h:outputText value="#unidadesVendidassAcumuladaAño.valor}"/>
+                                    </p:column>           
+                                </p:dataTable>
+
+                            </p:carousel>
+                            -->
+
+                            <h:commandButton  value="Atras" />
+                            <h:commandButton action="ingresosSimulador" value="Siguiente" />
+                        </h:panelGrid>
+
+                    </h:form>
+                </center>
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+</f:view>

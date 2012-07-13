@@ -1,0 +1,126 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+
+    <pm:page title="Premisas Inversion">
+
+        <!-- Alta -->
+        <pm:view id="MenuSimulador">
+
+            <pm:header title="Simulador Premisas Inversion" swatch="b">
+                <h:form>
+                <h:outputText value="El usuario actual es: #{loginBean.usr}" />
+                <br/>
+                <h:commandButton action="menuSimulacion" value="Menu de Seleccion" style="width: 120px" />
+                </h:form>
+            </pm:header>
+
+            <pm:content>
+                <h:form>
+                    <div>
+                        <div id="descripciones"  style="position: absolute;left:  0% ;width: 25% ">
+                            <br/>
+                            <h:outputText value="Tir Minima"/>
+                            <br/>
+                            <br/>
+                            <h:outputText style="position: relative;left: 5%" value="  % Distribucion al Inversionista"/>
+                            <br/>
+                            <br/>
+                            <h:outputText style="position: relative;left: 5%" value="  % Distribucion al General Partner"/>
+                            
+                            <br/>
+                            <br/>
+                            <br/>
+                            <h:outputText value="Tir 1a Cascada"/>
+                            <br/>
+                            <br/>
+                            <h:outputText style="position: relative;left: 5%" value="  % Distribucion al Inversionista"/>
+                            <br/>
+                            <br/>
+                            <h:outputText style="position: relative;left: 5%" value="  % Distribucion al General Partner"/>
+
+
+                            <br/>
+                            <br/>
+                            <br/>
+                                <h:outputText value="Tir Meta e Inversionista"/>
+                            <br/>
+                            <br/>
+                            <h:outputText style="position: relative;left: 5%" value="  % Distribucion al Inversionista"/>
+                            <br/>
+                            <br/>
+                            <h:outputText style="position: relative;left: 5%" value="  % Distribucion al General Partner"/>
+
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                                <h:outputText value="Excedentes sobre Tir"/>
+                            <br/>
+                            <br/>
+                            <h:outputText style="position: relative;left: 5%" value="  % Distribucion al Inversionista"/>
+                            <br/>
+                            <br/>
+                            <h:outputText style="position: relative;left: 5%" value="  % Distribucion al General Partner"/>
+
+                        </div>
+                        <div id="valores" style="position: absolute;left:  25%;width: 30% ">
+                            <pm:slider id="sliderTir0" value="#{inversionSimulacionBean.tir0}" minValue="0" maxValue="100"  valueChangeListener="#{inversionSimulacionBean.cambio}">
+                            </pm:slider>
+                            <br/>
+                            <pm:slider value="#{inversionSimulacionBean.inv0}"  minValue="0" maxValue="100" />
+                            <br/>
+                            <h:inputText value="#{inversionSimulacionBean.grl0}" style="color: blue ; width: 10%" readonly="true"/>
+                            <br/>
+                            <pm:slider value="#{inversionSimulacionBean.tir1}" minValue="0" maxValue="100" />
+                            <br/>
+                            <pm:slider value="#{inversionSimulacionBean.inv1}" minValue="0" maxValue="100" />
+                            <br/>
+                            <h:inputText value="#{inversionSimulacionBean.grl1}" style="color: blue ; width: 10%" readonly="true" />
+                            <br/>
+                            <pm:slider value="#{inversionSimulacionBean.tir2}" minValue="0" maxValue="100" />
+                            <br/>
+                            <pm:slider value="#{inversionSimulacionBean.inv2}" minValue="0" maxValue="100" />
+                            <br/>
+                            <h:inputText value="#{inversionSimulacionBean.grl2}" style="color: blue ; width: 10%" readonly="true" />
+                            <br/>
+                            <pm:slider value="#{inversionSimulacionBean.tir3}" minValue="0" maxValue="100" />
+                            <br/>
+                            <pm:slider value="#{inversionSimulacionBean.inv3}"  minValue="0" maxValue="100" />
+                            <br/>
+                            <h:inputText value="#{inversionSimulacionBean.grl3}" style="color: blue ; width: 10%" readonly="true" />
+                        </div>
+                        <div id="tirs" style="position: absolute;right: 0%">
+                            <h:panelGrid columns="2">
+                                <h:outputText value="Tir Proyecto"/>
+                                <h:inputText readonly="true"  style="width: 40%;color: red" value="#{inversionSimulacionBean.tirPry}"/>
+                                <h:outputText value="Tir Real a Inversionista"/>
+                                <h:inputText readonly="true" style="width: 40%;color: red" value="#{inversionSimulacionBean.tirInv}"/>
+                                
+                                <h:outputText value="Resumen de participacion "/>
+                                <h:outputText  style="color: red" value=""/>
+                                <h:outputText value="% Distribucion a Inversionista"/>
+                                <h:inputText readonly="true"  style="width: 40%;color: red" value="#{inversionSimulacionBean.porInv}"/>
+                                <h:outputText value="% Distribucion a General Partner "/>
+                                <h:inputText readonly="true" style="width: 40%;color: red" value="#{inversionSimulacionBean.porGrl}"/>
+                            </h:panelGrid>
+                        </div>
+                        
+                        <div id="botones" style="position: absolute;bottom: 2%; right: 0%">
+                            <h:panelGrid columns="1">
+                                <h:commandButton action="#{inversionSimulacionBean.procesarSimulacion}" value="Comenzar Simulacion"/>
+                            </h:panelGrid>
+                        </div>
+                    </div> 
+                </h:form>
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+</f:view>

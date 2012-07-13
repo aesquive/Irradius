@@ -1,0 +1,49 @@
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pm="http://primefaces.org/mobile"
+        contentType="text/html">
+    <pm:page title="Asignacion Vehiculo">
+        <!-- Alta -->
+        <pm:view id="a">
+
+            <pm:header title="Asignacion Vehiculo" swatch="b"/>
+
+            <pm:content >
+
+                <h:form id="asignacionVehiculo">
+                    <center>
+                        
+
+                        <h:panelGrid columns="2">
+                            <h:outputText value="Proyectos : "/>
+                            <h:selectOneMenu   id="selectOne" value="#{asignacionVehiculo.proyectoActual}">
+                                <f:selectItem   itemLabel="Seleccionar un Proyecto"/>
+                                <f:selectItems  id="proyectos" value="#{asignacionVehiculo.proyectos}" itemValue="#{proyecto.id}" 
+                                               var="proyecto" itemLabel="#{proyecto.id}-#{proyecto.nomPry}"/>
+                            </h:selectOneMenu>
+ 
+                            <h:outputText value="Usuarios :"/>
+                            <h:selectOneMenu value="#{asignacionVehiculo.usuarioActual}">
+                            <f:selectItem itemLabel="Seleccionar un Usuario"/>
+                            <f:selectItems id="usuarios" value="#{asignacionVehiculo.usuarios}" itemValue="#{usuario.id}" 
+                                           var="usuario" itemLabel="#{usuario.logUsu}"/>
+                            </h:selectOneMenu>
+                            
+                        </h:panelGrid>
+                        
+                        <h:commandButton value="Asignar Proyecto" id="mensaje" action="#{asignacionVehiculo.asignarProyecto}"/>
+                        <h:message  style="color: red ;font-size: large" for="mensaje"/>
+                    </center>
+                </h:form>
+
+
+            </pm:content>
+
+        </pm:view>
+
+    </pm:page>
+
+</f:view>
