@@ -297,20 +297,16 @@ public class DistribuidorModeloVehiculo {
    
 
     public static void main(String[] args) {
-//        String cad="26,784";
-//        String replace = cad.replace(",","");
-//        System.out.println(replace);
-//        Dao dao = new Dao();
-//        List<PryVeh> proyectos = new LinkedList<PryVeh>();
-//        MdlVeh mdl=dao.getModelo(55);
-//        Set<RelMdlVeh> relMdlVehs = mdl.getRelMdlVehs();
-//        for(RelMdlVeh rel:relMdlVehs){
-//            System.out.println(rel.getPryVeh().getNomPry());
-//            proyectos.add(rel.getPryVeh());
-//        }
-//        DistribuidorModeloVehiculo dis = new DistribuidorModeloVehiculo(proyectos, false,18,12);
-//        
-//        dis.modelarPrincipal();
+        Dao dao = new Dao();
+        List<PryVeh> proyectos = new LinkedList<PryVeh>();
+        MdlVeh mdl=dao.getModeloVehiculo(55);
+        Set<RelMdlVeh> relMdlVehs = mdl.getRelMdlVehs();
+        for(RelMdlVeh rel:relMdlVehs){
+            System.out.println(rel.getPryVeh().getNomPry());
+            proyectos.add(rel.getPryVeh());
+        }
+        DistribuidorModeloVehiculo dis = new DistribuidorModeloVehiculo(proyectos, false,18,12);
+   dis.modelarPrincipal();
 //        System.out.println("aqui que pasa");
 //        System.out.println(dis.obtenerVariable("veh_cet_uni_edf"));
 //        dis.generarEdoResultados();

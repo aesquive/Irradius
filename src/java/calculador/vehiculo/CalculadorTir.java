@@ -46,7 +46,7 @@ public class CalculadorTir {
             modelarIndividualmente();
 
         }
-         manejador.guardarVariable("veh_cet_tir_inv", calcularTirInversionista("veh_cet_gav", "veh_cet_adm_pry"));
+        manejador.guardarVariable("veh_cet_tir_inv", calcularTirInversionista("veh_cet_gav", "veh_cet_adm_pry"));
         manejador.guardarVariable("veh_cet_sal_cap_inv", calcularSaldoCapitalInversionista());
         manejador.guardarVariable("veh_cet_flu_tir", calcularFlujoTir());
         calcularEscalonesTirGeneral();
@@ -83,9 +83,9 @@ public class CalculadorTir {
                 if (actual.getCeldas().size() > indices[indiceMatrices]
                         && actual.getCeldas().get(indices[indiceMatrices]).getFecha().getTime().getMonth() == fechaInicial.getMonth()
                         && actual.getCeldas().get(indices[indiceMatrices]).getFecha().getTime().getYear() == fechaInicial.getYear()) {
-                    
+
                     suma += actual.getCeldas().get(indices[indiceMatrices]).getValor();
-                    
+
                     indices[indiceMatrices] = indices[indiceMatrices] + 1;
                 }
             }
@@ -93,7 +93,7 @@ public class CalculadorTir {
             instancia.setTime(copiaInicial);
             CeldaFechaValor nueva = new CeldaFechaValor(instancia, Funciones.redondearDecimales(suma, 3));
             copiaInicial.setMonth(copiaInicial.getMonth() + 1);
-            
+
             lista.add(nueva);
         }
         Calendar instancia = Calendar.getInstance();
@@ -151,7 +151,7 @@ public class CalculadorTir {
         MatrizBidimensional retiro = (MatrizBidimensional) manejador.obtenerVariable("veh_cet_ret");
         List<CeldaFechaValor> lista = new LinkedList<CeldaFechaValor>();
         for (int indice = 0; indice < aportacion.getCeldas().size(); indice++) {
-            double val=indice< retiro.getCeldas().size() ?retiro.getCeldas().get(indice).getValor():0.0;
+            double val = indice < retiro.getCeldas().size() ? retiro.getCeldas().get(indice).getValor() : 0.0;
             double valor = aportacion.getCeldas().get(indice).getValor() + retiro.getCeldas().get(indice).getValor() + nuevoSaldoPrimero;
             lista.add(new CeldaFechaValor(aportacion.getCeldas().get(indice).getFecha(), valor));
             nuevoSaldoPrimero = valor;
@@ -186,7 +186,7 @@ public class CalculadorTir {
         for (PryVeh proyecto : proyectos) {
             List<PryVeh> lproyecto = new LinkedList<PryVeh>();
             lproyecto.add(proyecto);
-            DistribuidorModeloVehiculo nuevo = new DistribuidorModeloVehiculo(lproyecto, false,tiempoMinistracion,tiempoPago);
+            DistribuidorModeloVehiculo nuevo = new DistribuidorModeloVehiculo(lproyecto, false, tiempoMinistracion, tiempoPago);
             nuevo.setTiempoMinistracion(tiempoMinistracion);
             nuevo.setTiempoPago(tiempoPago);
             nuevo.modelarIndividual(nuevo.getManejador(), proyecto);
@@ -214,7 +214,7 @@ public class CalculadorTir {
             double tirMinima = Double.valueOf(String.valueOf(sacarValorEscalonTir(25, t, etpTirVehs))) * .01;
             double disInv = Double.valueOf(String.valueOf(sacarValorEscalonTir(26, t, etpTirVehs))) * .01;
             manejador.guardarVariable("veh_cet_pag_tir_min" + t, calcularTirMinima(t, tirMinima));
-            
+
             manejador.guardarVariable("veh_cet_par_uti_lp" + t, calcularParticipacionUtilidades(t, numeroEscalones, disInv));
             manejador.guardarVariable("veh_cet_par_uti_gp" + t, calcularPaticipacionGeneralPartner(t, numeroEscalones, (1 - disInv)));
             manejador.guardarVariable("veh_cet_pag_req_tir" + t, sumarMatrices("veh_cet_pag_tir_min" + t, "veh_cet_apt", "veh_cet_ret"));
@@ -341,8 +341,8 @@ public class CalculadorTir {
     }
 
     private MatrizBidimensional calcularLiquidez() {
-        Object[] cajaMinima=(Object[])manejador.obtenerVariable("veh_fac_cja_min");
-        Double cjaMin= Double.parseDouble(String.valueOf(cajaMinima[0]))/100;
+        Object[] cajaMinima = (Object[]) manejador.obtenerVariable("veh_fac_cja_min");
+        Double cjaMin = Double.parseDouble(String.valueOf(cajaMinima[0])) / 100;
         MatrizBidimensional saldo = (MatrizBidimensional) manejador.obtenerVariable("veh_cet_sal_cre");
         List<CeldaFechaValor> celdas = new LinkedList<CeldaFechaValor>();
         for (CeldaFechaValor c : saldo.getCeldas()) {
@@ -358,7 +358,7 @@ public class CalculadorTir {
         MatrizBidimensional utilidades = (MatrizBidimensional) manejador.obtenerVariable("veh_cet_rep_uti");
         List<CeldaFechaValor> celdas = new LinkedList<CeldaFechaValor>();
         for (int t = 0; t < capital.getCeldas().size(); t++) {
-            double valUtilidades= t <utilidades.getCeldas().size() ? utilidades.getCeldas().get(t).getValor() :0.0;
+            double valUtilidades = t < utilidades.getCeldas().size() ? utilidades.getCeldas().get(t).getValor() : 0.0;
             celdas.add(new CeldaFechaValor(capital.getCeldas().get(t).getFecha(), (-1 * capital.getCeldas().get(t).getValor()) + valUtilidades));
         }
         MatrizBidimensional m = new MatrizBidimensional();
@@ -479,22 +479,24 @@ public class CalculadorTir {
         int numeroEscalones = etpTirVehs.size() / 2;
         for (int t = 0; t < numeroEscalones; t++) {
             double tirReal = Double.valueOf(String.valueOf(sacarValorEscalonTir(25, t, etpTirVehs))) * .01;
-            double tirObtenida=0;
+            System.out.println(" la tir real es " + tirReal);
+            double tirObtenida = 0;
             double tirMinima = .01;
-            while ((tirReal - tirObtenida) > .00001) {
-                  double disInv = Double.valueOf(String.valueOf(sacarValorEscalonTir(26, t, etpTirVehs))) * .01;
+            while ((tirReal - tirObtenida) > .001) {
+                double disInv = Double.valueOf(String.valueOf(sacarValorEscalonTir(26, t, etpTirVehs))) * .01;
                 manejador.guardarVariable("veh_cet_pag_tir_min" + t, calcularTirMinima(t, tirMinima));
                 manejador.guardarVariable("veh_cet_par_uti_lp" + t, calcularParticipacionUtilidades(t, numeroEscalones, disInv));
                 manejador.guardarVariable("veh_cet_par_uti_gp" + t, calcularPaticipacionGeneralPartner(t, numeroEscalones, (1 - disInv)));
-                manejador.guardarVariable("tmpEsc",moverDerecha((MatrizBidimensional)manejador.obtenerVariable("veh_cet_ret")));
+                manejador.guardarVariable("tmpEsc", moverDerecha((MatrizBidimensional) manejador.obtenerVariable("veh_cet_ret")));
                 manejador.guardarVariable("veh_cet_pag_req_tir" + t, sumarWaterFall("veh_cet_pag_tir_min" + t, "veh_cet_apt", "veh_cet_ret"));
-                tirObtenida=sacarTir((MatrizBidimensional)manejador.obtenerVariable("veh_cet_pag_req_tir"+t));
-                tirMinima=tirMinima* (tirReal/tirObtenida);
-                System.out.println(manejador.obtenerVariable("veh_cet_ret"));
-                System.out.println("*********************************************");
-                System.out.println(manejador.obtenerVariable("veh_cet_pag_req_tir" + t));
-                System.out.println("la tir minima es "+tirMinima+" en t ="+t);
-                manejador.guardarVariable("veh_cet_uti"+t,tirMinima);
+                tirObtenida = sacarTir((MatrizBidimensional) manejador.obtenerVariable("veh_cet_pag_req_tir" + t));
+                tirMinima = tirMinima * (tirReal / tirObtenida);
+                System.out.println("la tir minima es " + tirMinima + " en t =" + t);
+                manejador.guardarVariable("veh_cet_uti" + t, tirMinima);
+                if(tirMinima==0.0){
+                    System.out.println("llllllllllllllllllllllllllllllllllllllllllllllll");
+                    break;
+                }
             }
         }
         calcularRetornoInversionista(numeroEscalones);
@@ -529,7 +531,7 @@ public class CalculadorTir {
         List<CeldaFechaValor> cajaFinal = new LinkedList<CeldaFechaValor>();
         cajaInicial.add(new CeldaFechaValor(reparto.getCeldas().get(0).getFecha(), capital));
         for (int t = 0; t < reparto.getCeldas().size(); t++) {
-          double capInv=t>=capitalInversionista.getCeldas().size() ? 0.0 : capitalInversionista.getCeldas().get(t).getValor();
+            double capInv = t >= capitalInversionista.getCeldas().size() ? 0.0 : capitalInversionista.getCeldas().get(t).getValor();
             double valor = cajaInicial.get(t).getValor() + movimientoNeto.getCeldas().get(t).getValor()
                     + capInv - reparto.getCeldas().get(t).getValor();
             valor = valor > 0 ? valor : 0;
@@ -547,54 +549,54 @@ public class CalculadorTir {
     }
 
     private MatrizBidimensional sumarWaterFall(String pagoTir, String veh_cet_apt, String veh_cet_ret) {
-        MatrizBidimensional mpago=(MatrizBidimensional) manejador.obtenerVariable(pagoTir);
-        MatrizBidimensional mapt=(MatrizBidimensional) manejador.obtenerVariable(veh_cet_apt);
-        MatrizBidimensional mret=(MatrizBidimensional)manejador.obtenerVariable(veh_cet_ret);
-        List<CeldaFechaValor> celdas=new LinkedList<CeldaFechaValor>();
+        MatrizBidimensional mpago = (MatrizBidimensional) manejador.obtenerVariable(pagoTir);
+        MatrizBidimensional mapt = (MatrizBidimensional) manejador.obtenerVariable(veh_cet_apt);
+        MatrizBidimensional mret = (MatrizBidimensional) manejador.obtenerVariable(veh_cet_ret);
+        List<CeldaFechaValor> celdas = new LinkedList<CeldaFechaValor>();
 //        for(int t=0;t<mpago.getCeldas().size();t++){
 //            double val1=mpago.getCeldas().get(t).getValor();
 //            double val2=mapt.getCeldas().get(t).getValor();
 //            double val3=mret.getCeldas().get(t+1).getValor();
 //            celdas.add(new CeldaFechaValor(mpago.getCeldas().get(t).getFecha(),val1+val2+val3));
 //        }
-        for(int t=0;t<mpago.getCeldas().size();t++){
-            double val1=mpago.getCeldas().get(t).getValor();
-            double val2=mapt.getCeldas().get(t).getValor();
-            celdas.add(new CeldaFechaValor(mpago.getCeldas().get(t).getFecha(),val1+val2));
+        for (int t = 0; t < mpago.getCeldas().size(); t++) {
+            double val1 = mpago.getCeldas().get(t).getValor();
+            double val2 = mapt.getCeldas().get(t).getValor();
+            celdas.add(new CeldaFechaValor(mpago.getCeldas().get(t).getFecha(), val1 + val2));
         }
-        int contador=0;
-        for(int s=celdas.size()-1;s>=0;s--){
-            double val3= contador<mret.getCeldas().size() ? mret.getCeldas().get(mret.getCeldas().size()-1-contador).getValor() :0.0;
-            CeldaFechaValor actual=celdas.get(s);
-            actual.setValor(actual.getValor()+val3);
+        int contador = 0;
+        for (int s = celdas.size() - 1; s >= 0; s--) {
+            double val3 = contador < mret.getCeldas().size() ? mret.getCeldas().get(mret.getCeldas().size() - 1 - contador).getValor() : 0.0;
+            CeldaFechaValor actual = celdas.get(s);
+            actual.setValor(actual.getValor() + val3);
             contador++;
             celdas.set(s, actual);
         }
-        
-        MatrizBidimensional m=new MatrizBidimensional();
+
+        MatrizBidimensional m = new MatrizBidimensional();
         m.setCeldas(celdas);
         return m;
     }
 
     private void calcularTirInversionista(int numeroEscalones) {
-        String[] arreglo=new String[numeroEscalones];
-        for(int i=0;i<numeroEscalones;i++){
-            arreglo[i]="veh_cet_par_uti_lp"+i;
+        String[] arreglo = new String[numeroEscalones];
+        for (int i = 0; i < numeroEscalones; i++) {
+            arreglo[i] = "veh_cet_par_uti_lp" + i;
         }
-        
-        manejador.guardarVariable("tmp_pag_tir",sumarMatrices(arreglo));
+
+        manejador.guardarVariable("tmp_pag_tir", sumarMatrices(arreglo));
         MatrizBidimensional sumarWaterFall = sumarWaterFall("tmp_pag_tir", "veh_cet_apt", "veh_cet_ret");
         System.out.println(manejador.obtenerVariable("tmp_pag_tir"));
-        double tirInv=sacarTir(sumarWaterFall);
-        tirInv =tirInv> 1 ? tirInv/100 : tirInv;
-        manejador.guardarVariable("veh_cet_ptj_tir_inv",tirInv );
-        System.out.println("tir inv "+manejador.obtenerVariable("veh_cet_ptj_tir_inv"));
+        double tirInv = sacarTir(sumarWaterFall);
+        tirInv = tirInv > 1 ? tirInv / 100 : tirInv;
+        manejador.guardarVariable("veh_cet_ptj_tir_inv", tirInv);
+        System.out.println("tir inv " + manejador.obtenerVariable("veh_cet_ptj_tir_inv"));
     }
 
     private Object moverDerecha(MatrizBidimensional matrizBidimensional) {
         List<CeldaFechaValor> celdas = new LinkedList<CeldaFechaValor>();
         for (int t = 1; t < matrizBidimensional.getCeldas().size(); t++) {
-            celdas.add(new CeldaFechaValor(matrizBidimensional.getCeldas().get(t).getFecha(), matrizBidimensional.getCeldas().get(t-1).getValor()));
+            celdas.add(new CeldaFechaValor(matrizBidimensional.getCeldas().get(t).getFecha(), matrizBidimensional.getCeldas().get(t - 1).getValor()));
         }
         MatrizBidimensional m = new MatrizBidimensional();
         m.setCeldas(celdas);

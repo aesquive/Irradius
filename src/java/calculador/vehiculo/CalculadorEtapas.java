@@ -53,11 +53,6 @@ public class CalculadorEtapas {
         for (int indice = 0; indice < proyectos.size(); indice++) {
             manejador.guardarVariable("veh_uni_edf_mes[" + indice + "]", obtenerVentasMeses(proyectos.get(indice), indice));
             MatrizBidimensional[] obtenerVariable = (MatrizBidimensional[]) manejador.obtenerVariable("veh_uni_edf_mes[" + indice + "]");
-            for(int t=0;t<obtenerVariable.length;t++){
-                System.out.println("666666666666666666666666666666");
-            System.out.println(obtenerVariable[t]);
-            
-            }
             MatrizBidimensional[] arr=(MatrizBidimensional[]) manejador.obtenerVariable("veh_uni_edf_mes[" + indice + "]");
             
         }
@@ -180,9 +175,7 @@ public class CalculadorEtapas {
             PryVeh proyecto = proyectos.get(indice);
             for (int indiceEtapa = 0; indiceEtapa < (proyecto.getEtpVehs().size() / 3); indiceEtapa++) {
                 manejador.guardarVariable("veh_uni_dis[" + indice + "][" + indiceEtapa + "]", sacarMatrizUnidadesDisponibles(indice, indiceEtapa, edificacionMes[indiceEtapa]));
-                System.out.println("7777777777777777777777777777777777777");
-                System.out.println("etapa "+indiceEtapa);
-                System.out.println(manejador.obtenerVariable("veh_uni_dis[0]["+indiceEtapa+"]"));
+                
             }
         }
     }
@@ -190,11 +183,7 @@ public class CalculadorEtapas {
     private MatrizBidimensional sacarMatrizUnidadesDisponibles(int indiceProyecto, int indiceEtapa, MatrizBidimensional matrizBidimensionalEdificacionMeses) {
         MatrizBidimensional[] matricesPorcentajeEdificacion = (MatrizBidimensional[]) manejador.obtenerVariable("veh_dis_edf");
         MatrizBidimensional matrizPorcentajeEdificacion = matricesPorcentajeEdificacion[indiceProyecto];
-        System.out.println("888888888888888888888888888888888888888");
-        System.out.println(matrizPorcentajeEdificacion);
         int mesesAdelanto = matrizPorcentajeEdificacion.getCeldas().size() - 1;
-        System.out.println("9999999999999999999999999999999");
-        System.out.println(matrizBidimensionalEdificacionMeses);
         List<CeldaFechaValor> celdasEdificacionMeses = matrizBidimensionalEdificacionMeses.getCeldas();
         List<CeldaFechaValor> nuevaLista = new LinkedList<CeldaFechaValor>();
         Date fecha = celdasEdificacionMeses.get(0).getFecha().getTime();

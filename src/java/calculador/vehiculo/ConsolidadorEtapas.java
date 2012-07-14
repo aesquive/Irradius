@@ -24,9 +24,9 @@ class ConsolidadorEtapas {
     private int tiempoMinistracion;
     private int tiempoPago;
 
-    public ConsolidadorEtapas(int tiempoMinistracion , int tiempoPago,List<PryVeh> proyectos, ManejadorVariablesVehiculo manejador) {
-        this.tiempoMinistracion=tiempoMinistracion;
-        this.tiempoPago=tiempoPago;
+    public ConsolidadorEtapas(int tiempoMinistracion, int tiempoPago, List<PryVeh> proyectos, ManejadorVariablesVehiculo manejador) {
+        this.tiempoMinistracion = tiempoMinistracion;
+        this.tiempoPago = tiempoPago;
         this.proyectos = proyectos;
         this.manejador = manejador;
         this.fechaInicial = obtenerFechaInicial();
@@ -37,20 +37,20 @@ class ConsolidadorEtapas {
         //parte de matrices
         manejador.guardarVariable("veh_cet_uni_edf", calcularMatrizSumasTiempo("veh_uni_edf_pry"));
         manejador.guardarVariable("veh_cet_uni_edf_acu", calcularMatrizSumasTiempoAcumuladas("veh_uni_edf_acu"));
-        
+
         manejador.guardarVariable("veh_cet_uni_dis", calcularMatrizSumasTiempo("veh_uni_dis"));
         manejador.guardarVariable("veh_cet_uni_dis_acu", calcularMatrizSumasTiempoAcumuladas("veh_uni_dis_acu"));
         manejador.guardarVariable("veh_cet_uni_ven", calcularMatrizSumasTiempo("veh_uni_ven"));
-        
+
         manejador.guardarVariable("veh_cet_uni_ven_acu", calcularMatrizSumasTiempoAcumuladas("veh_uni_ven_acu"));
         //ingresos
         manejador.guardarVariable("veh_cet_fir_ctr_cpr_vta", calcularMatrizSumasTiempo("veh_fir_ctr_cpr_vta"));
         //System.out.println(manejador.obtenerVariable("veh_cet_fir_ctr_cpr_vta"));
         manejador.guardarVariable("veh_cet_des_ini", calcularMatrizSumasTiempo("veh_des_ini"));
         manejador.guardarVariable("veh_cet_ing", sumarMatrices("veh_cet_des_ini", "veh_cet_fir_ctr_cpr_vta"));
-        
+
 //        System.out.println(manejador.obtenerVariable("veh_cet_ing"));
-       manejador.guardarVariable("veh_cet_cto_vta", calcularMatrizSumasTiempo("veh_cto_vta"));
+        manejador.guardarVariable("veh_cet_cto_vta", calcularMatrizSumasTiempo("veh_cto_vta"));
         manejador.guardarVariable("veh_cet_gav", calcularMatrizSumasTiempo("veh_cto_gav"));
         manejador.guardarVariable("veh_cet_gas_ind", calcularMatrizSumasTiempo("veh_cto_gas_ind"));
         manejador.guardarVariable("veh_cet_app", calcularMatrizSumasTiempo("veh_adm_pry"));
@@ -64,22 +64,22 @@ class ConsolidadorEtapas {
         manejador.guardarVariable("veh_cet_ant_cre_pte", sacarAnticipoCreditoPuente());
         manejador.guardarVariable("veh_cet_min_cre_pte", sacarMinistracionCreditoPuente(tiempoMinistracion));
         manejador.guardarVariable("veh_cet_pgo_cre_pte", sacarPagoCreditoPuente(tiempoPago));
-        
+
         manejador.guardarVariable("veh_cet_sal_cre", sacarSaldoCreditoPuente());
 
         //calculamos los intereses del credito puente
         manejador.guardarVariable("veh_cet_int_cre_pte", sacarMatrizInteresCreditoPuente());
-         
+
         //calculamos el costo del financiamiento
         manejador.guardarVariable("veh_cet_cto_fin", guardarCostoFinanciero(sumarMatrices("veh_cet_int_cre_pte", "veh_cet_com_cre_pte")));
-        
+
 
         //calculas los egresos
         manejador.guardarVariable("veh_cet_egr", sumarMatrices("veh_cet_cto_vta", "veh_cet_gav", "veh_cet_gas_ind", "veh_cet_adm_pry", "veh_cet_cto_fin"));
-        
-        
+
+
         manejador.guardarVariable("veh_cet_mar_res_veh", restarMatrices("veh_cet_ing", "veh_cet_egr"));
-        
+
 
         //flujo de caja primera parte . la parte de la reparticion al inversionista se vera en otra clase
         manejador.guardarVariable("veh_cet_ing_ope", sumarMatrices("veh_cet_fir_ctr_cpr_vta", "veh_cet_des_ini"));
@@ -123,7 +123,7 @@ class ConsolidadorEtapas {
             }
             Calendar instancia = Calendar.getInstance();
             instancia.setTime(copiaInicial);
-            CeldaFechaValor nueva = new CeldaFechaValor(instancia,(suma));
+            CeldaFechaValor nueva = new CeldaFechaValor(instancia, (suma));
             copiaInicial.setMonth(copiaInicial.getMonth() + 1);
             lista.add(nueva);
         }
@@ -188,7 +188,7 @@ class ConsolidadorEtapas {
                 suma += actual.getCeldas().get(indices[indiceMatriz]).getValor();
             }
         }
-        return new CeldaFechaValor(instancia,(suma));
+        return new CeldaFechaValor(instancia, (suma));
     }
 
     private Object calcularMatrizSumasTiempoAcumuladas(String propiedad) {
@@ -273,14 +273,14 @@ class ConsolidadorEtapas {
             double valor = consecutivo % 3 == 0 ? valorSapi : 0.0;
             Calendar c = Calendar.getInstance();
             c.setTime(copiaInicial);
-            lista.add(new CeldaFechaValor(c, Funciones.redondearDecimales(valor,3)));
+            lista.add(new CeldaFechaValor(c, Funciones.redondearDecimales(valor, 3)));
             copiaInicial.setMonth(copiaInicial.getMonth() + 1);
             consecutivo++;
         }
         double valor = consecutivo % 3 == 0 ? valorSapi : 0.0;
         Calendar c = Calendar.getInstance();
         c.setTime(fechaFinal);
-        lista.add(new CeldaFechaValor(c, Funciones.redondearDecimales(valor,3)));
+        lista.add(new CeldaFechaValor(c, Funciones.redondearDecimales(valor, 3)));
         MatrizBidimensional m = new MatrizBidimensional();
         m.setCeldas(lista);
         return m;
@@ -329,7 +329,7 @@ class ConsolidadorEtapas {
         List<CeldaFechaValor> lista = new LinkedList<CeldaFechaValor>();
         Calendar instance = Calendar.getInstance();
         instance.setTime(fechaInicial);
-        CeldaFechaValor unica = new CeldaFechaValor(instance, Funciones.redondearDecimales(premisaD35 * porcentajeAnticipoCredPuente,3));
+        CeldaFechaValor unica = new CeldaFechaValor(instance, Funciones.redondearDecimales(premisaD35 * porcentajeAnticipoCredPuente, 3));
         lista.add(unica);
         MatrizBidimensional m = new MatrizBidimensional();
         m.setCeldas(lista);
@@ -342,8 +342,14 @@ class ConsolidadorEtapas {
         double sumaCostoVenta = Funciones.autoSumar(matrizCostoVentas);
         double porcentajeAnticipoCredPuente = (100 - (sumarValores("veh_ant_crd_pte") / proyectos.size())) * .01;
         List<CeldaFechaValor> lista = new LinkedList<CeldaFechaValor>();
+        System.out.println("checando la ministracion");
         for (CeldaFechaValor c : matrizCostoVentas.getCeldas()) {
-            CeldaFechaValor nueva = new CeldaFechaValor(c.getFecha(), d35 * c.getValor() * porcentajeAnticipoCredPuente / sumaCostoVenta);
+            System.out.println("d "+d35);
+            System.out.println("c "+c.getValor());
+            System.out.println("scvta "+sumaCostoVenta);
+            double valor=d35 * c.getValor() * porcentajeAnticipoCredPuente / sumaCostoVenta;
+            CeldaFechaValor nueva = new CeldaFechaValor(c.getFecha(), valor);
+            System.out.println("agregando en la ministracion "+valor);
             lista.add(nueva);
         }
         MatrizBidimensional m = new MatrizBidimensional();
@@ -355,8 +361,16 @@ class ConsolidadorEtapas {
         String[] arregloNombres = obtenerMatrizUnionEtapas("veh_cto_vta");
         MatrizBidimensional sumaCostoVentas = sumarMatrices(arregloNombres);
         List<CeldaFechaValor> lista = new LinkedList<CeldaFechaValor>();
+        Calendar fecha = null;
         for (int indice = 0; indice < limiteMeses; indice++) {
-            CeldaFechaValor nueva = new CeldaFechaValor(sumaCostoVentas.getCeldas().get(indice).getFecha(), sumaCostoVentas.getCeldas().get(indice).getValor());
+            CeldaFechaValor nueva;
+            if (indice < sumaCostoVentas.getCeldas().size()) {
+                fecha=sumaCostoVentas.getCeldas().get(indice).getFecha();
+                nueva = new CeldaFechaValor(fecha, sumaCostoVentas.getCeldas().get(indice).getValor());
+            }else{
+                fecha.set(Calendar.MONTH, fecha.get(Calendar.MONTH)+1);
+                nueva=new CeldaFechaValor(fecha, 0);
+            }
             lista.add(nueva);
         }
         MatrizBidimensional m = new MatrizBidimensional();
@@ -398,6 +412,9 @@ class ConsolidadorEtapas {
             double anticipoParcial = indice < anticipo.getCeldas().size() ? anticipo.getCeldas().get(indice).getValor() : 0;
             double ministracionParcial = indice < ministracion.getCeldas().size() ? ministracion.getCeldas().get(indice).getValor() : 0;
             double pago = pagoMatriz.getCeldas().get(indice).getValor();
+            System.out.println("anticipo parcial "+anticipoParcial);
+            System.out.println("ministracion "+ministracionParcial);
+            System.out.println("pago "+pago);
             CeldaFechaValor nueva = new CeldaFechaValor(instancia, Funciones.redondearDecimales(lista.get(indice - 1).getValor() + anticipoParcial + ministracionParcial - pago, 3));
             lista.add(nueva);
             copiaInicial.setMonth(copiaInicial.getMonth() + 1);
@@ -407,8 +424,8 @@ class ConsolidadorEtapas {
         instancia.setTime(fechaFinal);
         double anticipoParcial = indice < anticipo.getCeldas().size() ? anticipo.getCeldas().get(indice).getValor() : 0;
         double ministracionParcial = indice < ministracion.getCeldas().size() ? ministracion.getCeldas().get(indice).getValor() : 0;
-        double pago = indice<pagoMatriz.getCeldas().size()? pagoMatriz.getCeldas().get(indice).getValor() :0;
-        CeldaFechaValor nueva = new CeldaFechaValor(instancia, Funciones.redondearDecimales(lista.get(indice-1).getValor() + anticipoParcial + ministracionParcial-pago, 3));
+        double pago = indice < pagoMatriz.getCeldas().size() ? pagoMatriz.getCeldas().get(indice).getValor() : 0;
+        CeldaFechaValor nueva = new CeldaFechaValor(instancia, Funciones.redondearDecimales(lista.get(indice - 1).getValor() + anticipoParcial + ministracionParcial - pago, 3));
         lista.add(nueva);
         MatrizBidimensional m = new MatrizBidimensional();
         m.setCeldas(lista);
@@ -420,7 +437,7 @@ class ConsolidadorEtapas {
         MatrizBidimensional m2 = (MatrizBidimensional) manejador.obtenerVariable(segundo);
         List<CeldaFechaValor> lista = new LinkedList<CeldaFechaValor>();
         for (int t = 0; t < m1.getCeldas().size(); t++) {
-            double se=t<m2.getCeldas().size() ? m2.getCeldas().get(t).getValor() : 0.0;
+            double se = t < m2.getCeldas().size() ? m2.getCeldas().get(t).getValor() : 0.0;
             lista.add(new CeldaFechaValor(m1.getCeldas().get(t).getFecha(), m1.getCeldas().get(t).getValor() - se));
         }
         MatrizBidimensional m = new MatrizBidimensional();
@@ -477,42 +494,42 @@ class ConsolidadorEtapas {
         MatrizBidimensional m = new MatrizBidimensional();
         List<CeldaFechaValor> celdas = new LinkedList<CeldaFechaValor>();
         Date inicial = (Date) obtenerFechaInicial().clone();
-        for(int t=0;t<=60;t++){
+        for (int t = 0; t <= 60; t++) {
             Calendar instance = Calendar.getInstance();
             instance.setTime(inicial);
             celdas.add(new CeldaFechaValor(instance, 0));
-            inicial.setMonth(inicial.getMonth()+1);
+            inicial.setMonth(inicial.getMonth() + 1);
         }
         m.setCeldas(celdas);
         return m;
     }
 
     private Object ponerRetiros(int mesesPagarCredito) {
-        double partes = mesesPagarCredito<12 ? mesesPagarCredito/3 : (mesesPagarCredito / 12) * 3;
-        partes= partes==0 ?1 : partes; 
-        double modulo = mesesPagarCredito<12 ? mesesPagarCredito/3 : 6;
+        double partes = mesesPagarCredito < 12 ? mesesPagarCredito / 3 : (mesesPagarCredito / 12) * 3;
+        partes = partes == 0 ? 1 : partes;
+        double modulo = mesesPagarCredito < 12 ? mesesPagarCredito / 3 : 6;
         double creditoTotal = sumarValores("veh_cap_inv");
         Date fecFinal = (Date) obtenerFechaFinal().clone();
         List<CeldaFechaValor> celdas = new LinkedList<CeldaFechaValor>();
-        double suma=0.0;
+        double suma = 0.0;
         for (int t = 60; t >= 0; t--) {
             Calendar instance = Calendar.getInstance();
             instance.setTime(fecFinal);
-            double valor = suma<creditoTotal ? t % Math.round(modulo)  == 0 ? creditoTotal / partes : 0 :0;
+            double valor = suma < creditoTotal ? t % Math.round(modulo) == 0 ? creditoTotal / partes : 0 : 0;
             celdas.add(new CeldaFechaValor(instance, valor));
             fecFinal.setMonth(fecFinal.getMonth() - 1);
-            suma+=valor;
+            suma += valor;
         }
         MatrizBidimensional m = new MatrizBidimensional();
         m.setCeldas(celdas);
         return m;
-      }
+    }
 
     private MatrizBidimensional guardarCostoFinanciero(MatrizBidimensional sumarMatrices) {
-        Date fecFinal=obtenerFechaFinal();
-        Calendar instancia=Calendar.getInstance();
+        Date fecFinal = obtenerFechaFinal();
+        Calendar instancia = Calendar.getInstance();
         instancia.setTime(fecFinal);
-        sumarMatrices.getCeldas().set(sumarMatrices.getCeldas().size()-1,new CeldaFechaValor(instancia, 0));
+        sumarMatrices.getCeldas().set(sumarMatrices.getCeldas().size() - 1, new CeldaFechaValor(instancia, 0));
         return sumarMatrices;
     }
 }
